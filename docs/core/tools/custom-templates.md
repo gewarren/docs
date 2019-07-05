@@ -1,8 +1,8 @@
 ---
 title: Custom templates for dotnet new
 description: Learn about custom templates for any type of .NET project or files.
-author: mairaw
-ms.date: 08/11/2017
+author: thraka
+ms.date: 06/14/2019
 ---
 
 # Custom templates for dotnet new
@@ -76,7 +76,7 @@ The *template.json* file looks like the following:
 ```json
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "Travis	Chau",
+  "author": "Travis Chau",
   "classifications": [ "Common", "Console" ],
   "identity": "AdatumCorporation.ConsoleTemplate.CSharp",
   "name": "Adatum Corporation Console Application",
@@ -95,7 +95,7 @@ The *.csproj* file is slightly different from a traditional code-project *.cspro
 01. The `<PackageType>` setting is added and set to `Template`.
 01. The `<PackageVersion>` setting is added and set to a valid [NuGet version number](/nuget/reference/package-versioning).
 01. The `<PackageId>` setting is added and set to a unique identifier. This identifier is used to uninstall the template pack and is used by NuGet feeds to register your template pack.
-01. Generic metadata settings should be set: `<Title>`, `<Authors>`, `<Description>`, and `<Tags>`.
+01. Generic metadata settings should be set: `<Title>`, `<Authors>`, `<Description>`, and `<PackageTags>`.
 01. The `<TargetFramework>` setting must be set, even though the binary produced by the template process isn't used. In the example below it's set to `netstandard2.0`.
 
 A template pack, in the form of a *.nupkg* NuGet package, requires that all templates be stored in the *content* folder within the package. There are a few more settings to add to a *.csproj* file to ensure that the generated *.nupkg* can be installed as a template pack:
@@ -120,7 +120,7 @@ Here is an example *.csproj* file that follows all of the guidelines above. It p
     <Title>AdatumCorporation Templates</Title>
     <Authors>Me</Authors>
     <Description>Templates to use when creating an application for Adatum Corporation.</Description>
-    <Tags>dotnet-new;templates;contoso</Tags>
+    <PackageTags>dotnet-new;templates;contoso</PackageTags>
     <TargetFramework>netstandard2.0</TargetFramework>
 
     <IncludeContentInPack>true</IncludeContentInPack>

@@ -411,6 +411,14 @@
             "redirect_url": "/dotnet/csharp/language-reference/keywords/base"
         },
         {
+            "source_path": "docs/csharp/language-reference/keywords/as.md",
+            "redirect_url": "/dotnet/csharp/language-reference/operators/type-testing-and-conversion-operators#as-operator"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/keywords/byte.md",
+            "redirect_url": "/dotnet/csharp/language-reference/builtin-types/integral-numeric-types"
+        },
+        {
             "source_path": "docs/csharp/language-reference/keywords/conversion-keywords.md",
             "redirect_url": "/dotnet/csharp/language-reference/keywords/explicit"
         },
@@ -425,6 +433,14 @@
         {
             "source_path": "docs/csharp/language-reference/keywords/false-operator.md",
             "redirect_url": "/dotnet/csharp/language-reference/operators/true-false-operators"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/keywords/int.md",
+            "redirect_url": "/dotnet/csharp/language-reference/builtin-types/integral-numeric-types"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/keywords/integral-types-table.md",
+            "redirect_url": "/dotnet/csharp/language-reference/builtin-types/integral-numeric-types"
         },
         {
             "source_path": "docs/csharp/language-reference/keywords/interpolated-strings.md",
@@ -443,6 +459,10 @@
             "redirect_url": "/dotnet/csharp/language-reference/keywords/null"
         },
         {
+            "source_path": "docs/csharp/language-reference/keywords/long.md",
+            "redirect_url": "/dotnet/csharp/language-reference/builtin-types/integral-numeric-types"
+        },
+        {
             "source_path": "docs/csharp/language-reference/keywords/modifiers.md",
             "redirect_url": "/dotnet/csharp/language-reference/keywords"
         },
@@ -451,12 +471,32 @@
             "redirect_url": "/dotnet/csharp/language-reference/keywords/namespace"
         },
         {
+            "source_path": "docs/csharp/language-reference/keywords/new.md",
+            "redirect_url": "/dotnet/csharp/language-reference/operators/new-operator"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/keywords/new-operator.md",
+            "redirect_url": "/dotnet/csharp/language-reference/operators/new-operator"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/keywords/operator.md",
+            "redirect_url": "/dotnet/csharp/language-reference/operators/operator-overloading"
+        },
+        {
             "source_path": "docs/csharp/language-reference/keywords/operator-keywords.md",
             "redirect_url": "/dotnet/csharp/language-reference/keywords/as"
         },
         {
             "source_path": "docs/csharp/language-reference/keywords/reference-tables-for-types.md",
             "redirect_url": "/dotnet/csharp/language-reference/keywords"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/keywords/sbyte.md",
+            "redirect_url": "/dotnet/csharp/language-reference/builtin-types/integral-numeric-types"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/keywords/short.md",
+            "redirect_url": "/dotnet/csharp/language-reference/builtin-types/integral-numeric-types"
         },
         {
             "source_path": "docs/csharp/language-reference/keywords/selection-statements.md",
@@ -475,12 +515,28 @@
             "redirect_url": "/dotnet/csharp/language-reference/operators/true-false-operators"
         },
         {
+            "source_path": "docs/csharp/language-reference/keywords/true-operator.md",
+            "redirect_url": "/dotnet/csharp/language-reference/operators/true-false-operators"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/keywords/typeof.md",
+            "redirect_url": "/dotnet/csharp/language-reference/operators/type-testing-and-conversion-operators#typeof-operator"
+        },
+        {
             "source_path": "docs/csharp/language-reference/keywords/types.md",
             "redirect_url": "/dotnet/csharp/language-reference/keywords"
         },
         {
-            "source_path": "docs/csharp/language-reference/keywords/true-operator.md",
-            "redirect_url": "/dotnet/csharp/language-reference/operators/true-false-operators"
+            "source_path": "docs/csharp/language-reference/keywords/uint.md",
+            "redirect_url": "/dotnet/csharp/language-reference/builtin-types/integral-numeric-types"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/keywords/ushort.md",
+            "redirect_url": "/dotnet/csharp/language-reference/builtin-types/integral-numeric-types"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/keywords/ulong.md",
+            "redirect_url": "/dotnet/csharp/language-reference/builtin-types/integral-numeric-types"
         },
         {
             "source_path": "docs/csharp/language-reference/language-specification/index.md",
@@ -569,6 +625,10 @@
         {
             "source_path": "docs/csharp/language-reference/operators/index-operator.md",
             "redirect_url": "/dotnet/csharp/language-reference/operators/member-access-operators#indexer-operator-"
+        },
+        {
+            "source_path": "docs/csharp/language-reference/operators/invocation-operator.md",
+            "redirect_url": "/dotnet/csharp/language-reference/operators/member-access-operators#invocation-operator-"
         },
         {
             "source_path": "docs/csharp/language-reference/operators/left-shift-assignment-operator.md",
@@ -936,7 +996,11 @@
         },
         {
             "source_path": "docs/csharp/programming-guide/statements-expressions-operators/how-to-use-operator-overloading-to-create-a-complex-number-class.md",
-            "redirect_url": "/dotnet/csharp/language-reference/keywords/operator"
+            "redirect_url": "/dotnet/csharp/language-reference/operators/operator-overloading"
+        },
+        {
+            "source_path": "docs/csharp/programming-guide/statements-expressions-operators/overloadable-operators.md",
+            "redirect_url": "/dotnet/csharp/language-reference/operators/operator-overloading#overloadable-operators"
         },
         {
             "source_path": "docs/csharp/programming-guide/strings/how-to-compare-strings.md",
@@ -1089,6 +1153,10 @@
         {
             "source_path": "docs/csharp/roslyn/index.md",
             "redirect_url": "/dotnet/csharp/roslyn-sdk/"
+        },
+        {
+            "source_path": "docs/csharp/tutorials/exploration/csharp-7.yml",
+            "redirect_url": "/dotnet/csharp/whats-new/csharp-7"
         },
         {
             "source_path": "docs/csharp/tutorials/intro-to-csharp/interpolated-strings-local.md",
