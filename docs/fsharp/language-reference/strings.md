@@ -26,10 +26,10 @@ String literals are delimited by the quotation mark (") character. The backslash
 |Backslash|`\\`|
 |Quotation mark|`\"`|
 |Apostrophe|`\'`|
-|Unicode character|`\DDD` (where `D` indicates a decimal digit; range of 000 - 255; e.g. `\231` = "ç")|
-|Unicode character|`\xHH` (where `H` indicates a hexadecimal digit; range of 00 - FF; e.g. `\xE7` = "ç")|
-|Unicode character|`\uHHHH` (UTF-16) (where `H` indicates a hexadecimal digit; range of 0000 - FFFF;  e.g. `\u00E7` = "ç")|
-|Unicode character|`\U00HHHHHH` (UTF-32) (where `H` indicates a hexadecimal digit; range of 000000 - 10FFFF;  e.g. `\U0001F47D` = "👽")|
+|Unicode character|`\DDD` (where `D` indicates a decimal digit; range of 000 - 255; for example, `\231` = "ç")|
+|Unicode character|`\xHH` (where `H` indicates a hexadecimal digit; range of 00 - FF; for example, `\xE7` = "ç")|
+|Unicode character|`\uHHHH` (UTF-16) (where `H` indicates a hexadecimal digit; range of 0000 - FFFF;  for example, `\u00E7` = "ç")|
+|Unicode character|`\U00HHHHHH` (UTF-32) (where `H` indicates a hexadecimal digit; range of 000000 - 10FFFF;  for example, `\U0001F47D` = "👽")|
 
 > [!IMPORTANT]
 > The `\DDD` escape sequence is decimal notation, not octal notation like in most other languages. Therefore, digits `8` and `9` are valid, and a sequence of `\032` represents a space (U+0020), whereas that same code point in octal notation would be `\040`.
@@ -51,28 +51,28 @@ let xmlFragment2 = """<book author="Milton, John" title="Paradise Lost">"""
 
 In code, strings that have line breaks are accepted and the line breaks are interpreted literally as newlines, unless a backslash character is the last character before the line break. Leading white space on the next line is ignored when the backslash character is used. The following code produces a string `str1` that has value `"abc\ndef"` and a string `str2` that has value `"abcdef"`.
 
-[!code-fsharp[Main](../../../samples/snippets/fsharp/lang-ref-1/snippet1001.fs)]
+[!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1001.fs)]
 
 You can access individual characters in a string by using array-like syntax, as follows.
 
-[!code-fsharp[Main](../../../samples/snippets/fsharp/lang-ref-1/snippet1002.fs)]
+[!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1002.fs)]
 
 The output is `b`.
 
 Or you can extract substrings by using array slice syntax, as shown in the following code.
 
-[!code-fsharp[Main](../../../samples/snippets/fsharp/lang-ref-1/snippet1003.fs)]
+[!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1003.fs)]
 
 The output is as follows.
 
-```
+```console
 abc
 def
 ```
 
 You can represent ASCII strings by arrays of unsigned bytes, type `byte[]`. You add the suffix `B` to a string literal to indicate that it is an ASCII string. ASCII string literals used with byte arrays support the same escape sequences as Unicode strings, except for the Unicode escape sequences.
 
-[!code-fsharp[Main](../../../samples/snippets/fsharp/lang-ref-1/snippet1004.fs)]
+[!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1004.fs)]
 
 ## String Operators
 
@@ -80,7 +80,7 @@ There are two ways to concatenate strings: by using the `+` operator or by using
 
 The following example illustrates string concatenation.
 
-[!code-fsharp[Main](../../../samples/snippets/fsharp/lang-ref-1/snippet1006.fs)]
+[!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1006.fs)]
 
 ## String Class
 
@@ -88,7 +88,7 @@ Because the string type in F# is actually a .NET Framework `System.String` type,
 
 By using the `Chars` property of `System.String`, you can access the individual characters in a string by specifying an index, as is shown in the following code.
 
-[!code-fsharp[Main](../../../samples/snippets/fsharp/lang-ref-1/snippet1005.fs)]
+[!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1005.fs)]
 
 ## String Module
 

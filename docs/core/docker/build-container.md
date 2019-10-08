@@ -14,6 +14,7 @@ This tutorial teaches you how to build a Docker image that contains your .NET Co
 You'll learn to:
 
 > [!div class="checklist"]
+>
 > * Create and publish a simple .NET Core app
 > * Create and configure a Dockerfile for .NET Core
 > * Build a Docker image
@@ -50,13 +51,13 @@ Save this file. The presence of file will force .NET Core to use version 2.2 for
 
 You need a .NET Core app that the Docker container will run. Open your terminal, create a working folder if you haven't already, and enter it. In the working folder, run the following command to create a new project in a subdirectory named app:
 
-```console
+```dotnetcli
 dotnet new console -o app -n myapp
 ```
 
 Your folder tree will look like the following:
 
-```console
+```
 docker-working
 │   global.json
 │
@@ -141,7 +142,7 @@ Before you add your .NET Core app to the Docker image, publish it. You want to m
 
 From the working folder, enter the **app** folder with the example source code and run the following command:
 
-```console
+```dotnetcli
 dotnet publish -c Release
 ```
 
@@ -170,17 +171,17 @@ myapp.deps.json  myapp.dll  myapp.pdb  myapp.runtimeconfig.json
 
 The *Dockerfile* file is used by the `docker build` command to create a container image. This file is a plaintext file named *Dockerfile* that does not have an extension.
 
-In your terminal, navigate to up a directory to the working folder you created at the start. Create a file named *Dockerfile* in your working folder and open it in a text editor. Add the following command as the first line of the file:
+In your terminal, navigate up a directory to the working folder you created at the start. Create a file named *Dockerfile* in your working folder and open it in a text editor. Add the following command as the first line of the file:
 
 ```dockerfile
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
+FROM mcr.microsoft.com/dotnet/core/runtime:2.2
 ```
 
 The `FROM` command tells Docker to pull down the image tagged **2.2** from the **mcr.microsoft.com/dotnet/core/runtime** repository. Make sure that you pull the .NET Core runtime that matches the runtime targeted by your SDK. For example, the app created in the previous section used the .NET Core 2.2 SDK and created an app that targeted .NET Core 2.2. So the base image referred to in the *Dockerfile* is tagged with **2.2**.
 
 Save the *Dockerfile* file. The directory structure of the working folder should look like the following. Some of the deeper-level files and folders have been cut to save space in the article:
 
-```console
+```
 docker-working
 │   Dockerfile
 │   global.json
@@ -201,7 +202,13 @@ docker-working
     └───obj
 ```
 
-From your terminal, run `docker build -t myimage -f Dockerfile .` and Docker will process each line in the *Dockerfile*. The `.` in the `docker build` command tells docker to use the current folder to find a *Dockerfile*. This command builds the image and creates a local repository named **myimage** that points to that image. After this command finishes, run `docker images` to see a list of images installed:
+From your terminal, run the following command:
+
+```console
+docker build -t myimage -f Dockerfile .
+```
+
+Docker will process each line in the *Dockerfile*. The `.` in the `docker build` command tells Docker to use the current folder to find a *Dockerfile*. This command builds the image and creates a local repository named **myimage** that points to that image. After this command finishes, run `docker images` to see a list of images installed:
 
 ```console
 > docker images
@@ -220,7 +227,7 @@ ENTRYPOINT ["dotnet", "app/myapp.dll"]
 
 The `COPY` command tells Docker to copy the specified folder on your computer to a folder in the container. In this example, the **publish** folder is copied to a folder named **app** in the container.
 
-The next command, `ENTRYPOINT`, tells docker to configure the container to run as an executable. When the container starts, the `ENTRYPOINT` command runs. When this command ends, the container will automatically stop.
+The next command, `ENTRYPOINT`, tells Docker to configure the container to run as an executable. When the container starts, the `ENTRYPOINT` command runs. When this command ends, the container will automatically stop.
 
 From your terminal, run `docker build -t myimage -f Dockerfile .` and when that command finishes, run `docker images`.
 
@@ -237,7 +244,6 @@ Removing intermediate container f34da5c18e7c
  ---> ddcc6646461b
 Successfully built ddcc6646461b
 Successfully tagged myimage:latest
-
 
 > docker images
 REPOSITORY                              TAG                 IMAGE ID            CREATED             SIZE
@@ -338,7 +344,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 
 Docker provides the `docker run` command to create and run the container as a single command. This command eliminates the need to run `docker create` and then `docker start`. You can also set this command to automatically delete the container when the container stops. For example, use `docker run -it --rm` to do two things, first, automatically use the current terminal to connect to the container, and then when the container finishes, remove it:
 
-```
+```console
 > docker run -it --rm myimage
 Counter: 1
 Counter: 2
@@ -350,7 +356,7 @@ Counter: 5
 
 With `docker run -it`, the <kbd>CTRL + C</kbd> command will stop process that is running in the container, which in turn, stops the container. Since the `--rm` parameter was provided, the container is automatically deleted when the process is stopped. Verify that it does not exist:
 
-```
+```console
 > docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS    PORTS   NAMES
 ```

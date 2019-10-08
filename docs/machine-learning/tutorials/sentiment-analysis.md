@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Analyze website comments - binary classification'
 description: This tutorial shows you how to create a .NET Core console application that classifies sentiment from website comments and takes the appropriate action. The binary sentiment classifier uses C# in Visual Studio.
-ms.date: 05/13/2019
+ms.date: 09/30/2019
 ms.topic: tutorial
 ms.custom: mvc, seodec18
 #Customer intent: As a developer, I want to use ML.NET to apply a binary classification task so that I can understand how to use sentiment prediction to take appropriate action.
@@ -12,21 +12,22 @@ This tutorial shows you how to create a .NET Core console application that class
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Create a console application
-> * Prepare data
-> * Load the data
-> * Build and train the model
-> * Evaluate the model
-> * Use the model to make a prediction
-> * See the results
+>
+> - Create a console application
+> - Prepare data
+> - Load the data
+> - Build and train the model
+> - Evaluate the model
+> - Use the model to make a prediction
+> - See the results
 
 You can find the source code for this tutorial at the [dotnet/samples](https://github.com/dotnet/samples/tree/master/machine-learning/tutorials/SentimentAnalysis) repository.
 
 ## Prerequisites
 
-* [Visual Studio 2017 15.6 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the ".NET Core cross-platform development" workload installed
+- [Visual Studio 2017 15.6 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the ".NET Core cross-platform development" workload installed
 
-* [UCI Sentiment Labeled Sentences dataset](https://archive.ics.uci.edu/ml/machine-learning-databases/00331/sentiment%20labelled%20sentences.zip) (ZIP file)
+- [UCI Sentiment Labeled Sentences dataset](https://archive.ics.uci.edu/ml/machine-learning-databases/00331/sentiment%20labelled%20sentences.zip) (ZIP file)
 
 ## Create a console application
 
@@ -57,8 +58,8 @@ You can find the source code for this tutorial at the [dotnet/samples](https://g
 
 2. Create two global fields to hold the recently downloaded dataset file path and the saved model file path:
 
-    * `_dataPath` has the path to the dataset used to train the model.
-    * `_modelPath` has the path where the trained model is saved.
+    - `_dataPath` has the path to the dataset used to train the model.
+    - `_modelPath` has the path where the trained model is saved.
 
 3. Add the following code to the line right above the `Main` method to specify the paths:
 
@@ -120,9 +121,9 @@ You prepare the app, and then load data:
 
     The `LoadData()` method executes the following tasks:
 
-    * Loads the data.
-    * Splits the loaded dataset into train and test datasets.
-    * Returns the split train and test datasets.
+    - Loads the data.
+    - Splits the loaded dataset into train and test datasets.
+    - Returns the split train and test datasets.
 
 4. Add the following code as the first line of the `LoadData()` method:
 
@@ -152,10 +153,10 @@ When preparing a model, you use part of the dataset to train it and part of the 
 
     The `BuildAndTrainModel()` method executes the following tasks:
 
-    * Extracts and transforms the data.
-    * Trains the model.
-    * Predicts sentiment based on test data.
-    * Returns the model.
+    - Extracts and transforms the data.
+    - Trains the model.
+    - Predicts sentiment based on test data.
+    - Returns the model.
 
 2. Create the `BuildAndTrainModel()` method, just after the `Main()` method, using the following code:
 
@@ -220,10 +221,10 @@ After your model is trained, use your test data validate the model's performance
 
     The `Evaluate()` method executes the following tasks:
 
-    * Loads the test dataset.
-    * Creates the BinaryClassification evaluator.
-    * Evaluates the model and creates metrics.
-    * Displays the metrics.
+    - Loads the test dataset.
+    - Creates the BinaryClassification evaluator.
+    - Evaluates the model and creates metrics.
+    - Displays the metrics.
 
 2. Add a call to the new method from the `Main()` method, right under the `BuildAndTrainModel()` method call, using the following code:
 
@@ -247,11 +248,11 @@ Use the following code to display the metrics:
 
 [!code-csharp[DisplayMetrics](~/samples/machine-learning/tutorials/SentimentAnalysis/Program.cs#DisplayMetrics "Display selected metrics")]
 
-* The `Accuracy` metric gets the accuracy of a model, which is the proportion of correct predictions in the test set.
+- The `Accuracy` metric gets the accuracy of a model, which is the proportion of correct predictions in the test set.
 
-* The `AreaUnderRocCurve` metric indicates how confident the model is correctly classifying the positive and negative classes. You want the `AreaUnderRocCurve` to be as close to one as possible.
+- The `AreaUnderRocCurve` metric indicates how confident the model is correctly classifying the positive and negative classes. You want the `AreaUnderRocCurve` to be as close to one as possible.
 
-* The `F1Score` metric gets the model's F1 score, which is a measure of balance between [precision](../resources/glossary.md#precision) and [recall](../resources/glossary.md#recall).  You want the `F1Score` to be as close to one as possible.
+- The `F1Score` metric gets the model's F1 score, which is a measure of balance between [precision](../resources/glossary.md#precision) and [recall](../resources/glossary.md#recall).  You want the `F1Score` to be as close to one as possible.
 
 ### Predict the test data outcome
 
@@ -266,10 +267,10 @@ Use the following code to display the metrics:
 
     The `UseModelWithSingleItem()` method executes the following tasks:
 
-    * Creates a single comment of test data.
-    * Predicts sentiment based on test data.
-    * Combines test data and predictions for reporting.
-    * Displays the predicted results.
+    - Creates a single comment of test data.
+    - Predicts sentiment based on test data.
+    - Combines test data and predictions for reporting.
+    - Displays the predicted results.
 
 2. Add a call to the new method from the `Main()` method, right under the `Evaluate()` method call, using the following code:
 
@@ -279,13 +280,16 @@ Use the following code to display the metrics:
 
     [!code-csharp[CreatePredictionEngine](~/samples/machine-learning/tutorials/SentimentAnalysis/Program.cs#CreatePredictionEngine1 "Create the PredictionEngine")]
 
-    The [PredictionEngine](xref:Microsoft.ML.PredictionEngine%602) is a convenience API, which allows you to pass in and then perform a prediction on a single instance of data.
+    The [PredictionEngine](xref:Microsoft.ML.PredictionEngine%602) is a convenience API, which allows you to perform a prediction on a single instance of data. [`PredictionEngine`](xref:Microsoft.ML.PredictionEngine%602) is not thread-safe. It's acceptable to use in single-threaded or prototype environments. For improved performance and thread safety in production environments, use the `PredictionEnginePool` service, which creates an [`ObjectPool`](xref:Microsoft.Extensions.ObjectPool.ObjectPool%601) of [`PredictionEngine`](xref:Microsoft.ML.PredictionEngine%602) objects for use throughout your application. See this guide on how to [use `PredictionEnginePool` in an ASP.NET Core Web API](https://docs.microsoft.com/en-us/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net#register-predictionenginepool-for-use-in-the-application)
 
+    > [!NOTE]
+    > `PredictionEnginePool` service extension is currently in preview.
+    
 4. Add a comment to test the trained model's prediction in the `UseModelWithSingleItem()` method by creating an instance of `SentimentData`:
 
     [!code-csharp[PredictionData](~/samples/machine-learning/tutorials/SentimentAnalysis/Program.cs#CreateTestIssue1 "Create test data for single prediction")]
 
-5. Pass the test comment data to the `Prediction Engine` by adding the following as the next lines of code in the `UseModelWithSingleItem()` method:
+5. Pass the test comment data to the [`PredictionEngine`](xref:Microsoft.ML.PredictionEngine%602) by adding the following as the next lines of code in the `UseModelWithSingleItem()` method:
 
     [!code-csharp[Predict](~/samples/machine-learning/tutorials/SentimentAnalysis/Program.cs#Predict "Create a prediction of sentiment")]
 
@@ -310,10 +314,10 @@ Use the following code to display the metrics:
 
     The `UseModelWithBatchItems()` method executes the following tasks:
 
-    * Creates batch test data.
-    * Predicts sentiment based on test data.
-    * Combines test data and predictions for reporting.
-    * Displays the predicted results.
+    - Creates batch test data.
+    - Predicts sentiment based on test data.
+    - Combines test data and predictions for reporting.
+    - Displays the predicted results.
 
 2. Add a call to the new method from the `Main` method, right under the `UseModelWithSingleItem()` method call, using the following code:
 
@@ -357,7 +361,6 @@ F1Score: 84.04%
 Sentiment: This was a very bad steak | Prediction: Negative | Probability: 0.1027377
 =============== End of Predictions ===============
 
-
 =============== Prediction Test of loaded model with a multiple samples ===============
 
 Sentiment: This was a horrible meal | Prediction: Negative | Probability: 0.1369192
@@ -379,13 +382,14 @@ You can find the source code for this tutorial at the [dotnet/samples](https://g
 
 In this tutorial, you learned how to:
 > [!div class="checklist"]
-> * Create a console application
-> * Prepare data
-> * Load the data
-> * Build and train the model
-> * Evaluate the model
-> * Use the model to make a prediction
-> * See the results
+>
+> - Create a console application
+> - Prepare data
+> - Load the data
+> - Build and train the model
+> - Evaluate the model
+> - Use the model to make a prediction
+> - See the results
 
 Advance to the next tutorial to learn more
 > [!div class="nextstepaction"]

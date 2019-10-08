@@ -19,7 +19,7 @@ The Visual Basic command-line compiler is provided as an alternative to compilin
 |`-analyzer`|Run the analyzers from this assembly (Short form: -a)|  
 |[-baseaddress](../../../visual-basic/reference/command-line-compiler/baseaddress.md)|Specifies the base address of a DLL.|  
 |[-bugreport](../../../visual-basic/reference/command-line-compiler/bugreport.md)|Creates a file that contains information that makes it easy to report a bug.|  
-|`-checksumalgorithm:<alg>`|Specify the algorithm for calculating the source file checksum stored in PDB.  Supported values are: SHA1 (default) or SHA256.|  
+|`-checksumalgorithm:<alg>`|Specify the algorithm for calculating the source file checksum stored in PDB.  Supported values are: SHA1 (default) or SHA256. <br>Due to collision problems with SHA1, Microsoft recommends SHA256 or better.|  
 |[-codepage](../../../visual-basic/reference/command-line-compiler/codepage.md)|Specifies the code page to use for all source code files in the compilation.|  
 |[-debug](../../../visual-basic/reference/command-line-compiler/debug.md)|Produces debugging information.|  
 |[-define](../../../visual-basic/reference/command-line-compiler/define.md)|Defines symbols for conditional compilation.|  
@@ -77,4 +77,4 @@ The Visual Basic command-line compiler is provided as an alternative to compilin
 ## See also
 
 - [Visual Basic Compiler Options Listed by Category](../../../visual-basic/reference/command-line-compiler/compiler-options-listed-by-category.md)
-- [Manage project and solution properties](/visualstudio/ide/managing-project-and-solution-properties?view=vs-2017)
+- [Manage project and solution properties](/visualstudio/ide/managing-project-and-solution-properties)

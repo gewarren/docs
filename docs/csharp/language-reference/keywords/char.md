@@ -1,12 +1,11 @@
 ---
 title: "char keyword - C# Reference"
 ms.custom: seodec18
-
 ms.date: 07/20/2015
-f1_keywords: 
+f1_keywords:
   - "char"
   - "char_CSharpKeyword"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "char data type [C#]"
 ms.assetid: b51cf4fb-124c-4067-af48-afbac122b228
 ---
@@ -22,13 +21,13 @@ The `char` keyword is used to declare an instance of the <xref:System.Char?displ
 
 ## Literals
 
-Constants of the `char` type can be written as character literals, hexadecimal escape sequence, or Unicode representation. You can also cast the integral character codes. In the following example four `char` variables are initialized with the same character `X`:
+Constants of the `char` type can be written as character literals, hexadecimal escape sequence, or Unicode representation. You can also cast the integral character codes. In the following example, the four elements of an array of `char` are initialized with the same character `X`:
 
 [!code-csharp[csrefKeywordsTypes#19](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsTypes/CS/keywordsTypes.cs#19)]
 
 ## Conversions
 
-A `char` can be implicitly converted to [ushort](../builtin-types/integral-numeric-types.md), [int](../builtin-types/integral-numeric-types.md), [uint](../builtin-types/integral-numeric-types.md), [double](../../../csharp/language-reference/keywords/double.md), or [decimal](../../../csharp/language-reference/keywords/decimal.md). However, there are no implicit conversions from other types to the `char` type.
+A `char` can be implicitly converted to [ushort](../builtin-types/integral-numeric-types.md), [int](../builtin-types/integral-numeric-types.md), [uint](../builtin-types/integral-numeric-types.md), [double](../builtin-types/floating-point-numeric-types.md), or [decimal](../builtin-types/floating-point-numeric-types.md). However, there are no implicit conversions from other types to the `char` type.
 
 The <xref:System.Char?displayProperty=nameWithType> type provides several static methods for working with `char` values.
 
@@ -39,12 +38,11 @@ For more information, see [Integral types](~/_csharplang/spec/types.md#integral-
 ## See also
 
 - <xref:System.Char>
-- [C# Reference](../../../csharp/language-reference/index.md)
-- [C# Programming Guide](../../../csharp/programming-guide/index.md)
-- [C# Keywords](../../../csharp/language-reference/keywords/index.md)
-- [Integral types](../../../csharp/language-reference/builtin-types/integral-numeric-types.md)
-- [Built-In Types Table](../../../csharp/language-reference/keywords/built-in-types-table.md)
-- [Implicit Numeric Conversions Table](../../../csharp/language-reference/keywords/implicit-numeric-conversions-table.md)
-- [Explicit Numeric Conversions Table](../../../csharp/language-reference/keywords/explicit-numeric-conversions-table.md)
-- [Nullable Types](../../../csharp/programming-guide/nullable-types/index.md)
-- [Strings](../../../csharp/programming-guide/strings/index.md)
+- [C# Reference](../index.md)
+- [C# Programming Guide](../../programming-guide/index.md)
+- [C# Keywords](./index.md)
+- [Integral types](../builtin-types/integral-numeric-types.md)
+- [Built-In Types Table](./built-in-types-table.md)
+- [Implicit Numeric Conversions Table](./implicit-numeric-conversions-table.md)
+- [Explicit Numeric Conversions Table](./explicit-numeric-conversions-table.md)
+- [Strings](../../programming-guide/strings/index.md)
