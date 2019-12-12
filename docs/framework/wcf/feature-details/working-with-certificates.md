@@ -51,7 +51,7 @@ Selecting where to store a certificate depends how and when the service or clien
 
 ### Accessing Stores
 
-Stores are protected by access control lists (ACLs), just like folders on a computer. When creating a service hosted by Internet Information Services (IIS), the ASP.NET process runs under the ASP.NET account. That account must have access to the store that contains the certificates a service uses. Each of the major stores is protected with a default access list, but the lists can be modified. If you create a separate role to access a store, you must grant that role access permission. To learn how to modify the access list using the WinHttpCertConfig.exe tool, see [How to: Create Temporary Certificates for Use During Development](how-to-create-temporary-certificates-for-use-during-development.md). For more information about using client certificates with IIS, see [How to call a Web service by using a client certificate for authentication in an ASP.NET Web application](https://support.microsoft.com/en-us/help/901183/how-to-call-a-web-service-by-using-a-client-certificate-for-authentica).
+Stores are protected by access control lists (ACLs), just like folders on a computer. When creating a service hosted by Internet Information Services (IIS), the ASP.NET process runs under the ASP.NET account. That account must have access to the store that contains the certificates a service uses. Each of the major stores is protected with a default access list, but the lists can be modified. If you create a separate role to access a store, you must grant that role access permission. To learn how to modify the access list using the WinHttpCertConfig.exe tool, see [How to: Create Temporary Certificates for Use During Development](how-to-create-temporary-certificates-for-use-during-development.md).
 
 ## Chain Trust and Certificate Authorities
 
@@ -178,7 +178,7 @@ With this capability enabled, you can set the <xref:System.ServiceModel.Security
 
 Mapping an X.509 certificate to the token that represents a Windows user account is considered an elevation of privilege because, once mapped, the Windows token can be used to gain access to protected resources. Therefore, domain policy requires the X.509 certificate to comply with its policy prior to mapping. The *SChannel* security package enforces this requirement.
 
-When using [!INCLUDE[netfx35_long](../../../../includes/netfx35-long-md.md)] or later, WCF ensures the certificate conforms to domain policy before it is mapped to a Windows account.
+When using .NET Framework 3.5 or later versions, WCF ensures the certificate conforms to domain policy before it is mapped to a Windows account.
 
 In the first release of WCF, mapping is done without consulting the domain policy. Therefore it is possible that older applications that used to work when running under the first release, fails if the mapping is enabled and the X.509 certificate does not satisfy the domain policy.
 

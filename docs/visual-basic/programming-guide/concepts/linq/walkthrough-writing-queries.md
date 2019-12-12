@@ -1,5 +1,5 @@
 ---
-title: "Writing Queries in Visual Basic"
+title: "Writing Queries"
 ms.date: 07/20/2015
 helpviewer_keywords:
   - "queries [LINQ in Visual Basic], writing"
@@ -83,13 +83,13 @@ It is easier to scan query results if they are in a specified order. You can sor
 
 1. Add the following `Order By` clause between the `Where` statement and the `Select` statement of the query. The `Order By` clause will order the results alphabetically from A to Z, according to the last name of each student.
 
-    ```
+    ```vb
     Order By currentStudent.Last Ascending
     ```
 
 2. To order by last name and then first name, add both fields to the query:
 
-    ```
+    ```vb
     Order By currentStudent.Last Ascending, currentStudent.First Ascending
     ```
 
