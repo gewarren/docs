@@ -1,5 +1,5 @@
 ---
-title: "-platform (Visual Basic)"
+title: "-platform"
 ms.date: 03/13/2018
 helpviewer_keywords: 
   - "platform compiler option [Visual Basic]"
@@ -77,6 +77,6 @@ vbc -platform:x86 myFile.vb
   
 ## See also
 
-- [/target (Visual Basic)](target.md)
+- [-target (Visual Basic)](target.md)
 - [Visual Basic Command-Line Compiler](index.md)
 - [Sample Compilation Command Lines](sample-compilation-command-lines.md)

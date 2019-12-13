@@ -57,31 +57,35 @@ For other ways to specify the C# language version, see the [Select the C# langua
 
 For information about how to set this compiler option programmatically, see <xref:VSLangProj80.CSharpProjectConfigurationProperties3.LanguageVersion%2A>.
 
-### C# Language Specification
+## C# language specification
 
 |Version|Link|Description|
 |-------|----|-----------|
 |C# 7.0 and later||not currently available|
-|C# 6.0|[Link](../language-specification/index.md)|C# Language Specification Version 6 - Unofficial Draft: .NET Foundation|
+|C# 6.0|[Link](/dotnet/csharp/language-reference/language-specification/introduction)|C# Language Specification Version 6 - Unofficial Draft: .NET Foundation|
 |C# 5.0|[Download PDF](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-334.pdf)|Standard ECMA-334 5th Edition|
 |C# 3.0|[Download DOC](https://download.microsoft.com/download/3/8/8/388e7205-bc10-4226-b2a8-75351c669b09/CSharp%20Language%20Specification.doc)|C# Language Specification Version 3.0: Microsoft Corporation|
 |C# 2.0|[Download PDF](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-334%204th%20edition%20June%202006.pdf)|Standard ECMA-334 4th Edition|
 |C# 1.2|[Download DOC](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-334%202nd%20edition%20December%202002.pdf)|C# Language Specification Version 1.2: Microsoft Corporation|
 |C# 1.0|[Download DOC](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-334%201st%20edition%20December%202001.pdf)|C# Language Specification Version 1.0: Microsoft Corporation|
 
-### Minimum compiler version needed to support all language features
+## Minimum SDK version needed to support all language features
 
-CS80: Microsoft Visual Studio/Build Tools 2019, version 16, or .NET Core 3.0 SDK  
-CS73: Microsoft Visual Studio/Build Tools 2017, version 15.7  
-CS72: Microsoft Visual Studio/Build Tools 2017, version 15.5  
-CS71: Microsoft Visual Studio/Build Tools 2017, version 15.3  
-CS7: Microsoft Visual Studio/Build Tools 2017  
-CS6: Microsoft Visual Studio/Build Tools 2015  
-CS5: Microsoft Visual Studio/Build Tools 2012 or bundled .NET Framework 4.5 compiler  
-CS4: Microsoft Visual Studio/Build Tools 2010 or bundled .NET Framework 4.0 compiler  
-CS3: Microsoft Visual Studio/Build Tools 2008 or bundled .NET Framework 3.5 compiler  
-ISO2: Microsoft Visual Studio/Build Tools 2005 or bundled .NET Framework 2.0 compiler  
-ISO1: Microsoft Visual Studio/Build Tools .NET 2002 or bundled .N Framework 1.0 compiler  
+The following table lists the minimum versions of the SDK with the C# compiler that supports the corresponding language version:
+
+|C# version|Minimum SDK version|
+|----------|-------------------|
+|C# 8.0| Microsoft Visual Studio/Build Tools 2019, version 16.3, or .NET Core 3.0 SDK |
+|C# 7.3| Microsoft Visual Studio/Build Tools 2017, version 15.7 |
+|C# 7.2| Microsoft Visual Studio/Build Tools 2017, version 15.5 |
+|C# 7.1| Microsoft Visual Studio/Build Tools 2017, version 15.3 |
+|C# 7.0| Microsoft Visual Studio/Build Tools 2017 |
+|C# 6| Microsoft Visual Studio/Build Tools 2015 |
+|C# 5| Microsoft Visual Studio/Build Tools 2012 or bundled .NET Framework 4.5 compiler |
+|C# 4| Microsoft Visual Studio/Build Tools 2010 or bundled .NET Framework 4.0 compiler |
+|C# 3| Microsoft Visual Studio/Build Tools 2008 or bundled .NET Framework 3.5 compiler |
+|C# 2| Microsoft Visual Studio/Build Tools 2005 or bundled .NET Framework 2.0 compiler |
+|C# 1.0/1.2 | Microsoft Visual Studio/Build Tools .NET 2002 or bundled .NET Framework 1.0 compiler |
 
 ## See also
 

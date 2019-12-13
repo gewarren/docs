@@ -1,5 +1,5 @@
 ---
-title: "-link (Visual Basic)"
+title: "-link"
 ms.date: 03/10/2018
 helpviewer_keywords: 
   - "l compiler option [Visual Basic]"
@@ -53,7 +53,7 @@ or
   
  Use [-libpath](libpath.md) to specify the directory in which one or more of your assembly references is located.  
   
- Like the [/reference](reference.md) compiler option, the `-link` compiler option uses the Vbc.rsp response file, which references frequently used .NET Framework assemblies. Use the [-noconfig](noconfig.md) compiler option if you do not want the compiler to use the Vbc.rsp file.  
+ Like the [-reference](reference.md) compiler option, the `-link` compiler option uses the Vbc.rsp response file, which references frequently used .NET Framework assemblies. Use the [-noconfig](noconfig.md) compiler option if you do not want the compiler to use the Vbc.rsp file.  
   
  The short form of `-link` is `-l`.  
   
