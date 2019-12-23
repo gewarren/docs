@@ -79,8 +79,54 @@
 /docs/framework/winforms/** @Thraka
 
 ################## .NET STANDARD ##################
-# Analyzers:
-/docs/standard/analyzers/** @BillWagner
+# Analyzers
+/docs/standard/analyzers/** @mairaw
+# Assembly
+/docs/standard/assembly/** @gewarren
+# Asynchronous Programming Patterns
+/docs/standard/asynchronous-programming-patterns/** @BillWagner
+# Attributes
+/docs/standard/attributes/** @tdykstra
+# Base types
+/docs/standard/base-types/** @Thraka
+# Collections
+/docs/standard/collections/** @BillWagner
+# Data
+/docs/standard/data/** @gewarren
+# Data - SQLite
+/docs/standard/data/sqlite/** @bricelam
+# Datetime
+/docs/standard/datetime/** @Thraka
+# Design guidelines
+/docs/standard/design-guidelines/** @mairaw
+# Events
+/docs/standard/events/** @gewarren
+# Exceptions
+/docs/standard/exceptions/** @tdykstra
+# GC
+/docs/standard/garbage-collection/** @BillWagner
+# Generics
+/docs/standard/generics/** @Thraka
+# Globalization
+/docs/standard/globalization-localization/** @mairaw
+# I/O
+/docs/standard/io/** @Thraka
+# Library guidance
+/docs/standard/library-guidance/** @jamesnk
+# LINQ
+/docs/standard/linq/** @mairaw
+# Memory and spans
+/docs/standard/memory-and-spans/** @tdykstra
+# Native Interop
+/docs/standard/native-interop/** @jkoritzinsky
+# Parallel programming
+/docs/standard/parallel-programming/** @BillWagner
+# Security
+/docs/standard/security/** @gewarren
+# Serialization
+/docs/standard/serialization/** @tdykstra
+# Threading
+/docs/standard/threading/** @BillWagner
 # What's New
 /docs/standard/whats-new/** @rpetrusha
 # .NET I/O
