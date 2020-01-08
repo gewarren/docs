@@ -51,7 +51,11 @@
 # What's New
 /docs/core/whats-new/** @rpetrusha
 # Deployment
-/docs/core/deploying/** @rpetrusha
+/docs/core/deploying/** @Thraka
+# Diagnostics
+/docs/core/diagnostics/** @sdmaclea @mairaw
+# Install
+/docs/core/install/** @Thraka
 # Breaking changes
 /docs/core/compatibility/** @rpetrusha
 
