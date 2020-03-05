@@ -4,30 +4,35 @@
 # More details are here: https://help.github.com/articles/about-codeowners/
 
 # The '*' pattern is global owners.
-# Not adding in this PR, but I'd like to try adding a global owner set with the entire team.
-# One interpretation of their docs is that global owners are added only if not removed
-# by a more local rule.
+
+*    @dotnet/docs
 
 # Order is important. The last matching pattern has the most precedence.
 # The folders are ordered as follows:
 # . Guides are first.
 # . .NET Core sections are next
 # . .NET Framework sections
-# . .NET Standard 
-# . samples
+# . .NET Standard
+# . Architecture e-books
 
 # In each subsection folders are order first by depth, then alphabetically.
 # This should make it easy to add new rules without breaking existing ones.
 
 ######## API landing page ###########
-/api/** @mairaw
+/api/** @dotnet/docs
 
 ############ WHATS NEW ###############
-/docs/whats-new/** @mairaw @billwagner
+/docs/whats-new/** @billwagner
 
 ############  GUIDES  ################
 # .NET Core
-/docs/core/** @mairaw
+/docs/core/** @dotnet/docs
+
+# .NET Framework
+/docs/framework/** @dotnet/docs
+
+# .NET Standard
+/docs/standard/** @gewarren
 
 # The C# Guide:
 /docs/csharp/** @BillWagner
@@ -56,13 +61,21 @@
 # Deployment
 /docs/core/deploying/** @Thraka
 # Diagnostics
-/docs/core/diagnostics/** @sdmaclea @mairaw
+/docs/core/diagnostics/** @sdmaclea @dotnet/docs
 # Docker
 /docs/core/docker/** @Thraka
 # Install
 /docs/core/install/** @Thraka
 # Breaking changes
-/docs/core/compatibility/** @rpetrusha
+/docs/core/compatibility/** @gewarren
+# Project SDKs
+/docs/core/project-sdk/** @gewarren
+# Config settings
+/docs/core/run-time-config/** @gewarren
+# Tools
+/docs/core/tools/** @tdykstra
+# Tutorials
+/docs/core/tutorials/** @tdykstra
 
 ################### .NET FRAMEWORK ##################
 # .NET Framework migration guide
@@ -88,7 +101,7 @@
 
 ################## .NET STANDARD ##################
 # Analyzers
-/docs/standard/analyzers/** @mairaw
+/docs/standard/analyzers/** @gewarren
 # Assembly
 /docs/standard/assembly/** @gewarren
 # Asynchronous Programming Patterns
@@ -106,7 +119,7 @@
 # Datetime
 /docs/standard/datetime/** @Thraka
 # Design guidelines
-/docs/standard/design-guidelines/** @mairaw
+/docs/standard/design-guidelines/** @BillWagner
 # Events
 /docs/standard/events/** @gewarren
 # Exceptions
@@ -116,13 +129,13 @@
 # Generics
 /docs/standard/generics/** @Thraka
 # Globalization
-/docs/standard/globalization-localization/** @mairaw
+/docs/standard/globalization-localization/** @dotnet/docs
 # I/O
 /docs/standard/io/** @Thraka
 # Library guidance
 /docs/standard/library-guidance/** @jamesnk
 # LINQ
-/docs/standard/linq/** @mairaw
+/docs/standard/linq/** @dotnet/docs
 # Memory and spans
 /docs/standard/memory-and-spans/** @tdykstra
 # Native Interop
@@ -136,13 +149,7 @@
 # Threading
 /docs/standard/threading/** @BillWagner
 # What's New
-/docs/standard/whats-new/** @rpetrusha
-# .NET I/O
-/docs/standard/io/** @mairaw
-# .NET base types - Formatting
-/docs/standard/base-types/formatting-types/** @rpetrusha
-# .NET threading
-/docs/standard/threading/** @rpetrusha
+/docs/standard/whats-new/** @dotnet/docs
 
 ################## E-BOOKS ##################
 # Blazor:
