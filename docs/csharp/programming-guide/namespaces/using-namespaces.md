@@ -36,7 +36,7 @@ Namespaces are heavily used within C# programs in two ways. Firstly, the .NET Fr
   
 ## Using namespaces to control scope
 
- The `namespace` keyword is used to declare a scope. The ability to create scopes within your project helps organize code and lets you create globally-unique types. In the following example, a class titled `SampleClass` is defined in two namespaces, one nested inside the other. The [member access `.` operator](../../language-reference/operators/member-access-operators.md#member-access-operator-) is used to differentiate which method gets called.  
+ The `namespace` keyword is used to declare a scope. The ability to create scopes within your project helps organize code and lets you create globally unique types. In the following example, a class titled `SampleClass` is defined in two namespaces, one nested inside the other. The [member access `.` operator](../../language-reference/operators/member-access-operators.md#member-access-operator-) is used to differentiate which method gets called.  
   
  [!code-csharp[csProgGuideNamespaces#8](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideNamespaces/CS/Namespaces.cs#8)]  
   

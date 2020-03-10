@@ -8,7 +8,7 @@ ms.date: 09/08/2019
 
 [!INCLUDE [book-preview](../../../includes/book-preview.md)]
 
-So far in this book, we’ve focused on [REST-based](https://docs.microsoft.com/azure/architecture/best-practices/api-design) communication. REST is an architectural style that promotes interoperability between distributed computer systems. It uses a request/response model where every response from the server is to a request from the client. While widely popular, REST isn't a perfect fit for every problem. A newer communication technology, entitled gRPC, is rapidly gaining popularity and making its way into the cloud-native world.
+So far in this book, we've focused on [REST-based](https://docs.microsoft.com/azure/architecture/best-practices/api-design) communication. REST is an architectural style that promotes interoperability between distributed computer systems. It uses a request/response model where every response from the server is to a request from the client. While widely popular, REST isn't a perfect fit for every problem. A newer communication technology, entitled gRPC, is rapidly gaining popularity and making its way into the cloud-native world.
 
 ## gRPC
 
@@ -28,7 +28,7 @@ gRPC is supported across most popular platforms, including Java, C#, Golang, and
 
 gRPC embraces another open-source technology called [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/overview) or Protobuf messages to send and receive data. Similar to a [WCF Data Contract](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/using-data-contracts), Protobuf serializes structured data for systems to read and write. It reduces the overhead that human-readable formats like XML or JSON incur.
 
-Many object serialization techniques reflect across the structure of data objects at run-time. Protobuf requires you to define the structure up front with a platform-agnostic language (Protocol Buffer Language). Each definition is stored in a ".proto" file. Then using Protobuf compiler, "Proton," you generate client and server code for any of the supported platforms. The generated code is optimized for fast serialization/deserialization of data. At runtime, each message is wrapped in the strongly-typed service contract and serialized in a standard Protobuf representation.
+Many object serialization techniques reflect across the structure of data objects at run-time. Protobuf requires you to define the structure up front with a platform-agnostic language (Protocol Buffer Language). Each definition is stored in a ".proto" file. Then using Protobuf compiler, "Proton," you generate client and server code for any of the supported platforms. The generated code is optimized for fast serialization/deserialization of data. At runtime, each message is wrapped in the strongly typed service contract and serialized in a standard Protobuf representation.
 
 ## gRPC support in .NET
 

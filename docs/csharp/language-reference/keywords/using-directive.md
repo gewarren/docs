@@ -58,7 +58,7 @@ The `using` directive can appear:
 
 Otherwise, compiler error [CS1529](../../misc/cs1529.md) is generated.
 
-Create a `using` alias directive to make it easier to qualify an identifier to a namespace or type. In any `using` directive, the fully-qualified namespace or type must be used regardless of the `using` directives that come before it. No `using` alias can be used in the declaration of a `using` directive. For example, the following generates a compiler error:
+Create a `using` alias directive to make it easier to qualify an identifier to a namespace or type. In any `using` directive, the fully qualified namespace or type must be used regardless of the `using` directives that come before it. No `using` alias can be used in the declaration of a `using` directive. For example, the following generates a compiler error:
 
 ```csharp
 using s = System.Text;

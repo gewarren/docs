@@ -40,7 +40,7 @@ A *procedure* is a block of Visual Basic statements enclosed by a declaration st
   
 - [Property Procedures](./property-procedures.md) return and assign values of properties on objects or modules.  
   
-- [Operator Procedures](./operator-procedures.md) define the behavior of a standard operator when one or both of the operands is a newly-defined class or structure.  
+- [Operator Procedures](./operator-procedures.md) define the behavior of a standard operator when one or both of the operands is a newly defined class or structure.  
   
 - [Generic Procedures in Visual Basic](../../../../visual-basic/programming-guide/language-features/data-types/generic-procedures.md) define one or more *type parameters* in addition to their normal parameters, so the calling code can pass specific data types each time it makes a call.  
   

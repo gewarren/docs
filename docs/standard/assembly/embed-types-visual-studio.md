@@ -34,7 +34,7 @@ You can embed type information from an assembly under the following conditions:
 - The embedded interfaces are annotated with `ComImport` attributes and `Guid` attributes with unique GUIDs.
 - The assembly is annotated with the `ImportedFromTypeLib` attribute or the `PrimaryInteropAssembly` attribute, and an assembly-level `Guid` attribute. The Visual C# and Visual Basic project templates include an assembly-level `Guid` attribute by default.
 
-Because the primary function of type embedding is to support COM interop assemblies, the following limitations apply when you embed type information in a fully-managed solution:
+Because the primary function of type embedding is to support COM interop assemblies, the following limitations apply when you embed type information in a fully managed solution:
 
 - Only attributes specific to COM interop are embedded. Other attributes are ignored.
 - If a type uses generic parameters, and the type of the generic parameter is an embedded type, that type cannot be used across an assembly boundary. Examples of crossing an assembly boundary include calling a method from another assembly or deriving a type from a type defined in another assembly.

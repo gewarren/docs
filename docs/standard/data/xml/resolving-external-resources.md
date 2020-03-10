@@ -7,7 +7,7 @@ ms.assetid: ad3fa320-4b8f-4e5c-b549-01157591007a
 # Resolving External Resources
 The **XmlResolver** property of the **XmlDocument** is used by the **XmlDocument** class to locate resources that are not inline in the XML data, such as external document type definitions (DTDs), entities, and schemas. These items can be located on a network or on a local drive, and are identifiable by a Uniform Resource Identifier (URI). This allows the **XmlDocument** to resolve **EntityReference** nodes that are present in the document and validate the document according to the external DTD or schema.  
   
-## Fully-Trusted XmlDocument  
+## Fully Trusted XmlDocument  
  The **XmlResolver** property affects the functionality of the **XmlDocument.Load** method. The table below shows how the **XmlDocument.XmlResolver** property works when the **XmlDocument** object is fully trusted. The following table shows the **XmlDocument.Load** methods when the input to the Load is a **TextReader**, **String**, **Stream**, or **URI**. This table does not apply to the **Load** method if the **XmlDocument** is loaded from an **XmlReader**.  
   
 |XmlResolver property|Function|Notes|  

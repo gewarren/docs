@@ -53,7 +53,7 @@ They're quite powerful and can be used in numerous scenarios. Learn more at [Ano
 
 ## ValueOption functions
 
-The ValueOption type added in F# 4.5 now has "module-bound function parity" with the Option type. Some of the more commonly-used examples are as follows:
+The ValueOption type added in F# 4.5 now has "module-bound function parity" with the Option type. Some of the more commonly used examples are as follows:
 
 ```fsharp
 // Multiply a value option by 2 if it has  value

@@ -10,7 +10,7 @@ One of the key features of XML literals in Visual Basic is the capability to dec
   
  You can declare global namespaces at the project level. You can also declare global namespaces at the module level, which overrides the project-level global namespaces. Finally, you can override global namespaces in an XML literal.  
   
- When using XML literals or XML properties that are in globally-declared namespaces, you can see the expanded name of XML literals or properties by hovering over them in Visual Studio. You will see the expanded name in a tooltip.  
+ When using XML literals or XML properties that are in globally declared namespaces, you can see the expanded name of XML literals or properties by hovering over them in Visual Studio. You will see the expanded name in a tooltip.  
   
  You can get an <xref:System.Xml.Linq.XNamespace> object that corresponds to a global namespace using the `GetXmlNamespace` method.  
   
@@ -92,7 +92,7 @@ Console.WriteLine(root)
 </Root>  
 ```  
   
- However, this is more cumbersome to use than the global default namespace, which is a better approach. With the global default namespace, you can use XML literals without declaring namespaces. The resulting XML will be in the globally-declared default namespace.  
+ However, this is more cumbersome to use than the global default namespace, which is a better approach. With the global default namespace, you can use XML literals without declaring namespaces. The resulting XML will be in the globally declared default namespace.  
   
 ```vb  
 Imports <xmlns="http://www.adventure-works.com">  

@@ -63,7 +63,7 @@ The previous sample made use of many features of F#, including list processing f
 
 Lists, Arrays, and Sequences are three primary collection types in the F# core library.
 
-[Lists](./language-reference/lists.md) are ordered, immutable collections of elements of the same type.  They are singly-linked lists, which means they are meant for enumeration, but a poor choice for random access and concatenation if they're large.  This in contrast to Lists in other popular languages, which typically do not use a singly-linked list to represent Lists.
+[Lists](./language-reference/lists.md) are ordered, immutable collections of elements of the same type.  They are singly linked lists, which means they are meant for enumeration, but a poor choice for random access and concatenation if they're large.  This in contrast to Lists in other popular languages, which typically do not use a singly linked list to represent Lists.
 
 [!code-fsharp[Lists](~/samples/snippets/fsharp/tour.fs#L309-L359)]
 
@@ -120,7 +120,7 @@ Additionally, you can represent DUs as `struct`s with the `[<Struct>]` attribute
 
 However, there are two key things to keep in mind when doing so:
 
-1. A struct DU cannot be recursively-defined.
+1. A struct DU cannot be recursively defined.
 2. A struct DU must have unique names for each of its cases.
 
 Failure to follow the above will result in a compilation error.

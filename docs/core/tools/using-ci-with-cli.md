@@ -44,7 +44,7 @@ After you create a script that performs a manual CI build server setup, use it o
 $ErrorActionPreference="Stop"
 $ProgressPreference="SilentlyContinue"
 
-# $LocalDotnet is the path to the locally-installed SDK to ensure the
+# $LocalDotnet is the path to the locally installed SDK to ensure the
 #   correct version of the tools are executed.
 $LocalDotnet=""
 # $InstallDir and $CliVersion variables can come from options to the

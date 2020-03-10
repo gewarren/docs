@@ -74,7 +74,7 @@ class B {
 ```  
   
 ## Example  
- This code sample builds the assembly csman_an_assembly, referencing the previously-built assembly and .netmodule.  
+ This code sample builds the assembly csman_an_assembly, referencing the previously built assembly and .netmodule.  
   
 ```csharp  
 // csman_an_assembly.cs  

@@ -16,7 +16,7 @@ Pure functional transformations are applicable in a wide variety of situations.
   
 - Data streaming protocols. Encoding data into and decoding data from communication protocols can often be represented by a simple functional transform.  
   
-- RDBMS and OODBMS data. Relational and object-oriented databases, just like XML, are widely-used structured data sources.  
+- RDBMS and OODBMS data. Relational and object-oriented databases, just like XML, are widely used structured data sources.  
   
 - Mathematic, statistic, and science solutions. These fields tend to manipulate large data sets to assist the user in visualizing, estimating, or actually solving non-trivial problems.  
   

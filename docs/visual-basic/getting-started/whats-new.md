@@ -220,7 +220,7 @@ String literals can contain newline sequences.  You no longer need the old work 
 
 You can put comments after implicit line continuations, inside initializer expressions, and among LINQ expression terms.
 
-**Smarter fully-qualified name resolution**
+**Smarter fully qualified name resolution**
 
 Given code such as `Threading.Thread.Sleep(1000)`, Visual Basic used to look up the namespace "Threading", discover it was ambiguous between System.Threading and System.Windows.Threading, and then report an error.  Visual Basic now considers both possible namespaces together.  If you show the completion list, the Visual Studio editor lists members from both types in the completion list.
 

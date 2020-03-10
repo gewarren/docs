@@ -7,7 +7,7 @@ f1_keywords:
 helpviewer_keywords:
   - "Option Infer statement [Visual Basic]"
   - "local type inference [Visual Basic]"
-  - "implicitly-typed local variables [Visual Basic]"
+  - "implicitly typed local variables [Visual Basic]"
   - "variables [Visual Basic], type inference"
   - "inference [Visual Basic]"
   - "type inference [Visual Basic]"

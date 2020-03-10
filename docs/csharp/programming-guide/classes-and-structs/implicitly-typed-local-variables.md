@@ -2,7 +2,7 @@
 title: "Implicitly typed local variables - C# Programming Guide"
 ms.date: 07/20/2015
 helpviewer_keywords: 
-  - "implicitly-typed local variables [C#]"
+  - "implicitly typed local variables [C#]"
   - "var [C#]"
 ms.assetid: b9218fb2-ef5d-4814-8a8e-2bc29b0bbc9b
 ---
@@ -50,7 +50,7 @@ From the perspective of your source code, an anonymous type has no name. Therefo
 
 ## Remarks
 
-The following restrictions apply to implicitly-typed variable declarations:
+The following restrictions apply to implicitly typed variable declarations:
 
 - `var` can only be used when a local variable is declared and initialized in the same statement; the variable cannot be initialized to null, or to a method group or an anonymous function.
 
@@ -58,7 +58,7 @@ The following restrictions apply to implicitly-typed variable declarations:
 
 - Variables declared by using `var` cannot be used in the initialization expression. In other words, this expression is legal: `int i = (i = 20);` but this expression produces a compile-time error: `var i = (i = 20);`
 
-- Multiple implicitly-typed variables cannot be initialized in the same statement.
+- Multiple implicitly typed variables cannot be initialized in the same statement.
 
 - If a type named `var` is in scope, then the `var` keyword will resolve to that type name and will not be treated as part of an implicitly typed local variable declaration.
 

@@ -2,7 +2,7 @@
 title: "How to use implicitly typed local variables and arrays in a query expression - C# Programming Guide"
 ms.date: 07/20/2015
 helpviewer_keywords: 
-  - "implicitly-typed local variables [C#], how to use"
+  - "implicitly typed local variables [C#], how to use"
 ms.assetid: 6b7354d2-af79-427a-b6a8-f74eb8fd0b91
 ---
 # How to use implicitly typed local variables and arrays in a query expression (C# Programming Guide)

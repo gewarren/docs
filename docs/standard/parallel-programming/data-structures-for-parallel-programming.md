@@ -52,7 +52,7 @@ The .NET Framework version 4 introduces several new types that are useful in par
 |Type|Description|  
 |----------|-----------------|  
 |<xref:System.Lazy%601?displayProperty=nameWithType>|Provides lightweight, thread-safe lazy-initialization.|  
-|<xref:System.Threading.ThreadLocal%601?displayProperty=nameWithType>|Provides a lazily-initialized value on a per-thread basis, with each thread lazily-invoking the initialization function.|  
+|<xref:System.Threading.ThreadLocal%601?displayProperty=nameWithType>|Provides a lazily initialized value on a per-thread basis, with each thread lazily invoking the initialization function.|  
 |<xref:System.Threading.LazyInitializer?displayProperty=nameWithType>|Provides static methods that avoid the need to allocate a dedicated, lazy-initialization instance. Instead, they use references to ensure targets have been initialized as they are accessed.|  
   
  For more information, see [Lazy Initialization](../../../docs/framework/performance/lazy-initialization.md).  

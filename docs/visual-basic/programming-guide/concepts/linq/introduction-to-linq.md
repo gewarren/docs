@@ -12,7 +12,7 @@ Language-Integrated Query (LINQ) is an innovation introduced in the .NET Framewo
   
  You can use LINQ queries in new projects, or alongside non-LINQ queries in existing projects. The only requirement is that the project target .NET Framework 3.5 or later.  
   
- The following illustration from Visual Studio shows a partially-completed LINQ query against a SQL Server database in both C# and Visual Basic with full type checking and IntelliSense support.  
+ The following illustration from Visual Studio shows a partially completed LINQ query against a SQL Server database in both C# and Visual Basic with full type checking and IntelliSense support.  
   
  ![Diagram that shows a LINQ query with Intellisense.](./media/introduction-to-linq/linq-query-intellisense.png)  
   

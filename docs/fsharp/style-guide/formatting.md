@@ -189,7 +189,7 @@ let addIAndJ I J = I+J
 let AddIAndJ i j = i + j
 ```
 
-Locally-bound functions in classes should also use camelCase.
+Locally bound functions in classes should also use camelCase.
 
 ```fsharp
 type MyClass() =
@@ -300,9 +300,9 @@ x && y // Lazy/short-cut "and"
 x || y // Lazy/short-cut "or"
 x <<< y // Bitwise left shift
 x >>> y // Bitwise right shift
-x ||| y // Bitwise or, also for working with “flags” enumeration
-x &&& y // Bitwise and, also for working with “flags” enumeration
-x ^^^ y // Bitwise xor, also for working with “flags” enumeration
+x ||| y // Bitwise or, also for working with "flags" enumeration
+x &&& y // Bitwise and, also for working with "flags" enumeration
+x ^^^ y // Bitwise xor, also for working with "flags" enumeration
 ```
 
 ### Use prefix syntax for generics (`Foo<T>`) in preference to postfix syntax (`T Foo`)
