@@ -142,15 +142,15 @@ ChannelFactory<ICalculator> cf = new ChannelFactory<ICalculator>(endpoint.Bindin
   
 #### To run the sample across machines  
   
-1. On the server, run `setup.bat service`. Running `setup.bat` with the `service` argument creates a service certificate with the fully-qualified domain name of the machine and exports the service certificate to a file named Service.cer.  
+1. On the server, run `setup.bat service`. Running `setup.bat` with the `service` argument creates a service certificate with the fully qualified domain name of the machine and exports the service certificate to a file named Service.cer.  
   
-2. On the server, edit Web.config to reflect the new certificate name. That is, change the `findValue` attribute in the [\<serviceCertificate>](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-clientcredentials-element.md) element to the fully-qualified domain name of the machine.  
+2. On the server, edit Web.config to reflect the new certificate name. That is, change the `findValue` attribute in the [\<serviceCertificate>](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-clientcredentials-element.md) element to the fully qualified domain name of the machine.  
   
 3. Copy the Service.cer file from the service directory to the client directory on the client machine.  
   
 4. On the client, run `setup.bat client`. Running `setup.bat` with the `client` argument creates a client certificate named Client.com and exports the client certificate to a file named Client.cer.  
   
-5. In the App.config file of the `MetadataResolverClient` on the client machine, change the address value of the mex endpoint to match the new address of your service. You do this by replacing localhost with the fully-qualified domain name of the server. Also change the occurrence of "localhost" in the metadataResolverClient.cs file to the new service certificate name (the fully-qualified domain name of the server). Do the same thing for the App.config of the SvcutilClient project.  
+5. In the App.config file of the `MetadataResolverClient` on the client machine, change the address value of the mex endpoint to match the new address of your service. You do this by replacing localhost with the fully qualified domain name of the server. Also change the occurrence of "localhost" in the metadataResolverClient.cs file to the new service certificate name (the fully qualified domain name of the server). Do the same thing for the App.config of the SvcutilClient project.  
   
 6. Copy the Client.cer file from the client directory to the service directory on the server.  
   

@@ -23,7 +23,7 @@ public interface IEcho
  ASP.NET Web services that conform to WS-I Basic Profile 1.1 will be interoperable with WCF clients by using WCF predefined binding, <xref:System.ServiceModel.BasicHttpBinding>.  
   
 ## Service Development  
- Avoid using the <xref:System.Web.Services.Protocols.SoapDocumentServiceAttribute> attribute to have messages routed to methods based on the fully-qualified name of the body element of the SOAP message rather than the SOAPAction HTTP header. WCF uses the SOAPAction HTTP header for routing messages.  
+ Avoid using the <xref:System.Web.Services.Protocols.SoapDocumentServiceAttribute> attribute to have messages routed to methods based on the fully qualified name of the body element of the SOAP message rather than the SOAPAction HTTP header. WCF uses the SOAPAction HTTP header for routing messages.  
   
 ## Data Representation  
  The XML into which <xref:System.Xml.Serialization.XmlSerializer> serializes a type by default is semantically identical to the XML into which the <xref:System.Runtime.Serialization.DataContractSerializer> serializes a type, provided the namespace for the XML is explicitly defined. When defining a data type for use with ASP.NET Web services in anticipation of adopting WCF in the future, do the following:  

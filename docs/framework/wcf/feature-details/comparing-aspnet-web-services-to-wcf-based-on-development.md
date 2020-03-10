@@ -140,7 +140,7 @@ public class LineItem
 }
 ```
 
-The <xref:System.Runtime.Serialization.DataContractAttribute> signifies that zero or more of a type’s fields or properties are to be serialized, while the <xref:System.Runtime.Serialization.DataMemberAttribute> indicates that a particular field or property is to be serialized. The <xref:System.Runtime.Serialization.DataContractAttribute> can be applied to a class or structure. The <xref:System.Runtime.Serialization.DataMemberAttribute> can be applied to a field or a property, and the fields and properties to which the attribute is applied can be either public or private. Instances of types that have the <xref:System.Runtime.Serialization.DataContractAttribute> applied to them are referred to as data contracts in WCF. They are serialized into XML using <xref:System.Runtime.Serialization.DataContractSerializer>.
+The <xref:System.Runtime.Serialization.DataContractAttribute> signifies that zero or more of a type's fields or properties are to be serialized, while the <xref:System.Runtime.Serialization.DataMemberAttribute> indicates that a particular field or property is to be serialized. The <xref:System.Runtime.Serialization.DataContractAttribute> can be applied to a class or structure. The <xref:System.Runtime.Serialization.DataMemberAttribute> can be applied to a field or a property, and the fields and properties to which the attribute is applied can be either public or private. Instances of types that have the <xref:System.Runtime.Serialization.DataContractAttribute> applied to them are referred to as data contracts in WCF. They are serialized into XML using <xref:System.Runtime.Serialization.DataContractSerializer>.
 
 The following is a list of the important differences between using the <xref:System.Runtime.Serialization.DataContractSerializer> and using the <xref:System.Xml.Serialization.XmlSerializer> and the various attributes of the <xref:System.Xml.Serialization> namespace.
 
@@ -203,7 +203,7 @@ The Windows software development kit (SDK) includes a command-line tool called t
 
 ## Service Development
 
-To develop a service using ASP.NET, it has been customary to add the <xref:System.Web.Services.WebService> attribute to a class, and the <xref:System.Web.Services.WebMethodAttribute> to any of that class’ methods that are to be operations of the service:
+To develop a service using ASP.NET, it has been customary to add the <xref:System.Web.Services.WebService> attribute to a class, and the <xref:System.Web.Services.WebMethodAttribute> to any of that class' methods that are to be operations of the service:
 
 ```csharp
 [WebService]
@@ -293,7 +293,7 @@ The binding specifies the set of protocols for communicating with the applicatio
 |BasicHttpBinding|Interoperability with Web services and clients supporting the WS-BasicProfile 1.1 and Basic Security Profile 1.0.|
 |WSHttpBinding|Interoperability with Web services and clients that support the WS-* protocols over HTTP.|
 |WSDualHttpBinding|Duplex HTTP communication, by which the receiver of an initial message does not reply directly to the initial sender, but may transmit any number of responses over a period of time by using HTTP in conformity with WS-* protocols.|
-|WSFederationBinding|HTTP communication, in which access to the resources of a service can be controlled based on credentials issued by an explicitly-identified credential provider.|
+|WSFederationBinding|HTTP communication, in which access to the resources of a service can be controlled based on credentials issued by an explicitly identified credential provider.|
 |NetTcpBinding|Secure, reliable, high-performance communication between WCF software entities across a network.|
 |NetNamedPipeBinding|Secure, reliable, high-performance communication between WCF software entities on the same machine.|
 |NetMsmqBinding|Communication between WCF software entities by using MSMQ.|
@@ -364,7 +364,7 @@ typeof(Service), //"Service" is the name of the service type baseAddresses))
 
 This example shows how addresses for one or more transport protocols are specified in the construction of a <xref:System.ServiceModel.ServiceHost>. These addresses are referred to as base addresses.
 
-The address provided for any endpoint of a WCF service is an address relative to a base address of the endpoint’s host. The host can have one base address for each communication transport protocol. In the sample configuration in the preceding configuration file, the <xref:System.ServiceModel.BasicHttpBinding> selected for the endpoint uses HTTP as the transport protocol, so the address of the endpoint, `EchoService`, is relative to the host’s HTTP base address. In the case of the host in the preceding example, the HTTP base address is `http://www.contoso.com:8000/`. For a service hosted within IIS or WAS, the base address is the URL of the service’s service file.
+The address provided for any endpoint of a WCF service is an address relative to a base address of the endpoint's host. The host can have one base address for each communication transport protocol. In the sample configuration in the preceding configuration file, the <xref:System.ServiceModel.BasicHttpBinding> selected for the endpoint uses HTTP as the transport protocol, so the address of the endpoint, `EchoService`, is relative to the host's HTTP base address. In the case of the host in the preceding example, the HTTP base address is `http://www.contoso.com:8000/`. For a service hosted within IIS or WAS, the base address is the URL of the service's service file.
 
 Only services hosted in IIS or WAS, and which are configured with HTTP as the transport protocol exclusively, can be made to use WCF ASP.NET compatibility mode option. Turning that option on requires the following steps.
 
@@ -417,7 +417,7 @@ Clients for ASP.NET Web services are generated using the command-line tool, WSDL
 
 In programming a client of a remote service it is generally advisable to program according to an asynchronous pattern. The code generated by the WSDL.exe tool always provides for both a synchronous and an asynchronous pattern by default. The code generated by the [ServiceModel Metadata Utility Tool (Svcutil.exe)](../../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md) can provide for either pattern. It provides for the synchronous pattern by default. If the tool is executed with the `/async` switch, then the generated code provides for the asynchronous pattern.
 
-There is no guarantee that names in the WCF client classes generated by ASP.NET’s WSDL.exe tool, by default, match the names in WCF client classes generated by the Svcutil.exe tool. In particular, the names of the properties of classes that have to be serialized using the <xref:System.Xml.Serialization.XmlSerializer> are, by default, given the suffix Property in the code generated by the Svcutil.exe tool, which is not the case with the WSDL.exe tool.
+There is no guarantee that names in the WCF client classes generated by ASP.NET's WSDL.exe tool, by default, match the names in WCF client classes generated by the Svcutil.exe tool. In particular, the names of the properties of classes that have to be serialized using the <xref:System.Xml.Serialization.XmlSerializer> are, by default, given the suffix Property in the code generated by the Svcutil.exe tool, which is not the case with the WSDL.exe tool.
 
 ## Message Representation
 
@@ -621,9 +621,9 @@ public class Service : WebService, IEcho
 }
 ```
 
-In that case, the class can be programmed to use the <xref:System.Web.Services.WebService> base class’ Context property to access a <xref:System.Web.HttpContext> object. The <xref:System.Web.HttpContext> object can be used to update and retrieve application state information by using its Application property, and can be used to update and retrieve session state information by using its Session property.
+In that case, the class can be programmed to use the <xref:System.Web.Services.WebService> base class' Context property to access a <xref:System.Web.HttpContext> object. The <xref:System.Web.HttpContext> object can be used to update and retrieve application state information by using its Application property, and can be used to update and retrieve session state information by using its Session property.
 
-ASP.NET provides considerable control over where the session state information accessed by using the Session property of the <xref:System.Web.HttpContext> is actually stored. It may be stored in cookies, in a database, in the memory of the current server, or in the memory of a designated server. The choice is made in the service’s configuration file.
+ASP.NET provides considerable control over where the session state information accessed by using the Session property of the <xref:System.Web.HttpContext> is actually stored. It may be stored in cookies, in a database, in the memory of the current server, or in the memory of a designated server. The choice is made in the service's configuration file.
 
 The WCF provides extensible objects for state management. Extensible objects are objects that implement <xref:System.ServiceModel.IExtensibleObject%601>. The most important extensible objects are <xref:System.ServiceModel.ServiceHostBase> and <xref:System.ServiceModel.InstanceContext>. `ServiceHostBase` allows you to maintain state that all of the instances of all of the service types on the same host can access, while `InstanceContext` allows you to maintain state that can be accessed by any code running within the same instance of a service type.
 
@@ -656,7 +656,7 @@ string ITradingService.BeginDeal()
 }
 ```
 
-That state object can then be retrieved and modified by the code that implements another of the service contract’s operations.
+That state object can then be retrieved and modified by the code that implements another of the service contract's operations.
 
 ```csharp
 void ITradingService.AddTrade(Trade trade)
@@ -678,7 +678,7 @@ IIS provides facilities for controlling access to applications by which you can 
 
 ### Security: Impersonation
 
-ASP.NET provides an identity element by which an ASP.NET Web service can be made to impersonate a particular user or whichever user’s credentials are provided with the current request. That element can be used to configure impersonation in WCF applications running in ASP.NET compatibility mode.
+ASP.NET provides an identity element by which an ASP.NET Web service can be made to impersonate a particular user or whichever user's credentials are provided with the current request. That element can be used to configure impersonation in WCF applications running in ASP.NET compatibility mode.
 
 The WCF configuration system provides its own identity element for designating a particular user to impersonate. Also, WCF clients and services can be independently configured for impersonation. Clients can be configured to impersonate the current user when they transmit requests.
 
@@ -692,7 +692,7 @@ The WCF configuration system provides its own identity element for designating a
 </behaviors>
 ```
 
-Service operations can be configured to impersonate whichever user’s credentials are provided with the current request.
+Service operations can be configured to impersonate whichever user's credentials are provided with the current request.
 
 ```csharp
 [OperationBehavior(Impersonation = ImpersonationOption.Required)]
@@ -732,7 +732,7 @@ The role provider mechanism can actually be used independently of ASP.NET in any
 
 ### Security: Claims-based Authorization
 
-One of the most important innovations of WCF is its thorough support for authorizing access to protected resources based on claims. Claims consist of a type, a right and a value, a drivers’ license, for example. It makes a set of claims about the bearer, one of which is the bearer’s date of birth. The type of that claim is date of birth, while the value of the claim is the driver’s birth date. The right that a claim confers on the bearer specifies what the bearer can do with the claim’s value. In the case of the claim of the driver’s date of birth, the right is possession: the driver possesses that date of birth but cannot, for example, alter it. Claims-based authorization encloses role-based authorization, because roles are a type of claim.
+One of the most important innovations of WCF is its thorough support for authorizing access to protected resources based on claims. Claims consist of a type, a right and a value, a drivers' license, for example. It makes a set of claims about the bearer, one of which is the bearer's date of birth. The type of that claim is date of birth, while the value of the claim is the driver's birth date. The right that a claim confers on the bearer specifies what the bearer can do with the claim's value. In the case of the claim of the driver's date of birth, the right is possession: the driver possesses that date of birth but cannot, for example, alter it. Claims-based authorization encloses role-based authorization, because roles are a type of claim.
 
 Authorization based on claims is accomplished by comparing a set of claims to the access requirements of the operation and, depending on the outcome of that comparison, granting or denying access to the operation. In WCF, you can specify a class to use to run claims-based authorization, once again by assigning a value to the `ServiceAuthorizationManager` property of <xref:System.ServiceModel.Description.ServiceAuthorizationBehavior>.
 

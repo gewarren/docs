@@ -66,7 +66,7 @@ DATETIME '2006-12-25 01:01'
 ## Type Constructors  
   
 ### ROW  
- [ROW](row-entity-sql.md) constructs an anonymous, structurally-typed (record) value as in: `ROW(1 AS myNumber, ‘Name’ AS myName).`  
+ [ROW](row-entity-sql.md) constructs an anonymous, structurally typed (record) value as in: `ROW(1 AS myNumber, 'Name' AS myName).`  
   
  Example:  
   

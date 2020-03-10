@@ -32,7 +32,7 @@ The endpoint address for a service can be specified either imperatively by using
 
 There are two ways to specify endpoint addresses for a service in WCF. You can specify an absolute address for each endpoint associated with the service or you can provide a base address for the <xref:System.ServiceModel.ServiceHost> of a service and then specify an address for each endpoint associated with this service that is defined relative to this base address. You can use each of these procedures to specify the endpoint addresses for a service in either configuration or code. If you do not specify a relative address, the service uses the base address. You can also have multiple base addresses for a service, but each service is allowed only one base address for each transport. If you have multiple endpoints, each of which is configured with a different binding, their addresses must be unique. Endpoints that use the same binding but different contracts can use the same address.
 
-When hosting with IIS, you do not manage the <xref:System.ServiceModel.ServiceHost> instance yourself. The base address is always the address specified in the .svc file for the service when hosting in IIS. So you must use relative endpoint addresses for IIS-hosted service endpoints. Supplying a fully-qualified endpoint address can lead to errors in the deployment of the service. For more information, see [Deploying an Internet Information Services-Hosted WCF Service](./feature-details/deploying-an-internet-information-services-hosted-wcf-service.md).
+When hosting with IIS, you do not manage the <xref:System.ServiceModel.ServiceHost> instance yourself. The base address is always the address specified in the .svc file for the service when hosting in IIS. So you must use relative endpoint addresses for IIS-hosted service endpoints. Supplying a fully qualified endpoint address can lead to errors in the deployment of the service. For more information, see [Deploying an Internet Information Services-Hosted WCF Service](./feature-details/deploying-an-internet-information-services-hosted-wcf-service.md).
 
 ## Defining Endpoint Addresses in Configuration
 
@@ -57,7 +57,7 @@ An endpoint address is represented in Web Services Description Language (WSDL) a
 
 ## Defining Endpoint Addresses in Code
 
-An endpoint address can be created in code with the <xref:System.ServiceModel.EndpointAddress> class. The URI specified for the endpoint address can be a fully-qualified path or a path that is relative to the service's base address. The following code illustrates how to create an instance of the <xref:System.ServiceModel.EndpointAddress> class and add it to the <xref:System.ServiceModel.ServiceHost> instance that is hosting the service.
+An endpoint address can be created in code with the <xref:System.ServiceModel.EndpointAddress> class. The URI specified for the endpoint address can be a fully qualified path or a path that is relative to the service's base address. The following code illustrates how to create an instance of the <xref:System.ServiceModel.EndpointAddress> class and add it to the <xref:System.ServiceModel.ServiceHost> instance that is hosting the service.
 
 The following example demonstrates how to specify the full endpoint address in code.
 

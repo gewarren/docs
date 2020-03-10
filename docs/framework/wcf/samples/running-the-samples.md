@@ -37,7 +37,7 @@ The Windows Communication Foundation (WCF) samples can be run in a single-machin
   
     2. Copy the service program files from the \service\bin\ folder, under the language-specific folder, to the service machine.  
   
-    3. In the service configuration file, change the address value of the endpoint definition to match the new address of your service. Replace any references to "localhost" with a fully-qualified domain name in the address.  
+    3. In the service configuration file, change the address value of the endpoint definition to match the new address of your service. Replace any references to "localhost" with a fully qualified domain name in the address.  
   
     4. Launch Service.exe from a command prompt.  
   
@@ -45,7 +45,7 @@ The Windows Communication Foundation (WCF) samples can be run in a single-machin
   
 3. Set the endpoint address.  
   
-    1. If the service is not running under a domain account, open the client configuration file and change the address value of the endpoint definition to match the new address of your service. Replace any references to "localhost" with a fully-qualified domain name in the address.  
+    1. If the service is not running under a domain account, open the client configuration file and change the address value of the endpoint definition to match the new address of your service. Replace any references to "localhost" with a fully qualified domain name in the address.  
   
     2. If the service is running under a domain account, regenerate the client configuration by running Svcutil.exe against the service. For more information about running Svcutil.exe, see [Building the Windows Communication Foundation Samples](../../../../docs/framework/wcf/samples/building-the-samples.md). Use the generated file instead of the configuration file in the sample. The generated configuration file has additional identity information, and contains all settings necessary to connect to the service endpoint even though they are the default settings. For more information about identity information, see [Service Identity and Authentication](../../../../docs/framework/wcf/feature-details/service-identity-and-authentication.md), and [\<identity>](../../../../docs/framework/configure-apps/file-schema/wcf/identity.md).  
   

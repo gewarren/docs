@@ -1,9 +1,9 @@
 ---
-title: "Loosely-Typed Extensions Sample"
+title: "Loosely Typed Extensions Sample"
 ms.date: "03/30/2017"
 ms.assetid: 56ce265b-8163-4b85-98e7-7692a12c4357
 ---
-# Loosely-Typed Extensions Sample
+# Loosely Typed Extensions Sample
 The Syndication object model provides rich support for working with extension data—information that is present in a syndication feed's XML representation but not explicitly exposed by classes such as <xref:System.ServiceModel.Syndication.SyndicationFeed> and <xref:System.ServiceModel.Syndication.SyndicationItem>. This sample illustrates the basic techniques for working with extension data.  
   
  The sample uses the <xref:System.ServiceModel.Syndication.SyndicationFeed> class for the purposes of the example. However, the patterns demonstrated in this sample can be used with all of the Syndication classes that support extension data:  
@@ -151,5 +151,5 @@ foreach (SyndicationElementExtension extension in feed2.ElementExtensions.Where<
   
 ## See also
 
-- [Strongly-Typed Extensions](../../../../docs/framework/wcf/samples/strongly-typed-extensions-sample.md)
+- [Strongly Typed Extensions](../../../../docs/framework/wcf/samples/strongly-typed-extensions-sample.md)
 - [WCF Syndication](../../../../docs/framework/wcf/feature-details/wcf-syndication.md)

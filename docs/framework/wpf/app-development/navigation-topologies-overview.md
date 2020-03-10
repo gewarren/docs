@@ -7,7 +7,7 @@ helpviewer_keywords:
   - "fixed linear topology [WPF]"
   - "topologies [WPF]"
   - "navigation topologies [WPF]"
-  - "dynamically-generated topology"
+  - "dynamically generated topology"
 ms.assetid: 5d5ee837-629a-4933-869a-186dc22ac43d
 ---
 # Navigation Topologies Overview

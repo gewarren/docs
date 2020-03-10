@@ -15,7 +15,7 @@ Sometimes a client and a service do not share the same types. They can still pas
 ## Basic Rules
 Basic rules regarding naming data contracts include:
 
-- A fully-qualified data contract name consists of a namespace and a name.
+- A fully qualified data contract name consists of a namespace and a name.
 
 - Data members have only names, but no namespaces.
 

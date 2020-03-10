@@ -155,7 +155,7 @@ Press <ENTER> to terminate client.
     makecert.exe -sr LocalMachine -ss MY -a sha1 -n CN=%SERVER_NAME% -sky exchange -pe  
     ```  
   
-     The %SERVER_NAME% variable specifies the server name. The certificate is stored in the LocalMachine store. If the Setup.bat batch file is run with an argument of service (such as `setup.bat service`) the %SERVER_NAME% contains the fully-qualified domain name of the computer.  Otherwise it defaults to localhost.  
+     The %SERVER_NAME% variable specifies the server name. The certificate is stored in the LocalMachine store. If the Setup.bat batch file is run with an argument of service (such as `setup.bat service`) the %SERVER_NAME% contains the fully qualified domain name of the computer.  Otherwise it defaults to localhost.  
   
 - Installing the server certificate into the client's trusted certificate store  
   
@@ -214,9 +214,9 @@ Press <ENTER> to terminate client.
   
 4. Copy the client program files to the client directory on the client computer. Also copy the Setup.bat, Cleanup.bat, and ImportServiceCert.bat files to the client.  
   
-5. On the server, run `setup.bat service` in a Developer Command Prompt for Visual Studio opened with administrator privileges. Running `setup.bat` with the `service` argument creates a service certificate with the fully-qualified domain name of the computer and exports the service certificate to a file named Service.cer.  
+5. On the server, run `setup.bat service` in a Developer Command Prompt for Visual Studio opened with administrator privileges. Running `setup.bat` with the `service` argument creates a service certificate with the fully qualified domain name of the computer and exports the service certificate to a file named Service.cer.  
   
-6. Edit Web.config to reflect the new certificate name (in the findValue attribute in the serviceCertificate element) which is the same as the fully-qualified domain name of the computer`.`  
+6. Edit Web.config to reflect the new certificate name (in the findValue attribute in the serviceCertificate element) which is the same as the fully qualified domain name of the computer`.`  
   
 7. Copy the Service.cer file from the service directory to the client directory on the client computer.  
   

@@ -356,7 +356,7 @@
       items:
       - name: Stand-Alone Diagnostics Feed
         href: stand-alone-diagnostics-feed-sample.md
-      - name: Loosely-Typed Extensions
+      - name: Loosely Typed Extensions
         href: loosely-typed-extensions-sample.md
     - name: Web
       href: web.md
@@ -454,7 +454,7 @@
     - name: Syndication Extensibility Samples
       href: syndication-extensibility-samples.md
       items:
-      - name: Strongly-Typed Extensions
+      - name: Strongly Typed Extensions
         href: strongly-typed-extensions-sample.md
       - name: Feed Formatter (JSON)
         href: feed-formatter-json.md
@@ -501,7 +501,7 @@
       href: discovery-security-sample.md
     - name: Federation Sample
       href: federation-sample.md
-    - name: Weakly-typed JSON Serialization (AJAX)
+    - name: Weakly typed JSON Serialization (AJAX)
       href: weakly-typed-json-serialization-sample.md
     - name: Trusted Facade Service
       href: trusted-facade-service.md

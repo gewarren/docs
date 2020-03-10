@@ -325,15 +325,15 @@ The following provides a brief overview of the different sections of the batch f
 
 4. Copy the client program files to the client directory on the client computer. Also copy the Setup.bat, Cleanup.bat, and ImportServiceCert.bat files to the client.
 
-5. On the server, run `setup.bat service` in a Developer Command Prompt for Visual Studio opened with administrator privileges. Running `setup.bat` with the `service` argument creates a service certificate with the fully-qualified domain name of the computer and exports the service certificate to a file named Service.cer.
+5. On the server, run `setup.bat service` in a Developer Command Prompt for Visual Studio opened with administrator privileges. Running `setup.bat` with the `service` argument creates a service certificate with the fully qualified domain name of the computer and exports the service certificate to a file named Service.cer.
 
-6. Edit Service.exe.config to reflect the new certificate name (in the `findValue` attribute in the [\<serviceCertificate>](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-servicecredentials.md)) which is the same as the fully-qualified domain name of the computer. Also change the computer name in the \<service>/\<baseAddresses> element from localhost to fully qualified name of your service computer.
+6. Edit Service.exe.config to reflect the new certificate name (in the `findValue` attribute in the [\<serviceCertificate>](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-servicecredentials.md)) which is the same as the fully qualified domain name of the computer. Also change the computer name in the \<service>/\<baseAddresses> element from localhost to fully qualified name of your service computer.
 
 7. Copy the Service.cer file from the service directory to the client directory on the client computer.
 
 8. On the client, run `setup.bat client` in a Developer Command Prompt for Visual Studio opened with administrator privileges. Running `setup.bat` with the `client` argument creates a client certificate named client.com and exports the client certificate to a file named Client.cer.
 
-9. In the Client.exe.config file on the client computer, change the address value of the endpoint to match the new address of your service. Do this by replacing localhost with the fully-qualified domain name of the server.
+9. In the Client.exe.config file on the client computer, change the address value of the endpoint to match the new address of your service. Do this by replacing localhost with the fully qualified domain name of the server.
 
 10. Copy the Client.cer file from the client directory to the service directory on the server.
 

@@ -372,11 +372,11 @@ This sample demonstrates how to implement a custom client SAML token provider. A
   
 2. Copy the service program files to the service directory on the service computer. Also copy the Setup.bat and Cleanup.bat files to the service computer.  
   
-3. You must have a server certificate with the subject name that contains the fully-qualified domain name of the computer. The Service.exe.config file must be updated to reflect this new certificate name. You can create server certificate by modifying the Setup.bat batch file. Note that the setup.bat file must be run in a Developer Command Prompt for Visual Studio window opened with administrator privileges. You must set the `%SERVER_NAME%` variable to the fully-qualified host name of the computer that is used to host the service.  
+3. You must have a server certificate with the subject name that contains the fully qualified domain name of the computer. The Service.exe.config file must be updated to reflect this new certificate name. You can create server certificate by modifying the Setup.bat batch file. Note that the setup.bat file must be run in a Developer Command Prompt for Visual Studio window opened with administrator privileges. You must set the `%SERVER_NAME%` variable to the fully qualified host name of the computer that is used to host the service.  
   
 4. Copy the server certificate into the CurrentUser-TrustedPeople store of the client. This step is not necessary when the server certificate is issued by a client trusted issuer.  
   
-5. In the Service.exe.config file on the service computer, change the value of the base address to specify a fully-qualified computer name instead of localhost.  
+5. In the Service.exe.config file on the service computer, change the value of the base address to specify a fully qualified computer name instead of localhost.  
   
 6. On the service computer, run Service.exe from a command prompt.  
   

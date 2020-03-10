@@ -14,7 +14,7 @@ In this case, the validator is a client validator because this endpoint behavior
 >
 > - Mark your common behavior with the <xref:System.Security.AllowPartiallyTrustedCallersAttribute> attribute so that it can run when deployed as a Partial Trust application. Note that a registry entry can be set on the computer to prevent APTCA-marked assemblies from running..
 >
-> - Ensure that if the application is deployed as a fully-trusted application that users cannot modify the code-access security settings to run the application in a Partial Trust environment. If they can do so, the custom validator does not run and no exception is thrown. For one way to ensure this, see the `levelfinal` option using [Code Access Security Policy Tool (Caspol.exe)](../../tools/caspol-exe-code-access-security-policy-tool.md).
+> - Ensure that if the application is deployed as a fully trusted application that users cannot modify the code-access security settings to run the application in a Partial Trust environment. If they can do so, the custom validator does not run and no exception is thrown. For one way to ensure this, see the `levelfinal` option using [Code Access Security Policy Tool (Caspol.exe)](../../tools/caspol-exe-code-access-security-policy-tool.md).
 >
 > For more information, see [Partial Trust Best Practices](../feature-details/partial-trust-best-practices.md) and [Supported Deployment Scenarios](../feature-details/supported-deployment-scenarios.md).
 
@@ -34,11 +34,11 @@ In this case, the validator is a client validator because this endpoint behavior
 
 1. Install the endpoint validator using the appropriate mechanism. In an enterprise, this can be using Group Policy and Systems Management Server (SMS).
 
-2. Install the strongly-named assembly into the global assembly cache using the [Gacutil.exe (Global Assembly Cache Tool)](../../tools/gacutil-exe-gac-tool.md).
+2. Install the strongly named assembly into the global assembly cache using the [Gacutil.exe (Global Assembly Cache Tool)](../../tools/gacutil-exe-gac-tool.md).
 
 3. Use the <xref:System.Configuration?displayProperty=nameWithType> namespace types to:
 
-    1. Add the extension to the [\<behaviorExtensions>](../../configure-apps/file-schema/wcf/behaviorextensions.md) section using a fully-qualified type name and lock the element.
+    1. Add the extension to the [\<behaviorExtensions>](../../configure-apps/file-schema/wcf/behaviorextensions.md) section using a fully qualified type name and lock the element.
 
          [!code-csharp[LockdownValidation#5](../../../../samples/snippets/csharp/VS_Snippets_CFX/lockdownvalidation/cs/hostapplication.cs#5)]
 

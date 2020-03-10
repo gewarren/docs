@@ -32,7 +32,7 @@ Windows Communication Foundation (WCF) uses the <xref:System.Runtime.Serializati
 
 The following is a list of limitations when using certain types in partial trust mode scenarios:
 
-- To serialize or deserialize a type that implements <xref:System.Runtime.Serialization.ISerializable> in partially-trusted code using the <xref:System.Runtime.Serialization.DataContractSerializer> requires the <xref:System.Security.Permissions.SecurityPermissionAttribute.SerializationFormatter%2A> and <xref:System.Security.Permissions.SecurityPermissionAttribute.UnmanagedCode%2A> permissions.
+- To serialize or deserialize a type that implements <xref:System.Runtime.Serialization.ISerializable> in partially trusted code using the <xref:System.Runtime.Serialization.DataContractSerializer> requires the <xref:System.Security.Permissions.SecurityPermissionAttribute.SerializationFormatter%2A> and <xref:System.Security.Permissions.SecurityPermissionAttribute.UnmanagedCode%2A> permissions.
 
 - When running WCF code in [Partial Trust](../../../../docs/framework/wcf/feature-details/partial-trust.md) mode, the serialization and deserialization of `readonly` fields (both `public` and `private`) is not supported. This is because the generated IL is unverifiable and therefore requires elevated permissions.
 
@@ -40,13 +40,13 @@ The following is a list of limitations when using certain types in partial trust
 
   - All serializable `[DataContract]` types must be public.
 
-  - All serializable `[DataMember]` fields or properties in a `[DataContract]` type must be public and read/write. The serialization and deserialization of `readonly` fields is not supported when running WCF in a partially-trusted application.
+  - All serializable `[DataMember]` fields or properties in a `[DataContract]` type must be public and read/write. The serialization and deserialization of `readonly` fields is not supported when running WCF in a partially trusted application.
 
   - The `[Serializable]`/`ISerializable]` programming model is not supported in a partial trust environment.
 
   - Known types must be specified in code or machine-level configuration (`Machine.config`). Known types cannot be specified in application-level configuration for security reasons.
 
-- Types that implement <xref:System.Runtime.Serialization.IObjectReference> throw an exception in a partially-trusted environment because the <xref:System.Runtime.Serialization.IObjectReference.GetRealObject%2A> method requires the security permission `[SecurityPermission(SecurityAction.LinkDemand, Flags=SecurityPermissionFlag.SerializationFormatter)]`.
+- Types that implement <xref:System.Runtime.Serialization.IObjectReference> throw an exception in a partially trusted environment because the <xref:System.Runtime.Serialization.IObjectReference.GetRealObject%2A> method requires the security permission `[SecurityPermission(SecurityAction.LinkDemand, Flags=SecurityPermissionFlag.SerializationFormatter)]`.
 
 ## Additional Notes on Serialization
 

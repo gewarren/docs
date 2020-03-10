@@ -30,7 +30,7 @@ You can configure tracing using the application’s configuration file—either 
 </system.diagnostics>
 ```
 
-In this example, the name and type of the trace listener is specified. The Listener is named `sdt` and the standard .NET Framework trace listener (System.Diagnostics.XmlWriterTraceListener) is added as the type. The `initializeData` attribute is used to set the name of the log file for that Listener to be `SdrConfigExample.e2e`. For the log file, you can substitute a fully-qualified path for a simple file name.
+In this example, the name and type of the trace listener is specified. The Listener is named `sdt` and the standard .NET Framework trace listener (System.Diagnostics.XmlWriterTraceListener) is added as the type. The `initializeData` attribute is used to set the name of the log file for that Listener to be `SdrConfigExample.e2e`. For the log file, you can substitute a fully qualified path for a simple file name.
 
 The example creates a file in the root directory called SdrConfigExample.e2e. When you use the Trace Viewer to open the file as described in the "Opening and Viewing WCF Trace Files" section, you can see all the messages that have been sent.
 
@@ -45,7 +45,7 @@ The tracing level is controlled by the `switchValue` setting. The available trac
 |Verbose|-   Debug-level tracing for both user code and servicing. Set this level when:<br />-   You are not sure which method in your code was called when the failure occurred.<br />-   You have an incorrect endpoint configured and the service failed to start because the entry in the reservation store is locked.|
 |ActivityTracing|Flow events between processing activities and components.<br /><br /> This level allows administrators and developers to correlate applications in the same application domain.<br /><br /> -   Traces for activity boundaries: start/stop.<br />-   Traces for transfers.|
 
- You can use `add` to specify the name and type of the trace listener you want to use. In the example configuration, the Listener is named `sdt` and the standard .NET Framework trace listener (`System.Diagnostics.XmlWriterTraceListener`) is added as the type. Use `initializeData` to set the name of the log file for that Listener. In addition, you can substitute a fully-qualified path for a simple file name.
+ You can use `add` to specify the name and type of the trace listener you want to use. In the example configuration, the Listener is named `sdt` and the standard .NET Framework trace listener (`System.Diagnostics.XmlWriterTraceListener`) is added as the type. Use `initializeData` to set the name of the log file for that Listener. In addition, you can substitute a fully qualified path for a simple file name.
 
 Starting in .NET Framework 4.8, ComboBox controls in some high contrast themes are displayed in the correct color. You can disable this change by removing the following setting from the *svcTraceViewer.exe.config* file:
 

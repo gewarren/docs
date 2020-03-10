@@ -49,15 +49,15 @@ This sample demonstrates how to implement an application that uses WS-Security w
   
 3. Copy the client program files to the client directory on the client computer. Also copy the Setup.bat, Cleanup.bat, and ImportServiceCert.bat files to the client.  
   
-4. On the server, run `setup.bat service`. Running `setup.bat` with the `service` argument creates a service certificate with the fully-qualified domain name of the computer and exports the service certificate to a file named Service.cer.  
+4. On the server, run `setup.bat service`. Running `setup.bat` with the `service` argument creates a service certificate with the fully qualified domain name of the computer and exports the service certificate to a file named Service.cer.  
   
-5. Edit service's service.exe.config to reflect the new certificate name (in the `findValue` attribute in the [\<serviceCertificate>](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-servicecredentials.md)) which is the same as the fully-qualified domain name of the computer.  
+5. Edit service's service.exe.config to reflect the new certificate name (in the `findValue` attribute in the [\<serviceCertificate>](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-servicecredentials.md)) which is the same as the fully qualified domain name of the computer.  
   
 6. Copy the Service.cer file from the service directory to the client directory on the client computer.  
   
 7. On the client, run `setup.bat client`. Running `setup.bat` with the `client` argument creates a client certificate named client.com and exports the client certificate to a file named Client.cer.  
   
-8. In the Client.exe.config file on the client computer, change the address value of the endpoint to match the new address of your service. Do this by replacing localhost with the fully-qualified domain name of the server.  You must also change the certificate name of the service to be the same as the fully-qualified domain name of the service computer (in the `findValue` attribute in the `defaultCertificate` element of `serviceCertificate` under `clientCredentials`).  
+8. In the Client.exe.config file on the client computer, change the address value of the endpoint to match the new address of your service. Do this by replacing localhost with the fully qualified domain name of the server.  You must also change the certificate name of the service to be the same as the fully qualified domain name of the service computer (in the `findValue` attribute in the `defaultCertificate` element of `serviceCertificate` under `clientCredentials`).  
   
 9. Copy the Client.cer file from the client directory to the service directory on the server.  
   
@@ -317,7 +317,7 @@ Processing Purchase Order: 6536e097-da96-4773-9da3-77bab4345b5d
     makecert.exe -sr LocalMachine -ss MY -a sha1 -n CN=%SERVER_NAME% -sky exchange -pe
     ```
 
-     The %SERVER_NAME% variable specifies the server name. The certificate is stored in the LocalMachine store. If the setup batch file is run with an argument of service (such as, `setup.bat service`) the %SERVER_NAME% contains the fully-qualified domain name of the computer.Otherwise it defaults to localhost
+     The %SERVER_NAME% variable specifies the server name. The certificate is stored in the LocalMachine store. If the setup batch file is run with an argument of service (such as, `setup.bat service`) the %SERVER_NAME% contains the fully qualified domain name of the computer.Otherwise it defaults to localhost
 
 - Installing server certificate into the client’s trusted certificate store.
 

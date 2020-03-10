@@ -13,7 +13,7 @@ ms.assetid: 67d2b3e8-3777-49f8-9084-abbb33b5a766
 
  The version of [!INCLUDE[wf1](../../../includes/wf1-md.md)] introduced in .NET Framework 4 will be referred to as WF4 for the rest of this topic. [!INCLUDE[wf1](../../../includes/wf1-md.md)] was introduced in .NET Framework 3.0 and had a few minor revisions through .NET Framework 3.5 SP1. The .NET Framework 3.5 version of Workflow Foundation will be referred to as WF3 for the rest of this topic. WF3 is shipped in .NET Framework 4 side-by-side with WF4. For more information about migrating WF3 artifacts to WF4 see: [Windows Workflow Foundation 4 Migration Guide](migration-guidance.md).
 
- Windows Communication Foundation (WCF) is Microsoft’s unified programming model for building service-oriented applications. It was first introduced as part of .NET 3.0 together with WF3 and now is one of the key components of the .NET Framework.
+ Windows Communication Foundation (WCF) is Microsoft's unified programming model for building service-oriented applications. It was first introduced as part of .NET 3.0 together with WF3 and now is one of the key components of the .NET Framework.
 
  Windows Server AppFabric is a set of integrated technologies that make it easier to build, scale and manage Web and composite applications that run on IIS. It provides tools for monitoring and managing services and workflows. For more information, see [Windows Server AppFabric 1.0](https://docs.microsoft.com/previous-versions/appfabric/ff384253(v=azure.10)).
 
@@ -29,7 +29,7 @@ ms.assetid: 67d2b3e8-3777-49f8-9084-abbb33b5a766
  In comparison to WF3, the WF4 runtime has a more efficient scheduler. It leverages the same I/O thread pool that is used for WCF, which is very efficient at executing batched work items. The internal work item scheduler queue is optimized for most common usage patterns. The WF4 runtime also manages the execution states in a very lightweight way with minimal synchronization and event handling logic, while WF3 depends on heavy-weight event registration and invocation to perform complex synchronization for state transitions.
 
 ### Data Storage and Flow
- In WF3, data associated with an activity is modeled through dependency properties implemented by the type <xref:System.Windows.DependencyProperty>. The dependency property pattern was introduced in Windows Presentation Foundation (WPF). In general, this pattern is very flexible to support easy data binding and other UI features. However, the pattern requires the properties to be defined as static fields in the workflow definition. Whenever the [!INCLUDE[wf1](../../../includes/wf1-md.md)] runtime sets or gets the property values, it involves heavily-weighted look-up logic.
+ In WF3, data associated with an activity is modeled through dependency properties implemented by the type <xref:System.Windows.DependencyProperty>. The dependency property pattern was introduced in Windows Presentation Foundation (WPF). In general, this pattern is very flexible to support easy data binding and other UI features. However, the pattern requires the properties to be defined as static fields in the workflow definition. Whenever the [!INCLUDE[wf1](../../../includes/wf1-md.md)] runtime sets or gets the property values, it involves heavily weighted look-up logic.
 
  WF4 uses clear data scoping logic to greatly improve how data is handled in a workflow. It separates the data stored in an activity from the data that is flowing across the activity boundaries by using two different concepts: variables and arguments. By using a clear hierarchical scope for variables and "In/Out/InOut" arguments, the data usage complexity for activities is dramatically reduced and the lifetime of the data is also automatically scoped. Activities have a well-defined signature described by its arguments. By simply inspecting an activity you can determine what data it expects to receive and what data will be produced by it as the result of its execution.
 
@@ -99,7 +99,7 @@ ms.assetid: 67d2b3e8-3777-49f8-9084-abbb33b5a766
  The sequence workflow contains one <xref:System.Activities.Statements.While> activity with one child activity in the loop that does not perform any work.
 
 ### Replicator compared to ParallelForEach
- <xref:System.Workflow.Activities.ReplicatorActivity> in WF3 has sequential and parallel execution modes.  In sequential mode, the activity’s performance is similar to the <xref:System.Workflow.Activities.WhileActivity>.  The <xref:System.Workflow.Activities.ReplicatorActivity> is most useful for parallel execution.  The WF4 analog for this is the <xref:System.Activities.Statements.ParallelForEach%601> activity.
+ <xref:System.Workflow.Activities.ReplicatorActivity> in WF3 has sequential and parallel execution modes.  In sequential mode, the activity's performance is similar to the <xref:System.Workflow.Activities.WhileActivity>.  The <xref:System.Workflow.Activities.ReplicatorActivity> is most useful for parallel execution.  The WF4 analog for this is the <xref:System.Activities.Statements.ParallelForEach%601> activity.
 
  The following diagram shows the workflows used for this test. The WF3 workflow is on the left and the WF4 workflow is on the right.
 
@@ -251,11 +251,11 @@ The following diagram shows the basic compensation workflow. The WF3 workflow is
 
  ![Equation to compute number of activities](./media/performance/number-activities-equation.gif)
 
- The WF3 test’s activity count can be computed with a slightly different equation due to an extra sequence:
+ The WF3 test's activity count can be computed with a slightly different equation due to an extra sequence:
 
  ![Equation to compute number of WF3 activities](./media/performance/wf3-number-activities-equation.gif)
 
- Where d is the depth and a is the number of activities per sequence.  The logic behind these equations is that the first constant, multiplied by a, is the number of sequences and the second constant is the static number of activities in the current level.  There are three flowchart child activities in each flowchart.  At the bottom depth level, these flowcharts are empty but at the other levels they are copies of the main flowchart.  The number of activities in each test variation’s workflow definition is indicated in the following table:
+ Where d is the depth and a is the number of activities per sequence.  The logic behind these equations is that the first constant, multiplied by a, is the number of sequences and the second constant is the static number of activities in the current level.  There are three flowchart child activities in each flowchart.  At the bottom depth level, these flowcharts are empty but at the other levels they are copies of the main flowchart.  The number of activities in each test variation's workflow definition is indicated in the following table:
 
  ![A table that shows the number of activities used in each test](./media/performance/workflow-variation-compare-table.gif)
 
@@ -276,7 +276,7 @@ The following diagram shows the basic compensation workflow. The WF3 workflow is
 ### Test Results
  ![Column chart showing throughput performance results](./media/performance/throughput-performance-results.gif)
 
- Even with complex workflows with lots of depth and a high number of activities, the performance results are consistent with other throughput numbers shown earlier in this article.  WF4’s throughput is orders of magnitude faster and has to be compared on a logarithmic scale.
+ Even with complex workflows with lots of depth and a high number of activities, the performance results are consistent with other throughput numbers shown earlier in this article.  WF4's throughput is orders of magnitude faster and has to be compared on a logarithmic scale.
 
 ### Memory
  The memory overhead of Windows Workflow Foundation is measured in two key areas: workflow complexity and number of workflow definitions.  Memory measurements were taken on a Windows 7 64-bit workstation.  There are many ways to obtain the measurement of working set size such as monitoring performance counters, polling Environment.WorkingSet, or using a tool like VMMap available from [VMMap](/sysinternals/downloads/vmmap). A combination of methods was used to obtain and verify the results of each test.
@@ -406,13 +406,13 @@ public class Workflow1 : Activity
 
 - ETW tracking events are easily combined with the WCF ETW events or other ETW providers such as a SQL Server or kernel provider.
 
-- Workflow authors do not need to alter a workflow to work better with a particular tracking implementation, such as the WF3 SQL tracking service’s batch mode.
+- Workflow authors do not need to alter a workflow to work better with a particular tracking implementation, such as the WF3 SQL tracking service's batch mode.
 
 - An administrator can turn tracking on or off without recycling the host process.
 
  The performance benefits to ETW tracking come with a drawback.  ETW events can be lost if the system is under intense resource pressure.  The processing of events is not meant to block normal program execution and therefore it is not guaranteed that all ETW events will be broadcast to their subscribers.  This makes ETW tracking great for health monitoring but not suitable for auditing.
 
- While WF4 does not have a SQL tracking provider, AppFabric does.  AppFabric’s SQL tracking approach is to subscribe to ETW events with a Windows Service that batches the events and writes them to a SQL table designed for quick inserts.  A separate job drains the data from this table and reforms it into reporting tables that can be viewed on the AppFabric dashboard.  This means that a batch of tracking events is handled independent of the workflow it came from and therefore does not have to wait for a persistence point before being recorded.
+ While WF4 does not have a SQL tracking provider, AppFabric does.  AppFabric's SQL tracking approach is to subscribe to ETW events with a Windows Service that batches the events and writes them to a SQL table designed for quick inserts.  A separate job drains the data from this table and reforms it into reporting tables that can be viewed on the AppFabric dashboard.  This means that a batch of tracking events is handled independent of the workflow it came from and therefore does not have to wait for a persistence point before being recorded.
 
  ETW events can be recorded with tools such as logman or xperf.  The compact ETL file can be viewed with a tool like xperfview or converted to a more readable format, such as XML, with tracerpt.  In WF3, the only option for getting tracking events without a SQL database is to create a custom tracking service. For more information about ETW, see [WCF Services and Event Tracing for Windows](../wcf/samples/wcf-services-and-event-tracing-for-windows.md) and [Event Tracing - Windows applications](/windows/desktop/etw/event-tracing-portal).
 
@@ -425,7 +425,7 @@ public class Workflow1 : Activity
 
  ![Column chart showing workflow tracking costs](./media/performance/workflow-tracking-costs.gif)
 
- Health monitoring has roughly a 3% impact on throughput.  The basic profile’s cost is around 8%.
+ Health monitoring has roughly a 3% impact on throughput.  The basic profile's cost is around 8%.
 
 ## Interop
  WF4 is almost a complete rewrite of [!INCLUDE[wf1](../../../includes/wf1-md.md)] and therefore WF3 workflows and activities are not directly compatible with WF4.  Many customers that adopted Windows Workflow Foundation early will have in-house or third-party workflow definitions and custom activities for WF3.  One way to ease the transition to WF4 is to use the Interop activity, which can execute WF3 activities from within a WF4 workflow.  It is recommended that the <xref:System.Activities.Statements.Interop> activity only be used when necessary. For more information about migrating to WF4 check out the [WF4 Migration Guidance](migration-guidance.md).

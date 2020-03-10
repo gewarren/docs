@@ -21,7 +21,7 @@ ICalculator channel = factory.CreateChannel();
 ```
 
 > [!IMPORTANT]
-> If you are running this sample in a cross-machine scenario, you must replace "localhost" in the preceding code with the fully-qualified name of the machine that is running the service. This sample does not use configuration to set the endpoint address, so this must be done in code.
+> If you are running this sample in a cross-machine scenario, you must replace "localhost" in the preceding code with the fully qualified name of the machine that is running the service. This sample does not use configuration to set the endpoint address, so this must be done in code.
 
 Once the channel is created, service operations can be invoked just as with a generated client.
 
@@ -61,7 +61,7 @@ Press <ENTER> to terminate client.
 
 ### To run the sample cross machine
 
-1. Replace "localhost" in the following code with the fully-qualified name of the machine that is running the service.
+1. Replace "localhost" in the following code with the fully qualified name of the machine that is running the service.
 
     ```csharp
     EndpointAddress address = new EndpointAddress("http://localhost/servicemodelsamples/service.svc");

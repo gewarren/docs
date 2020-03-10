@@ -34,7 +34,7 @@ For convenience, the topic uses the following roles:
 
 WCF implements `CreateSequence` and `CreateSequenceResponse` messages to establish a reliable messaging sequence. The following constraints apply:
 
-- B1101: The WCF Initiator uses the same endpoint reference as the `CreateSequence` message’s `ReplyTo`, `AcksTo` and `Offer/Endpoint`.
+- B1101: The WCF Initiator uses the same endpoint reference as the `CreateSequence` message's `ReplyTo`, `AcksTo` and `Offer/Endpoint`.
 
 - R1102: The `AcksTo`, `ReplyTo` and `Offer/Endpoint` endpoint references in the `CreateSequence` message must have address values with identical string representations such that they match the octet-wise.
 
@@ -238,7 +238,7 @@ Example `TerminateSequenceResponse` message:
 
 The following is a list of constraints that apply to sequences:
 
-- B1401:WCF generates and accesses sequence numbers no higher than `xs:long`’s maximum inclusive value, 9223372036854775807.
+- B1401:WCF generates and accesses sequence numbers no higher than `xs:long`'s maximum inclusive value, 9223372036854775807.
 
 An example of a `Sequence` header.
 
@@ -348,7 +348,7 @@ WCF provides protection for WS-ReliableMessaging sequences by using secure Trans
 
 - R2302:AWS-Secure Conversation session must be established prior to establishing WS-ReliableMessaging sequence(s).
 
-- R2303: If the WS-ReliableMessaging sequence lifetime exceeds the WS-Secure Conversation session’s lifetime, the `SecurityContextToken` established by using WS-Secure Conversation must be renewed by using the corresponding WS-Secure Conversation Renewal binding.
+- R2303: If the WS-ReliableMessaging sequence lifetime exceeds the WS-Secure Conversation session's lifetime, the `SecurityContextToken` established by using WS-Secure Conversation must be renewed by using the corresponding WS-Secure Conversation Renewal binding.
 
 - B2304:WS-ReliableMessaging sequence or a pair of correlated converse sequences are always bound to a single WS-SecureConversation session.
 
@@ -434,11 +434,11 @@ Flow control is enabled by setting the <xref:System.ServiceModel.Channels.Reliab
 
 - B4004:When Reliable Messaging Flow Control is enabled, the WCF Reliable Messaging Source uses the value of `netrm:BufferRemaining` to throttle message transmission.
 
-- B4005: WCF generates `netrm:BufferRemaining` integer values between 0 and 4096 inclusive, and reads integer values between 0 and `xs:int`’s `maxInclusive` value 214748364 inclusive.
+- B4005: WCF generates `netrm:BufferRemaining` integer values between 0 and 4096 inclusive, and reads integer values between 0 and `xs:int`'s `maxInclusive` value 214748364 inclusive.
 
-## Message Exchange Patterns
+## Message-Exchange Patterns
 
-This section describes WCF's behavior when WS-ReliableMessaging is used for different Message Exchange Patterns. For each Message Exchange Pattern the following two deployments scenarios are considered:
+This section describes WCF's behavior when WS-ReliableMessaging is used for different Message-Exchange Patterns. For each Message-Exchange Pattern the following two deployments scenarios are considered:
 
 - Non-Addressable Initiator: Initiator is behind a firewall; Responder can deliver messages to the Initiator only on HTTP responses.
 
@@ -448,7 +448,7 @@ This section describes WCF's behavior when WS-ReliableMessaging is used for diff
 
 #### Binding
 
-WCF provides a one-way message exchange pattern using one sequence over one HTTP channel. WCF uses HTTP requests to transmit all messages from the Initiator to the Responder and HTTP responses to transmit all messages from the Responder to the Initiator.
+WCF provides a one-way message-exchange pattern using one sequence over one HTTP channel. WCF uses HTTP requests to transmit all messages from the Initiator to the Responder and HTTP responses to transmit all messages from the Responder to the Initiator.
 
 #### CreateSequence Exchange
 
@@ -470,7 +470,7 @@ The WCF Initiator transmits a `TerminateSequence` message on an HTTP request and
 
 #### Binding
 
-WCF provides a one-way message exchange pattern using one sequence over one inbound and one outbound HTTP channel. WCF uses the HTTP requests to transmit all messages. All HTTP responses have an empty body and HTTP 202 status code.
+WCF provides a one-way message-exchange pattern using one sequence over one inbound and one outbound HTTP channel. WCF uses the HTTP requests to transmit all messages. All HTTP responses have an empty body and HTTP 202 status code.
 
 #### CreateSequence Exchange
 
@@ -480,7 +480,7 @@ The WCF Initiator transmits a `CreateSequence` message with no `Offer` element o
 
 #### Binding
 
-WCF provides a fully-asynchronous, two-way message exchange pattern using two sequences over one inbound and one outbound HTTP channel. This message exchange pattern can be mixed with the `Request/Reply`, `Addressable` Initiator message exchange pattern in a limited way. WCF uses HTTP requests to transmit all messages. All HTTP responses have an empty body and HTTP 202 status code.
+WCF provides a fully asynchronous, two-way message-exchange pattern using two sequences over one inbound and one outbound HTTP channel. This message-exchange pattern can be mixed with the `Request/Reply`, `Addressable` Initiator message-exchange pattern in a limited way. WCF uses HTTP requests to transmit all messages. All HTTP responses have an empty body and HTTP 202 status code.
 
 #### CreateSequence Exchange
 
@@ -488,7 +488,7 @@ The WCF Initiator transmits a `CreateSequence` message with an `Offer` element o
 
 #### Sequence Lifetime
 
-WCF treats the two sequences as one fully-duplex session.
+WCF treats the two sequences as one fully duplex session.
 
 Upon generating a fault that faults one sequence, WCF expects the remote endpoint to fault both sequences. Upon reading a fault that faults one sequence, WCF faults both sequences.
 
@@ -498,7 +498,7 @@ WCF can close its outbound sequence and continue to process messages on its inbo
 
 #### Binding
 
-WCF provides a one-way and request-reply message exchange pattern using two sequences over one HTTP channel. WCF uses HTTP requests to transmit all messages from the Initiator to the Responder and HTTP responses to transmit all messages from the Responder to the Initiator.
+WCF provides a one-way and request-reply message-exchange pattern using two sequences over one HTTP channel. WCF uses HTTP requests to transmit all messages from the Initiator to the Responder and HTTP responses to transmit all messages from the Responder to the Initiator.
 
 #### CreateSequence Exchange
 
@@ -516,7 +516,7 @@ To complete a two way message exchange protocol successfully, the WCF Initiator 
 
 The WCF Responder may reply to the request with an application reply, a fault or a response with an empty body and HTTP 202 status code.
 
-Because of the presence of one-way messages and the timing of application replies, the request sequence message’s sequence number and the response message’s sequence number have no correlation.
+Because of the presence of one-way messages and the timing of application replies, the request sequence message's sequence number and the response message's sequence number have no correlation.
 
 #### Retrying Replies
 
@@ -526,7 +526,7 @@ WCF relies on HTTP request-reply correlation for two-way message exchange protoc
 
 After receiving all reply sequence messages and acknowledgements for all one way request sequence messages, the WCF Initiator transmits a `CloseSequence` message for the request sequence on an HTTP request and expects the `CloseSequenceResponse` on the HTTP response.
 
-Closing the request sequence implicitly closes the reply sequence. This means the WCF Initiator includes the reply sequence’s Final `SequenceAcknowledgement` on the `CloseSequence` message and the reply sequence does not have a `CloseSequence` exchange.
+Closing the request sequence implicitly closes the reply sequence. This means the WCF Initiator includes the reply sequence's Final `SequenceAcknowledgement` on the `CloseSequence` message and the reply sequence does not have a `CloseSequence` exchange.
 
 The WCF Responder ensures all replies are acknowledged and transmits the `CloseSequenceResponse` message on the HTTP response.
 
@@ -534,7 +534,7 @@ The WCF Responder ensures all replies are acknowledged and transmits the `CloseS
 
 After receiving the `CloseSequenceResponse` message, the WCF Initiator transmits a `TerminateSequence` message for the request sequence on an HTTP request and expects the `TerminateSequenceResponse` on the HTTP response.
 
-Like the `CloseSequence` exchange, terminating the request sequence implicitly terminates the reply sequence. This means the WCF Initiator includes the reply sequence’s final `SequenceAcknowledgement` on the `TerminateSequence` message and the reply sequence does not have a `TerminateSequence` exchange.
+Like the `CloseSequence` exchange, terminating the request sequence implicitly terminates the reply sequence. This means the WCF Initiator includes the reply sequence's final `SequenceAcknowledgement` on the `TerminateSequence` message and the reply sequence does not have a `TerminateSequence` exchange.
 
 The WCF Responder transmits the `TerminateSequenceResponse` message on the HTTP response.
 
@@ -542,7 +542,7 @@ The WCF Responder transmits the `TerminateSequenceResponse` message on the HTTP 
 
 #### Binding
 
-WCF provides a request-reply message exchange pattern using two sequences over one inbound and one outbound HTTP channel. This message exchange pattern can be mixed with the `Duplex, Addressable` Initiator message exchange pattern in a limited way. WCF uses the HTTP requests to transmit all messages. All HTTP responses have an empty body and HTTP 202 status code.
+WCF provides a request-reply message-exchange pattern using two sequences over one inbound and one outbound HTTP channel. This message-exchange pattern can be mixed with the `Duplex, Addressable` Initiator message-exchange pattern in a limited way. WCF uses the HTTP requests to transmit all messages. All HTTP responses have an empty body and HTTP 202 status code.
 
 #### CreateSequence Exchange
 
@@ -554,10 +554,10 @@ The following applies to all correlated requests and replies:
 
 - WCF ensures all application request messages bear a `ReplyTo` endpoint reference and a `MessageId`.
 
-- WCF applies the local endpoint reference as each application request message’s `ReplyTo`. The local endpoint reference is the `CreateSequence` message’s `ReplyTo` for the Initiator and the `CreateSequence` message’s `To` for the Responder.
+- WCF applies the local endpoint reference as each application request message's `ReplyTo`. The local endpoint reference is the `CreateSequence` message's `ReplyTo` for the Initiator and the `CreateSequence` message's `To` for the Responder.
 
 - WCF ensures that incoming request messages bear a `MessageId` and a `ReplyTo`.
 
-- WCF ensures the `ReplyTo` endpoint reference’s URI of all application request messages match the local endpoint reference as defined earlier.
+- WCF ensures the `ReplyTo` endpoint reference's URI of all application request messages match the local endpoint reference as defined earlier.
 
 - WCF ensures that all replies bear the correct `RelatesTo` and `To` headers following `wsa` request/reply correlation rules.

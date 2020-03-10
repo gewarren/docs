@@ -16,7 +16,7 @@ This section contains samples that demonstrate Windows Communication Foundation 
  [Federation Sample](../../../../docs/framework/wcf/samples/federation-sample.md)  
  Demonstrates federated security.  
   
- [Weakly-typed JSON Serialization (AJAX)](../../../../docs/framework/wcf/samples/weakly-typed-json-serialization-sample.md)  
+ [Weakly typed JSON Serialization (AJAX)](../../../../docs/framework/wcf/samples/weakly-typed-json-serialization-sample.md)  
  Demonstrates how to enable WCF developers to work with deserialized, arbitrary JSON objects, without creating user-defined types.  
   
  [Trusted Facade Service](../../../../docs/framework/wcf/samples/trusted-facade-service.md)  

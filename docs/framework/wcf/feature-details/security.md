@@ -41,7 +41,7 @@ The topics in this section describe Windows Communication Foundation (WCF) secur
  Describes the basics of federation and how to create clients that communicate with federated servers.  
   
  [Partial Trust](../../../../docs/framework/wcf/feature-details/partial-trust.md)  
- Describes how to run partially-trusted scenarios and WCF limitations when running partially trusted.  
+ Describes how to run partially trusted scenarios and WCF limitations when running partially trusted.  
   
  [Auditing](../../../../docs/framework/wcf/feature-details/auditing-security-events.md)  
  Describes how to audit security events.  

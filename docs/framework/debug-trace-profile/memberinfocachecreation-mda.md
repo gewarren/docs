@@ -23,7 +23,7 @@ The `memberInfoCacheCreation` managed debugging assistant (MDA) is activated whe
 ## Resolution  
  You can determine where reflection is being used in your program by enabling this MDA and then running your code in a debugger or attaching with a debugger when the MDA is activated. Under a debugger you will get a stack trace showing where the <xref:System.Reflection.MemberInfo> cache was created and from there you can determine where your program is using reflection.  
   
- The resolution is dependent on the objectives of the code. This MDA alerts you that your program has a late-bound scenario. You might want to determine if you can substitute an early-bound scenario or consider the performance of the late bound scenario.  
+ The resolution is dependent on the objectives of the code. This MDA alerts you that your program has a late-bound scenario. You might want to determine if you can substitute an early bound scenario or consider the performance of the late bound scenario.  
   
 ## Effect on the Runtime  
  This MDA is activated for every <xref:System.Reflection.MemberInfo> cache that is created. The performance impact is negligible.  

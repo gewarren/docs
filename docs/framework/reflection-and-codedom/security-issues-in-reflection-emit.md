@@ -70,7 +70,7 @@ The .NET Framework provides three ways to emit Microsoft intermediate language (
   
  As with any other emitted code, executing the dynamic method requires whatever permissions are demanded by the methods the dynamic method uses.  
   
- The system assembly that hosts anonymously-hosted dynamic methods uses the <xref:System.Security.SecurityRuleSet.Level1?displayProperty=nameWithType> transparency model, which is the transparency model that was used in the .NET Framework before the .NET Framework 4.  
+ The system assembly that hosts anonymously hosted dynamic methods uses the <xref:System.Security.SecurityRuleSet.Level1?displayProperty=nameWithType> transparency model, which is the transparency model that was used in the .NET Framework before the .NET Framework 4.  
   
  For more information, see the <xref:System.Reflection.Emit.DynamicMethod> class.  
   

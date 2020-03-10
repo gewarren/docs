@@ -28,7 +28,7 @@ public class Service : IEcho
   
  Using this option is preferred, because the interface with the <xref:System.Web.Services.WebService> attribute constitutes a contract for the operations performed by the service that can be reused with various classes that might implement that same contract in different ways.  
   
- Avoid using the <xref:System.Web.Services.Protocols.SoapDocumentServiceAttribute> attribute to have messages routed to methods based on the fully-qualified name of the body element of the SOAP message rather than the `SOAPAction` HTTP header. WCF uses the `SOAPAction` HTTP header for routing messages.  
+ Avoid using the <xref:System.Web.Services.Protocols.SoapDocumentServiceAttribute> attribute to have messages routed to methods based on the fully qualified name of the body element of the SOAP message rather than the `SOAPAction` HTTP header. WCF uses the `SOAPAction` HTTP header for routing messages.  
   
  The XML into which <xref:System.Xml.Serialization.XmlSerializer> serializes a type by default is semantically identical to the XML into which the <xref:System.Runtime.Serialization.DataContractSerializer> serializes a type, provided the namespace for the XML is explicitly defined. When defining a data type for use with ASP.NETWeb services in anticipation of adopting WCF, do the following:  
   

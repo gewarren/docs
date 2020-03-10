@@ -169,7 +169,7 @@ Automatic hyphenation finds hyphen breakpoints for lines of text, and allows add
 
 ### Use Figures Carefully
 
-A <xref:System.Windows.Documents.Figure> element represents a portion of flow content that can be absolutely-positioned within a page of content. In some cases, a <xref:System.Windows.Documents.Figure> may cause an entire page to automatically reformat if its position collides with content that has already been laid-out. You can minimize the possibility of unnecessary reformatting by either grouping <xref:System.Windows.Documents.Figure> elements next to each other, or declaring them near the top of content in a fixed page size scenario.
+A <xref:System.Windows.Documents.Figure> element represents a portion of flow content that can be absolutely positioned within a page of content. In some cases, a <xref:System.Windows.Documents.Figure> may cause an entire page to automatically reformat if its position collides with content that has already been laid-out. You can minimize the possibility of unnecessary reformatting by either grouping <xref:System.Windows.Documents.Figure> elements next to each other, or declaring them near the top of content in a fixed page size scenario.
 
 ### Optimal Paragraph
 

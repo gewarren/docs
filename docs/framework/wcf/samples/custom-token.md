@@ -611,17 +611,17 @@ string GetCallerCreditCardNumber()
   
 2. Copy the service program files into the service directory on the service computer. Do not forget to copy CreditCardFile.txt; otherwise the credit card authenticator cannot validate credit card information sent from the client. Also copy the Setup.bat and Cleanup.bat files to the service computer.  
   
-3. You must have a server certificate with the subject name that contains the fully-qualified domain name of the computer. You can create one using the Setup.bat if you change the `%SERVER_NAME%` variable to fully-qualified name of the computer where the service is hosted. Note that the Setup.bat file must be run in a Developer Command Prompt for Visual Studio opened with administrator privileges.  
+3. You must have a server certificate with the subject name that contains the fully qualified domain name of the computer. You can create one using the Setup.bat if you change the `%SERVER_NAME%` variable to fully qualified name of the computer where the service is hosted. Note that the Setup.bat file must be run in a Developer Command Prompt for Visual Studio opened with administrator privileges.  
   
 4. Copy the server certificate into the CurrentUser-TrustedPeople store on the client. You must do this only if the server certificate is not issued by a trusted issuer.  
   
-5. In the EchoServiceHost.cs file, change the value of the certificate subject name to specify a fully-qualified computer name instead of localhost.  
+5. In the EchoServiceHost.cs file, change the value of the certificate subject name to specify a fully qualified computer name instead of localhost.  
   
 6. Copy the client program files from the \client\bin\ folder, under the language-specific folder, to the client computer.  
   
 7. In the Client.cs file, change the address value of the endpoint to match the new address of your service.  
   
-8. In the Client.cs file change the subject name of the service X.509 certificate to match the fully-qualified computer name of the remote host instead of localhost.  
+8. In the Client.cs file change the subject name of the service X.509 certificate to match the fully qualified computer name of the remote host instead of localhost.  
   
 9. On the client computer, launch Client.exe from a command prompt window.  
   

@@ -117,7 +117,7 @@ ms.assetid: 38ce284a-4303-46dd-b699-c9365b22a7dc
  The `GetHwnd` method takes size and position information plus the parent window handle and returns the window handle of the hosted [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] content.
 
 > [!NOTE]
-> You cannot use a `#using` directive for the `System::Windows::Interop` namespace. Doing so creates a name collision between the <xref:System.Windows.Interop.MSG> structure in that namespace and the MSG structure declared in winuser.h. You must instead use fully-qualified names to access the contents of that namespace.
+> You cannot use a `#using` directive for the `System::Windows::Interop` namespace. Doing so creates a name collision between the <xref:System.Windows.Interop.MSG> structure in that namespace and the MSG structure declared in winuser.h. You must instead use fully qualified names to access the contents of that namespace.
 
  [!code-cpp[Win32HostingWPFPage#GetHwnd](~/samples/snippets/cpp/VS_Snippets_Wpf/Win32HostingWPFPage/CPP/Win32HostingWPFPage.cpp#gethwnd)]
 

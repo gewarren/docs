@@ -68,7 +68,7 @@ ms.assetid: 8b81645b-8be3-4e26-9c98-4fb0fceca06b
 |Window|Transform, Window|Dock|None|  
   
 > [!NOTE]
-> If a control type has no supported control patterns listed but has one or more conditionally-supported control patterns, then one of those conditional control patterns will be supported at all times.  
+> If a control type has no supported control patterns listed but has one or more conditionally supported control patterns, then one of those conditional control patterns will be supported at all times.  
   
 ## See also
 

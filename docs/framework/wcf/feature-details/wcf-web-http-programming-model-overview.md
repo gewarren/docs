@@ -39,7 +39,7 @@ The Windows Communication Foundation (WCF) WEB HTTP programming model provides t
   
  .NET Framework provides an API for working with URI templates called <xref:System.UriTemplate>. `UriTemplates` allow you to do the following:  
   
-- You can call one of the `Bind` methods with a set of parameters to produce a *fully-closed URI* that matches the template. This means all variables within the URI template are replaced with actual values.  
+- You can call one of the `Bind` methods with a set of parameters to produce a *fully closed URI* that matches the template. This means all variables within the URI template are replaced with actual values.  
   
 - You can call `Match`() with a candidate URI, which uses a template to break up a candidate URI into its constituent parts and returns a dictionary that contains the different parts of the URI labeled according to the variables in the template.  
   

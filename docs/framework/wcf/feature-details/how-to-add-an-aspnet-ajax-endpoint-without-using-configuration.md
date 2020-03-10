@@ -72,13 +72,13 @@ Windows Communication Foundation (WCF) allows you to create a service that expos
   
 ## Example  
   
- The automatically-configured endpoint is created at an empty address relative to the base URL. A configuration file can also be added and used with this approach. If the configuration file contains endpoint definitions, these endpoints are added to the automatically-configured endpoint.  
+ The automatically configured endpoint is created at an empty address relative to the base URL. A configuration file can also be added and used with this approach. If the configuration file contains endpoint definitions, these endpoints are added to the automatically configured endpoint.  
   
  For example, service.svc uses the <xref:System.ServiceModel.Activation.WebScriptServiceHostFactory> and the service directory contains a Web.config file that defines an endpoint for the same service using the <xref:System.ServiceModel.BasicHttpBinding> at the "soap" relative address. In this case, the service contains two endpoints: one at service.svc (which responds to ASP.NET AJAX requests) and another at service.svc/soap (which responds to SOAP requests).  
   
  If the configuration file defines an endpoint at an empty relative address and the <xref:System.ServiceModel.Activation.WebScriptServiceHostFactory> is used, an exception is thrown and the service fails to start.  
   
- You cannot use configuration to modify settings on the automatically-configured endpoint. If any setting (such as a reader quota) must be modified, you must not use the configuration-free approach by removing the <xref:System.ServiceModel.Activation.WebScriptServiceHostFactory> from the .svc file and creating a configuration entry for the endpoint.  
+ You cannot use configuration to modify settings on the automatically configured endpoint. If any setting (such as a reader quota) must be modified, you must not use the configuration-free approach by removing the <xref:System.ServiceModel.Activation.WebScriptServiceHostFactory> from the .svc file and creating a configuration entry for the endpoint.  
   
  If your service requires ASP.NET Compatibility Mode - for example, if it uses the <xref:System.Web.HttpContext> class or ASP.NET authorization mechanisms - a configuration file is still required to turn on this mode. The configuration element required is the [\<serviceHostingEnvironment>](../../../../docs/framework/configure-apps/file-schema/wcf/servicehostingenvironment.md) element, which must be added as follows.  
   

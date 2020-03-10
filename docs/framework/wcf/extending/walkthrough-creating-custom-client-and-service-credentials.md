@@ -111,7 +111,7 @@ Once you have the configuration handler class, it can be integrated into the WCF
 
 2. Add an <`add`> element to the <`behaviorExtensions`> element and set the `name` attribute to an appropriate value.
 
-3. Set the `type` attribute to the fully-qualified type name. Also include the assembly name and other assembly attributes.
+3. Set the `type` attribute to the fully qualified type name. Also include the assembly name and other assembly attributes.
 
     ```xml
     <system.serviceModel>

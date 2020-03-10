@@ -134,7 +134,7 @@ class CustomIdentityVerifier : IdentityVerifier
   
 5. Copy the client program files to the client directory on the client computer. Also copy the Setup.bat, Cleanup.bat, and ImportServiceCert.bat files to the client.  
   
-6. On the service, run `setup.bat service` in a Developer Command Prompt for Visual Studio opened with administrator privileges. Running `setup.bat` with the `service` argument creates a service certificate with the fully-qualified domain name of the computer and exports the service certificate to a file named Service.cer.  
+6. On the service, run `setup.bat service` in a Developer Command Prompt for Visual Studio opened with administrator privileges. Running `setup.bat` with the `service` argument creates a service certificate with the fully qualified domain name of the computer and exports the service certificate to a file named Service.cer.  
   
 7. Copy the Service.cer file from the service directory to the client directory on the client computer.  
   

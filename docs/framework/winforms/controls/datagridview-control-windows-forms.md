@@ -12,7 +12,7 @@ helpviewer_keywords:
   - "tabular data [Windows Forms], displaying on Windows Forms"
   - "datasets [Windows Forms], displaying in DataGridView control"
   - "DataGridView control [Windows Forms]"
-ms.assetid: dbee73f2-bba6-4874-9389-cd21d44309be
+ms.assetid: dbee73f2-bba6-4874-9389-cd21d44309be'
 ---
 # DataGridView Control (Windows Forms)
 The `DataGridView` control provides a powerful and flexible way to display data in a tabular format. You can use the `DataGridView` control to show read-only views of a small amount of data, or you can scale it to show editable views of very large sets of data.  
@@ -32,7 +32,7 @@ The `DataGridView` control provides a powerful and flexible way to display data 
  Describes the column types in the Windows Forms `DataGridView` control used to display data and allow users to modify or add data.  
   
  [Basic Column, Row, and Cell Features in the Windows Forms DataGridView Control](basic-column-row-and-cell-features-wf-datagridview-control.md)  
- Provides topics that describe commonly-used cell, row, and column properties.  
+ Provides topics that describe commonly used cell, row, and column properties.  
   
  [Basic Formatting and Styling in the Windows Forms DataGridView Control](basic-formatting-and-styling-in-the-windows-forms-datagridview-control.md)  
  Provides topics that describe how to modify the basic appearance of the control and the display formatting of cell data.  

@@ -179,7 +179,7 @@ public class RemotingCustomerReference : MarshalByRefObject
 }  
 ```  
   
- It is extremely important to understand the implications of Remoting’s by-reference objects. If either tier (client or server) sends a by-reference object to the other tier, all method calls execute back on the tier owning the object. For example, a client calling methods on a by-reference object returned by the server will execute code on the server. Similarly, a server calling methods on a by-reference object provided by the client will execute code back on the client. For this reason, the use of .NET Remoting is recommended only within fully-trusted environments. Exposing a public .NET Remoting endpoint to untrusted clients will make a Remoting server vulnerable to attack.  
+ It is extremely important to understand the implications of Remoting’s by-reference objects. If either tier (client or server) sends a by-reference object to the other tier, all method calls execute back on the tier owning the object. For example, a client calling methods on a by-reference object returned by the server will execute code on the server. Similarly, a server calling methods on a by-reference object provided by the client will execute code back on the client. For this reason, the use of .NET Remoting is recommended only within fully trusted environments. Exposing a public .NET Remoting endpoint to untrusted clients will make a Remoting server vulnerable to attack.  
   
 #### Serialization in WCF  
  WCF supports only by-value serialization. The most common way to define a type to exchange between client and server is like in the following example:  
@@ -206,7 +206,7 @@ public class WCFCustomer
 ### Exception Handling Capabilities  
   
 #### Exceptions in .NET Remoting  
- Exceptions thrown by a Remoting server are serialized, sent to the client, and thrown locally on the client like any other exception. Custom exceptions can be created by sub-classing the Exception type and marking it with [Serializable].   Most framework exceptions are already marked in this way, allowing most to be thrown by the server, serialized, and re-thrown on the client. Though this design is convenient during development, server-side information can inadvertently be disclosed to the client. This is one of many reasons Remoting should be used only in fully-trusted environments.  
+ Exceptions thrown by a Remoting server are serialized, sent to the client, and thrown locally on the client like any other exception. Custom exceptions can be created by sub-classing the Exception type and marking it with [Serializable].   Most framework exceptions are already marked in this way, allowing most to be thrown by the server, serialized, and re-thrown on the client. Though this design is convenient during development, server-side information can inadvertently be disclosed to the client. This is one of many reasons Remoting should be used only in fully trusted environments.  
   
 #### Exceptions and Faults in WCF  
  WCF does not allow arbitrary exception types to be returned from the server to the client because it could lead to inadvertent information disclosure. If a service operation throws an unexpected exception, it causes a general purpose FaultException to be thrown on the client. This exception does not carry any information why or where the problem occurred, and for some applications this is sufficient. Applications that need to communicate richer error information to the client do this by defining a fault contract.  
@@ -265,7 +265,7 @@ catch (FaultException<CustomerServiceFault> fault)
 ### Security Considerations  
   
 #### Security in .NET Remoting  
- Some .NET Remoting channels support security features such as authentication and encryption at the channel layer (IPC and TCP). The HTTP channel relies on Internet Information Services (IIS) for both authentication and encryption. Despite this support, you should consider .NET Remoting an unsecure communication protocol and use it only within fully-trusted environments. Never expose a public Remoting endpoint to the Internet or untrusted clients.  
+ Some .NET Remoting channels support security features such as authentication and encryption at the channel layer (IPC and TCP). The HTTP channel relies on Internet Information Services (IIS) for both authentication and encryption. Despite this support, you should consider .NET Remoting an unsecure communication protocol and use it only within fully trusted environments. Never expose a public Remoting endpoint to the Internet or untrusted clients.  
   
 #### Security in WCF  
  WCF was designed with security in mind, in part to address the kinds of vulnerabilities found in .NET Remoting. WCF offers security at both the transport and message level, and offers many options for authentication, authorization, encryption, and so on. For more information, see the following topics:  
@@ -653,4 +653,4 @@ public class RemotingServer : MarshalByRefObject
  Normal WCF exchanges of data are by value. This guarantees that invoking methods on one of these data objects executes only locally – it will not invoke code on the other tier. While it is possible to achieve something like by-reference objects returned *from* the server, it is not possible for a client to pass a by-reference object *to* the server. A scenario that requires a conversation back and forth between client and server can be achieved in WCF using a duplex service. For more information, see [Duplex Services](./feature-details/duplex-services.md).  
   
 ## Summary  
- .NET Remoting is a communication framework intended to be used only within fully-trusted environments. It is a legacy product and supported only for backward compatibility. It should not be used to build new applications. Conversely, WCF was designed with security in mind and is recommended for new and existing applications. Microsoft recommends that existing Remoting applications be migrated to use WCF or ASP.NET Web API instead.
+ .NET Remoting is a communication framework intended to be used only within fully trusted environments. It is a legacy product and supported only for backward compatibility. It should not be used to build new applications. Conversely, WCF was designed with security in mind and is recommended for new and existing applications. Microsoft recommends that existing Remoting applications be migrated to use WCF or ASP.NET Web API instead.

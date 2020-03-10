@@ -67,13 +67,13 @@ Service contracts often need to be created from existing services. In .NET Frame
 
 - **Reuse Types**: This setting specifies which libraries are used for type reuse. This setting only applies if **Serializer Mode** is set to **Data Contract Serializer**.
 
-- **Collection Type**: This setting specifies the fully-qualified or assembly-qualified type to be used for the collection data type. This setting only applies if **Serializer Mode** is set to **Data Contract Serializer**.
+- **Collection Type**: This setting specifies the fully qualified or assembly-qualified type to be used for the collection data type. This setting only applies if **Serializer Mode** is set to **Data Contract Serializer**.
 
-- **Dictionary Type**: This setting specifies the fully-qualified or assembly-qualified type to be used for the dictionary data type.
+- **Dictionary Type**: This setting specifies the fully qualified or assembly-qualified type to be used for the dictionary data type.
 
 - **EnableDataBinding**: This setting specifies whether to implement the <xref:System.ComponentModel.INotifyPropertyChanged> interface on all data types to implement data binding.
 
-- **ExcludedTypes**:This setting specifies the list of fully-qualified or assembly-qualified types to be excluded from the referenced assemblies. This setting only applies if **Serializer Mode** is set to **Data Contract Serializer**.
+- **ExcludedTypes**:This setting specifies the list of fully qualified or assembly-qualified types to be excluded from the referenced assemblies. This setting only applies if **Serializer Mode** is set to **Data Contract Serializer**.
 
 - **GenerateInternalTypes**: This setting specifies whether to generate classes that are marked as internal. This setting only applies if **Serializer Mode** is set to **Data Contract Serializer**.
 

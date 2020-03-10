@@ -105,7 +105,7 @@ The `ImplementationVisibility` setting on the tracking profile is optional. By d
 
 Tracking profiles are structured as declarative subscriptions for tracking records that allow you to query the workflow runtime for specific tracking records. There are several query types that allow you subscribe to different classes of <xref:System.Activities.Tracking.TrackingRecord> objects. Tracking profiles can be specified in configuration or through code. Here are the most common query types:
 
-- <xref:System.Activities.Tracking.WorkflowInstanceQuery> - Use this to track workflow instance life cycle changes like the previously-demonstrated `Started` and `Completed`. The <xref:System.Activities.Tracking.WorkflowInstanceQuery> is used to subscribe to the following <xref:System.Activities.Tracking.TrackingRecord> objects:
+- <xref:System.Activities.Tracking.WorkflowInstanceQuery> - Use this to track workflow instance lifecycle changes like the previously demonstrated `Started` and `Completed`. The <xref:System.Activities.Tracking.WorkflowInstanceQuery> is used to subscribe to the following <xref:System.Activities.Tracking.TrackingRecord> objects:
 
   - <xref:System.Activities.Tracking.WorkflowInstanceRecord>
 

@@ -295,11 +295,11 @@ serviceHost.Credentials. UserNameAuthentication.CustomUserNamePasswordValidator 
   
 2. Copy the service program files the service directory on the service machine. Also copy the Setup.bat and Cleanup.bat files to the service machine.  
   
-3. You need a server certificate with the subject name that contains the fully-qualified domain name of the machine. The configuration file for the server must be updated to reflect this new certificate name.  
+3. You need a server certificate with the subject name that contains the fully qualified domain name of the machine. The configuration file for the server must be updated to reflect this new certificate name.  
   
 4. Copy the server certificate into the CurrentUser-TrustedPeople store of the client. You need to do this only if the server certificate is not issued by a trusted issuer.  
   
-5. In the App.config file on the service machine, change the value of the base address to specify a fully-qualified machine name instead of localhost.  
+5. In the App.config file on the service machine, change the value of the base address to specify a fully qualified machine name instead of localhost.  
   
 6. On the service machine, launch Service.exe from a command prompt window.  
   

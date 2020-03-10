@@ -35,7 +35,7 @@ End Module
 ## Custom Binding  
  In addition to being used implicitly by compilers for late binding, reflection can be used explicitly in code to accomplish late binding.  
   
- The [common language runtime](../../standard/clr.md) supports multiple programming languages, and the binding rules of these languages differ. In the early-bound case, code generators can completely control this binding. However, in late binding through reflection, binding must be controlled by customized binding. The <xref:System.Reflection.Binder> class provides custom control of member selection and invocation.  
+ The [common language runtime](../../standard/clr.md) supports multiple programming languages, and the binding rules of these languages differ. In the early bound case, code generators can completely control this binding. However, in late binding through reflection, binding must be controlled by customized binding. The <xref:System.Reflection.Binder> class provides custom control of member selection and invocation.  
   
  Using custom binding, you can load an assembly at run time, obtain information about types in that assembly, specify the type that you want, and then invoke methods or access fields or properties on that type. This technique is useful if you do not know an object's type at compile time, such as when the object type is dependent on user input.  
   

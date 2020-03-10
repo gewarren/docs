@@ -91,7 +91,7 @@ Similarly, the endpoint configuration element that uses an empty string as the r
 <endpoint address="" ... />
 ```
 
-You must always use relative endpoint addresses for IIS-hosted service endpoints. Supplying a fully-qualified endpoint address (for example, `http://localhost/MyService.svc`) can lead to errors in the deployment of the service if the endpoint address does not point to the IIS-application that hosts the service exposing the endpoint. Using relative endpoint addresses for hosted services avoids these potential conflicts.
+You must always use relative endpoint addresses for IIS-hosted service endpoints. Supplying a fully qualified endpoint address (for example, `http://localhost/MyService.svc`) can lead to errors in the deployment of the service if the endpoint address does not point to the IIS-application that hosts the service exposing the endpoint. Using relative endpoint addresses for hosted services avoids these potential conflicts.
 
 ### Available Transports
 

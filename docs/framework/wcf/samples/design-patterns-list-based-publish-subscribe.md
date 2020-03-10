@@ -134,13 +134,13 @@ public class PriceChangeEventArgs : EventArgs
   
     1. Copy the client program files from the \client\bin\ folder, under the language-specific folder, to the client machines.  
   
-    2. In each client configuration file, change the address value of the endpoint definition to match the new address of your service. Replace any references to "localhost" with a fully-qualified domain name in the address.  
+    2. In each client configuration file, change the address value of the endpoint definition to match the new address of your service. Replace any references to "localhost" with a fully qualified domain name in the address.  
   
 3. Set up the data source machine:  
   
     1. Copy the data source program files from the \datasource\bin\ folder, under the language-specific folder, to the data source machine.  
   
-    2. In the data source configuration file, change the address value of the endpoint definition to match the new address of your service. Replace any references to "localhost" with a fully-qualified domain name in the address.  
+    2. In the data source configuration file, change the address value of the endpoint definition to match the new address of your service. Replace any references to "localhost" with a fully qualified domain name in the address.  
   
 4. On the client machines, launch Client.exe from a command prompt.  
   

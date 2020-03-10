@@ -30,7 +30,7 @@ WCF includes the following set of features. For more information, see [WCF Featu
 
 - **Service Orientation**
 
-     One consequence of using WS standards is that WCF enables you to create *service oriented* applications. Service-oriented architecture (SOA) is the reliance on Web services to send and receive data. The services have the general advantage of being loosely-coupled instead of hard-coded from one application to another. A loosely-coupled relationship implies that any client created on any platform can connect to any service as long as the essential contracts are met.
+     One consequence of using WS standards is that WCF enables you to create *service oriented* applications. Service-oriented architecture (SOA) is the reliance on Web services to send and receive data. The services have the general advantage of being loosely coupled instead of hard-coded from one application to another. A loosely coupled relationship implies that any client created on any platform can connect to any service as long as the essential contracts are met.
 
 - **Interoperability**
 

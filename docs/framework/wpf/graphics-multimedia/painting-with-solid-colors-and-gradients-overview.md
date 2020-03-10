@@ -30,11 +30,11 @@ To paint an area with a solid color in [!INCLUDE[TLA2#tla_xaml](../../../../incl
 
   [!code-xaml[BrushOverviewExamples_snip#SolidColorBrushNamedColor1XAML](~/samples/snippets/xaml/VS_Snippets_Wpf/BrushOverviewExamples_snip/XAML/SolidColorBrushExample.xaml#solidcolorbrushnamedcolor1xaml)]
 
-- Choose a color from the 32-bit color palette by specifying the amounts of red, green, and blue to combine into a single solid color.  The format for specifying a color from the 32-bit palette is "*#rrggbb*", where *rr* is a two digit hexadecimal number specifying the relative amount of red, *gg* specifies the amount of green, and *bb* specifies the amount of blue.  Additionally, the color can be specified as "#*aarrggbb*" where *aa* specifies the *alpha* value, or transparency, of the color. This approach enables you to create colors that are partially transparent.  In the following example, the <xref:System.Windows.Controls.Control.Background%2A> of a <xref:System.Windows.Controls.Button> is set to fully-opaque red using hexadecimal notation.
+- Choose a color from the 32-bit color palette by specifying the amounts of red, green, and blue to combine into a single solid color.  The format for specifying a color from the 32-bit palette is "*#rrggbb*", where *rr* is a two digit hexadecimal number specifying the relative amount of red, *gg* specifies the amount of green, and *bb* specifies the amount of blue.  Additionally, the color can be specified as "#*aarrggbb*" where *aa* specifies the *alpha* value, or transparency, of the color. This approach enables you to create colors that are partially transparent.  In the following example, the <xref:System.Windows.Controls.Control.Background%2A> of a <xref:System.Windows.Controls.Button> is set to fully opaque red using hexadecimal notation.
 
   [!code-xaml[BrushOverviewExamples_snip#SolidColorBrushHex1XAML](~/samples/snippets/xaml/VS_Snippets_Wpf/BrushOverviewExamples_snip/XAML/SolidColorBrushExample.xaml#solidcolorbrushhex1xaml)]
 
-- Use property tag syntax to describe a <xref:System.Windows.Media.SolidColorBrush>. This syntax is more verbose but enables you to specify additional settings, such as the brush's opacity. In the following example, the <xref:System.Windows.Controls.Control.Background%2A> properties of two <xref:System.Windows.Controls.Button> elements are set to fully-opaque red. The first brush's color is described using a predefined color name. The second brush's color is described using hexadecimal notation.
+- Use property tag syntax to describe a <xref:System.Windows.Media.SolidColorBrush>. This syntax is more verbose but enables you to specify additional settings, such as the brush's opacity. In the following example, the <xref:System.Windows.Controls.Control.Background%2A> properties of two <xref:System.Windows.Controls.Button> elements are set to fully opaque red. The first brush's color is described using a predefined color name. The second brush's color is described using hexadecimal notation.
 
   [!code-xaml[BrushOverviewExamples_snip#SolidColorBrushPropertyTag1XAML](~/samples/snippets/xaml/VS_Snippets_Wpf/BrushOverviewExamples_snip/XAML/SolidColorBrushExample.xaml#solidcolorbrushpropertytag1xaml)]
 
@@ -152,7 +152,7 @@ RadialGradientBrushes with different GradientOrigin, Center, RadiusX, and Radius
 
 <a name="specifyinggradientcolors"></a>
 
-## Specifying Transparent or Partially-Transparent Gradient Stops
+## Specifying Transparent or Partially Transparent Gradient Stops
 
 Because gradient stops do not provide an opacity property, you must specify the alpha channel of colors using  ARGB hexadecimal notation in markup or use the <xref:System.Windows.Media.Color.FromScRgb%2A?displayProperty=nameWithType> method to create gradient stops that are transparent or partially transparent. The following sections explain how to create partially transparent gradient stops in [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] and code.
 

@@ -144,9 +144,9 @@ The Membership and Role Provider sample demonstrates how a service can use the A
   
 4. Copy the client program files to the client directory on the client computer. Also copy the Setup.bat, Cleanup.bat, and ImportServiceCert.bat files to the client.  
   
-5. On the server, open a Developer Command Prompt for Visual Studio with administrative privileges and run `setup.bat service`. Running `setup.bat` with the `service` argument creates a service certificate with the fully-qualified domain name of the computer and exports the service certificate to a file named Service.cer.  
+5. On the server, open a Developer Command Prompt for Visual Studio with administrative privileges and run `setup.bat service`. Running `setup.bat` with the `service` argument creates a service certificate with the fully qualified domain name of the computer and exports the service certificate to a file named Service.cer.  
   
-6. Edit Web.config to reflect the new certificate name (in the `findValue` attribute in the [\<serviceCertificate>](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-servicecredentials.md)), which is the same as the fully-qualified domain name of the computer.  
+6. Edit Web.config to reflect the new certificate name (in the `findValue` attribute in the [\<serviceCertificate>](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-servicecredentials.md)), which is the same as the fully qualified domain name of the computer.  
   
 7. Copy the Service.cer file from the service directory to the client directory on the client computer.  
   

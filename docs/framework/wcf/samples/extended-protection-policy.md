@@ -42,9 +42,9 @@ Extended Protection is a security initiative for protecting against man-in-the-m
   
 9. Open **Advanced Settings** under **Windows Authentication** for this virtual directory and set it to **Required**.  
   
-10. You can test the service by accessing the HTTPS URL from a browser window (Provide a fully-qualified domain name). If you want to access this URL from a remote machine, make sure that the firewall is opened for all incoming HTTP and HTTPS connections.  
+10. You can test the service by accessing the HTTPS URL from a browser window (Provide a fully qualified domain name). If you want to access this URL from a remote machine, make sure that the firewall is opened for all incoming HTTP and HTTPS connections.  
   
-11. Open the client configuration file and provide a fully-qualified domain name for the client or endpoint address attribute that replaces `<<full_machine_name>>`.  
+11. Open the client configuration file and provide a fully qualified domain name for the client or endpoint address attribute that replaces `<<full_machine_name>>`.  
   
 12. Run the client. The client communicates with the service, which establishes a secure channel and uses extended protection.  
   

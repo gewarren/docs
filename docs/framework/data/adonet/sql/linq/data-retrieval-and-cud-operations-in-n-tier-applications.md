@@ -113,7 +113,7 @@ public IEnumerable<Product> GetProductsByCategory(int categoryID)
 }  
 ```  
   
- An instance of a data context should have a lifetime of one "unit of work." In a loosely-coupled environment, a unit of work is typically small, perhaps one optimistic transaction, including a single call to `SubmitChanges`. Therefore, the data context is created and disposed at method scope. If the unit of work includes calls to business rules logic, then generally you will want to keep the `DataContext` instance for that whole operation. In any case, `DataContext` instances are not intended to be kept alive for long periods of time across arbitrary numbers of transactions.  
+ An instance of a data context should have a lifetime of one "unit of work." In a loosely coupled environment, a unit of work is typically small, perhaps one optimistic transaction, including a single call to `SubmitChanges`. Therefore, the data context is created and disposed at method scope. If the unit of work includes calls to business rules logic, then generally you will want to keep the `DataContext` instance for that whole operation. In any case, `DataContext` instances are not intended to be kept alive for long periods of time across arbitrary numbers of transactions.  
   
  This method will return Product objects but not the collection of Order_Detail objects that are associated with each Product. Use the <xref:System.Data.Linq.DataLoadOptions> object to change this default behavior. For more information, see [How to: Control How Much Related Data Is Retrieved](how-to-control-how-much-related-data-is-retrieved.md).  
   
@@ -373,7 +373,7 @@ public void UpdateProductInfo(Product newProd, Product originalProd)
 ### Expected Entity Members  
  As stated previously, only certain members of the entity object are required to be set before you call the `Attach` methods. Entity members that are required to be set must fulfill the following criteria:  
   
-- Be part of the entity’s identity.  
+- Be part of the entity's identity.  
   
 - Be expected to be modified.  
   

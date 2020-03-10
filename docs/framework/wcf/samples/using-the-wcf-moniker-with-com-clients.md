@@ -85,7 +85,7 @@ contractType={9213C6D2-5A6F-3D26-839B-3BA9B82228D3}")
   
 - The binding that the client should use to connect with that endpoint. In this case, the system-defined wsHttpBinding is used though custom bindings can be defined in client configuration files. For use with the Windows Script Host, the custom binding is defined in a Cscript.exe.config file in the same directory as Cscript.exe.  
   
-- The type of the contract that is supported at the endpoint. This is the type that was generated and registered above. Because Visual Basic script does not provide a strongly-typed COM environment, an identifier for the contract must be specified. This GUID is the `interfaceID` from CalcProxy.tlb, which can be viewed by using COM tools such as the OLE/COM Object Viewer (OleView.exe). For strongly-typed environments such as Office VBA or Visual Basic 6.0, adding an explicit reference to the type library and then declaring the type of the proxy object can be used in place of the contract parameter. This also provides IntelliSense support during client application development.  
+- The type of the contract that is supported at the endpoint. This is the type that was generated and registered above. Because Visual Basic script does not provide a strongly typed COM environment, an identifier for the contract must be specified. This GUID is the `interfaceID` from CalcProxy.tlb, which can be viewed by using COM tools such as the OLE/COM Object Viewer (OleView.exe). For strongly typed environments such as Office VBA or Visual Basic 6.0, adding an explicit reference to the type library and then declaring the type of the proxy object can be used in place of the contract parameter. This also provides IntelliSense support during client application development.  
   
  Having constructed the proxy instance with the service moniker, the client application can call methods on the proxy, which results in the service moniker infrastructure calling the corresponding service operations.  
   
@@ -209,9 +209,9 @@ WScript.Echo "MEX service moniker: 9 * 81.25 = " & mexServiceMoniker.Multiply(9,
   
 3. Copy the client script file from the \client folder, under the language-specific folder, to the client computer.  
   
-4. In the script file, change the address value of the endpoint definition to match the new address of your service. Replace any references to "localhost" with a fully-qualified domain name in the address.  
+4. In the script file, change the address value of the endpoint definition to match the new address of your service. Replace any references to "localhost" with a fully qualified domain name in the address.  
   
-5. Copy the WSDL file to the client computer. In the WSDL file, serviceWsdl.xml, replace any references to "localhost" with a fully-qualified domain name in the address.  
+5. Copy the WSDL file to the client computer. In the WSDL file, serviceWsdl.xml, replace any references to "localhost" with a fully qualified domain name in the address.  
   
 6. Copy the Client.dll library from the \client\bin folder, under the language-specific folder, to a directory on the client computer.  
   

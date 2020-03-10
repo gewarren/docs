@@ -144,15 +144,15 @@ The following provides a brief overview of the different sections of the batch f
 
     2. Run Cleanup.bat to remove any old certificates from previous samples.
 
-    3. Export the service's certificate by opening a Developer Command Prompt for Visual Studio with administrative privileges, and running the following command on the service computer (substitute `%SERVER_NAME%` with the fully-qualified name of the computer where the service is running):
+    3. Export the service's certificate by opening a Developer Command Prompt for Visual Studio with administrative privileges, and running the following command on the service computer (substitute `%SERVER_NAME%` with the fully qualified name of the computer where the service is running):
 
         ```console
         certmgr -put -r LocalMachine -s My -c -n %SERVER_NAME% %SERVER_NAME%.cer
         ```
 
-    4. Copy %SERVER_NAME%.cer to the client computer (substitute %SERVER_NAME% with the fully-qualified name of the computer where the service is running).
+    4. Copy %SERVER_NAME%.cer to the client computer (substitute %SERVER_NAME% with the fully qualified name of the computer where the service is running).
 
-    5. Import the service's certificate by opening a Developer Command Prompt for Visual Studio with administrative privileges, and running the following command on the client computer (substitute %SERVER_NAME% with the fully-qualified name of the computer where the service is running):
+    5. Import the service's certificate by opening a Developer Command Prompt for Visual Studio with administrative privileges, and running the following command on the client computer (substitute %SERVER_NAME% with the fully qualified name of the computer where the service is running):
 
         ```console
         certmgr.exe -add -c %SERVER_NAME%.cer -s -r CurrentUser TrustedPeople

@@ -16,7 +16,7 @@ This topic provides an overview of some of the key features of OpenType font tec
   
 <a name="overview"></a>   
 ## OpenType Font Format  
- The OpenType font format is an extension of the TrueType® font format, adding support for PostScript font data. The OpenType font format was developed jointly by Microsoft and Adobe Corporation. OpenType fonts and the operating system services which support OpenType fonts provide users with a simple way to install and use fonts, whether the fonts contain TrueType outlines or CFF (PostScript) outlines.  
+ The OpenType font format is an extension of the TrueType&reg; font format, adding support for PostScript font data. The OpenType font format was developed jointly by Microsoft and Adobe Corporation. OpenType fonts and the operating system services which support OpenType fonts provide users with a simple way to install and use fonts, whether the fonts contain TrueType outlines or CFF (PostScript) outlines.  
   
  The OpenType font format addresses the following developer challenges:  
   
@@ -46,7 +46,7 @@ For details of the OpenType font format, see the [OpenType specification](https:
   
  The OpenType Layout tables are described in more detail in the ["Font File Tables"](https://www.microsoft.com/typography/otspec/otff.htm) section of the OpenType specification.  
   
- The remainder of this overview introduces the breadth and flexibility of some of the visually-interesting OpenType features that are exposed by the properties of the <xref:System.Windows.Documents.Typography> object. For more information on this object, see [Typography Class](#typography_class).  
+ The remainder of this overview introduces the breadth and flexibility of some of the visually interesting OpenType features that are exposed by the properties of the <xref:System.Windows.Documents.Typography> object. For more information on this object, see [Typography Class](#typography_class).  
   
 <a name="variants"></a>   
 ## Variants  

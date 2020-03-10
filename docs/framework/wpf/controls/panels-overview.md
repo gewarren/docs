@@ -171,7 +171,7 @@ ms.assetid: f73644af-9941-4611-8754-6d4cef03fc44
  ![Screenshot: StackPanel vs. DockPanel screenshot](./media/layout-smiley-stackpanel.PNG "layout_smiley_stackpanel")  
   
 #### Defining and Using a StackPanel  
- The following example demonstrates how to use a <xref:System.Windows.Controls.StackPanel> to create a set of vertically-positioned buttons. For horizontal positioning, set the <xref:System.Windows.Controls.StackPanel.Orientation%2A> property to <xref:System.Windows.Controls.Orientation.Horizontal>.  
+ The following example demonstrates how to use a <xref:System.Windows.Controls.StackPanel> to create a set of vertically positioned buttons. For horizontal positioning, set the <xref:System.Windows.Controls.StackPanel.Orientation%2A> property to <xref:System.Windows.Controls.Orientation.Horizontal>.  
   
  [!code-csharp[StackPanel_ovw2#1](~/samples/snippets/csharp/VS_Snippets_Wpf/StackPanel_ovw2/CSharp/StackPanel_Ovw_Sample2.cs#1)]
  [!code-vb[StackPanel_ovw2#1](~/samples/snippets/visualbasic/VS_Snippets_Wpf/StackPanel_ovw2/VisualBasic/StackPanelOvw.vb#1)]  
