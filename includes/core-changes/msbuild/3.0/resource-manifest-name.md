@@ -67,7 +67,9 @@ If you're unsatisfied with the generated manifest names, you can:
 - Set `EmbeddedResourceUseDependentUponConvention` to `false` in your project file to opt out of the new convention entirely:
 
    ```xml
-   <EmbeddedResourceUseDependentUponConvention>false</EmbeddedResourceUseDependentUponConvention>
+   <PropertyGroup>
+     <EmbeddedResourceUseDependentUponConvention>false</EmbeddedResourceUseDependentUponConvention>
+   </PropertyGroup>
    ```
 
    > [!NOTE]
