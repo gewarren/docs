@@ -50,9 +50,6 @@ items:
 
     This process of checking conditions and executing statements based on those conditions is very powerful. Let's explore more.
 
-    > [!NOTE]
-    > This online coding experience is in preview mode. If you encounter problems, please report them [on the dotnet/try repo](https://github.com/dotnet/try/issues).
-
 - title: Make if and else work together
   durationInMinutes: 10
   content: |
@@ -145,9 +142,6 @@ items:
 
     Modify the values of `a`, `b`, and `c` and switch between `&&` and `||` to explore. You'll gain more understanding of how the `&&` and `||` operators work.
 
-    > [!NOTE]
-    > This online coding experience is in preview mode. If you encounter problems, please report them [on the dotnet/try repo](https://github.com/dotnet/try/issues).
-
 - title: Use loops to repeat operations
   durationInMinutes: 6
   content: |
@@ -196,9 +190,6 @@ items:
 
     Let's move on to one last loop statement.
 
-    > [!NOTE]
-    > This online coding experience is in preview mode. If you encounter problems, please report them [on the dotnet/try repo](https://github.com/dotnet/try/issues).
-
 - title: Work with the for loop
   durationInMinutes: 5
   content: |
@@ -234,8 +225,45 @@ items:
     When you're done, let's move on to write some code yourself to
     use what you've learned.
 
-    > [!NOTE]
-    > This online coding experience is in preview mode. If you encounter problems, please report them [on the dotnet/try repo](https://github.com/dotnet/try/issues).
+- title: Created nested loops
+  durationInMinutes: 10
+  content: |
+    A `while`, `do` or `for` loop can be nested inside another loop to create a matrix 
+    using the combination of each item in the outer loop with each item in the inner
+    loop. Let's do that to build a set of alphanumeric pairs to represent rows and columns.
+
+    One `for` loop can generate the rows:
+
+    ```csharp
+    for (int row = 1; row < 11; row++)
+    {
+      Console.WriteLine($"The row is {row}");
+    }
+    ```
+
+    Another loop can generate the columns:
+
+    ```csharp
+    for (char column = 'a'; column < 'k'; column++)
+    {
+      Console.WriteLine($"The column is {column}");
+    }
+    ```
+
+    You can nest one loop inside the other to form pairs:
+      
+    ```csharp
+    for (int row = 1; row < 11; row++)
+    {
+      for (char column = 'a'; column < 'k'; column++)
+      {
+        Console.WriteLine($"The cell is ({row}, {column})");
+      }
+    }
+    ```
+
+    You can see that the outer loop increments once for each full run of the
+    inner loop. Reverse the row and column nesting, and see the changes for yourself.
 
 - title: Combine branches and loops
   durationInMinutes: 12
@@ -250,9 +278,6 @@ items:
     - The `for` loop can help you repeat a series of steps for all the numbers 1 through 20.
 
     Try it yourself. Then check how you did. As a hint, you should get 63 for an answer.
-
-    > [!NOTE]
-    > This online coding experience is in preview mode. If you encounter problems, please report them [on the dotnet/try repo](https://github.com/dotnet/try/issues).
 
 - title: Complete challenge
   durationInMinutes: 1
@@ -270,9 +295,6 @@ items:
     }
     Console.WriteLine($"The sum is {sum}");
     ```
-
-    > [!NOTE]
-    > This online coding experience is in preview mode. If you encounter problems, please report them [on the dotnet/try repo](https://github.com/dotnet/try/issues).
 
 - title: Congratulations!
   content: |
