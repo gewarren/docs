@@ -50,7 +50,7 @@ If you're migrating an app from .NET Framework to .NET Core, the breaking change
 
 ## MSBuild
 
-- [Resource manifest file name change](#resource-manifest-file-names)
+- [Resource manifest file name change](#resource-manifest-file-name-change)
 
 ### .NET Core 3.0
 
