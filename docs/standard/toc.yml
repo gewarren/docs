@@ -46,6 +46,8 @@
       href: base-types/type-conversion.md
     - name: Type conversion tables
       href: base-types/conversion-tables.md
+    - name: Choose between anonymous and tuple types
+      href: base-types/choosing-between-anonymous-and-tuple.md
     - name: Format numbers, dates, other types
       items:
       - name: Overview
