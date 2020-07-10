@@ -101,7 +101,7 @@ string assemblyQualifiedName = typeof(Fabrikam.CustomType).AssemblyQualifiedName
 
 #### Extending through configuration (.NET Framework 2.0 - 3.5)
 
-If your application targets .NET Framework 2.0 or 3.5, you can still use the above _App.config_ mechanism to extend the allowed types list. However, your `<configSections>` element will look slightly different, as shown below.
+If your app targets .NET Framework 2.0 or 3.5, you can still use the above _App.config_ mechanism to extend the allowed types list. However, your `<configSections>` element will look slightly different, as shown below.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -143,7 +143,7 @@ On .NET Framework, the list of allowed types may be extended both with _App.conf
 In .NET Framework, `DataSet` and `DataTable` provide an audit mode capability. When audit mode is enabled, `DataSet` and `DataTable` compare the types of incoming objects against the allowed types list. However, if an object whose type is not allowed is seen, an exception is **not** thrown. Instead, `DataSet` and `DataTable` notify any attached `TraceListener` instances that a suspicious type is present, allowing the `TraceListener` to log this information. No exception is thrown and the deserialization operation continues.
 
 > [!WARNING]
-> Running an app in "audit mode" should only be a temporary measure used for testing. When audit mode is enabled, `DataSet` and `DataTable` do not enforce type restrictions, which can introduce a security hole inside your application. See the following sections titled [Removing all type restrictions](#ratr) and [Safety with regard to untrusted input](#swr) for more information.
+> Running an app in "audit mode" should only be a temporary measure used for testing. When audit mode is enabled, `DataSet` and `DataTable` do not enforce type restrictions, which can introduce a security hole inside your app. See the following sections titled [Removing all type restrictions](#ratr) and [Safety with regard to untrusted input](#swr) for more information.
 
 Audit mode can be enabled through _App.config_:
 
@@ -307,15 +307,15 @@ adapter.Fill(customers, "Customers");
 
 (The code sample above is part of a larger sample found at [Populating a DataSet from a DataAdapter](/dotnet/framework/data/adonet/populating-a-dataset-from-a-dataadapter).)
 
-> Most applications can simplify and assume that their database layer is trusted. However, if you are in the habit of [threat modeling](https://www.microsoft.com/securityengineering/sdl/threatmodeling) your applications, your threat model may consider there to be a trust boundary between the application (client) and database layer (server). Using [mutual authentication](/sql/relational-databases/native-client/features/service-principal-name-spn-support-in-client-connections) or [AAD authentication](/azure/azure-sql/database/authentication-aad-overview) between client and server is one way to help address the risks associated with this. The remainder of this section discusses the possible result of a client connecting to an untrusted server.
+> Most apps can simplify and assume that their database layer is trusted. However, if you are in the habit of [threat modeling](https://www.microsoft.com/securityengineering/sdl/threatmodeling) your apps, your threat model may consider there to be a trust boundary between the application (client) and database layer (server). Using [mutual authentication](/sql/relational-databases/native-client/features/service-principal-name-spn-support-in-client-connections) or [AAD authentication](/azure/azure-sql/database/authentication-aad-overview) between client and server is one way to help address the risks associated with this. The remainder of this section discusses the possible result of a client connecting to an untrusted server.
 
 The consequences of pointing a `DataAdapter` at an untrusted data source depend on the implementation of the `DataAdapter` itself.
 
-### `SqlDataAdapter`
+### SqlDataAdapter
 
-For the built-in type [`SqlDataAdapter`](/dotnet/api/microsoft.data.sqlclient.sqldataadapter), referencing an untrusted data source could result in a denial of service attack. This could result in the application becoming unresponsive or crashing. If an adversary can plant a DLL alongside the application, they may also be able to achieve local code execution.
+For the built-in type [SqlDataAdapter](/dotnet/api/microsoft.data.sqlclient.sqldataadapter), referencing an untrusted data source could result in a denial of service attack. This could result in the app becoming unresponsive or crashing. If an adversary can plant a DLL alongside the app, they may also be able to achieve local code execution.
 
-### Other `DataAdapter` types
+### Other DataAdapter types
 
 Third-party `DataAdapter` implementations must make their own assessments about what security guarantees they provide in the face of untrusted inputs. .NET cannot make any safety guarantees regarding these implementations.
 
@@ -323,13 +323,13 @@ Third-party `DataAdapter` implementations must make their own assessments about 
 
 The `DataSet.ReadXml` and `DataTable.ReadXml` methods are not safe when used with untrusted input. We strongly recommend that consumers instead consider using one of the alternatives outlined later in this document.
 
-The implementations of `DataSet.ReadXml` and `DataTable.ReadXml` were originally created before serialization vulnerabilities were a well-understood threat category. As a result, the code does not follow modern best practices. These APIs can be used as vectors for attackers to perform DoS attacks against web applications. These attacks might render the web service unresponsive or could even result in unexpected process termination. The framework does not provide mitigations for these attack categories and .NET considers this behavior "by design".
+The implementations of `DataSet.ReadXml` and `DataTable.ReadXml` were originally created before serialization vulnerabilities were a well-understood threat category. As a result, the code does not follow modern best practices. These APIs can be used as vectors for attackers to perform DoS attacks against web apps. These attacks might render the web service unresponsive or could even result in unexpected process termination. The framework does not provide mitigations for these attack categories and .NET considers this behavior "by design".
 
 While .NET has released security updates to mitigate some issues (such as information disclosure or remote code execution) in `DataSet.ReadXml` and `DataTable.ReadXml`, these mitigations may not provide complete protection against these threat categories. Consumers should assess their individual scenarios and consider their potential exposure to these risks.
 
 Consumers should be aware that security updates to these APIs may impact application compatibility in some situations. Furthermore, the possibility exists that a novel vulnerability in these APIs will be discovered for which .NET cannot practically publish a security update.
 
-We recommend that consumers of these APIs perform individual risk assessments on their applications. It is the consumer's sole responsibility to determine for itself whether to utilize these APIs. Consumers should assess any security, technical, and legal risks (including regulatory requirements) that may accompany using these APIs within their applications.
+We recommend that consumers of these APIs perform individual risk assessments on their apps. It is the consumer's sole responsibility to determine for itself whether to utilize these APIs. Consumers should assess any security, technical, and legal risks (including regulatory requirements) that may accompany using these APIs within their apps.
 
 ## `DataSet` and `DataTable` via ASP.NET web services or WCF
 
@@ -452,7 +452,7 @@ public class MyClass
 }
 ```
 
-Deserializing a `DataSet` or `DataTable` in this manner from an untrusted JSON blob is not safe. This pattern is vulnerable to a denial of service attack. Such an attack could render the application unresponsive, or it could crash the application.
+Deserializing a `DataSet` or `DataTable` in this manner from an untrusted JSON blob is not safe. This pattern is vulnerable to a denial of service attack. Such an attack could render the app unresponsive, or it could crash the app.
 
 Note: .NET does not warrant or support the implementation of third-party libraries like _Newtonsoft.Json_. This information is only provided for completeness and is accurate as of the time of this writing.
 
@@ -464,4 +464,4 @@ Developers must never use `BinaryFormatter`, `NetDataContractSerializer`, `SoapF
 
 If you accept `DataSet` or `DataTable` through an .asmx SOAP endpoint or a WCF endpoint, or if you deserialize untrusted data into an instance of `DataSet` or `DataTable`, consider changing your object model to use [Entity Framework](https://docs.microsoft.com/ef/) instead. Entity Framework is a rich, modern, object-oriented framework that can represent relational data. It also brings [a diverse ecosystem](/ef/core/providers/) of database providers to make it easy to project database queries via your Entity Framework object models. It also offers built-in protections when deserializing data from untrusted sources.
 
-If your application uses .aspx SOAP endpoints, also consider changing those endpoints to use [WCF](/dotnet/framework/wcf/). WCF is a more full-featured replacement for .asmx web services. WCF endpoints [can be exposed via SOAP](/dotnet/framework/wcf/feature-details/how-to-expose-a-contract-to-soap-and-web-clients) for compatibility with existing callers.
+If your app uses .aspx SOAP endpoints, also consider changing those endpoints to use [WCF](/dotnet/framework/wcf/). WCF is a more full-featured replacement for .asmx web services. WCF endpoints [can be exposed via SOAP](/dotnet/framework/wcf/feature-details/how-to-expose-a-contract-to-soap-and-web-clients) for compatibility with existing callers.
