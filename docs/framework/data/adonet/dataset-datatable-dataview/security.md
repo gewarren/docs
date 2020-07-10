@@ -1,32 +1,39 @@
-# `DataSet` and `DataTable` security guidance
+---
+title: "DataSet and DataTable security guidance"
+ms.date: "07/14/2020"
+dev_langs: 
+  - "csharp"
+  - "vb"
+ms.assetid: 57629d8f-393e-4677-8b83-29ffde27ffff
+---
+# DataSet and DataTable security guidance
 
 ## Introduction
 
 This document applies to:
 
- * .NET Framework (all versions)
- * .NET Core 2.1+
- * .NET 5.0+
+* .NET Framework (all versions)
+* .NET Core 2.1+
+* .NET 5.0+
 
-The [`DataSet`](https://docs.microsoft.com/en-us/dotnet/api/system.data.dataset) and [`DataTable`](https://docs.microsoft.com/en-us/dotnet/api/system.data.datatable) types are legacy .NET components that allow representing data sets as managed objects. These components were introduced in .NET 1.0 as part of the original [ADO.NET infrastructure](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/dataset-datatable-dataview/). Their goal was to provide a managed view over a relational data set, abstracting away whether the underlying source of the data was XML, SQL, or some other technology.
+The [DataSet](/dotnet/api/system.data.dataset) and [DataTable](/dotnet/api/system.data.datatable) types are legacy .NET components that allow representing data sets as managed objects. These components were introduced in .NET 1.0 as part of the original [ADO.NET infrastructure](/dotnet/framework/data/adonet/dataset-datatable-dataview/). Their goal was to provide a managed view over a relational data set, abstracting away whether the underlying source of the data was XML, SQL, or another technology.
 
-See [the ADO.NET documentation](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/) for more information on ADO.NET, including its offerings for more modern data view paradigms.
+See [the ADO.NET documentation](/dotnet/framework/data/adonet/) for more information on ADO.NET, including more modern data view paradigms.
 
-## Default restrictions when deserializing a `DataSet` or `DataTable` from XML
+## Default restrictions when deserializing a DataSet or DataTable from XML
 
 On all supported versions of .NET Framework, .NET Core, and .NET, `DataSet` and `DataTable` place the following restrictions on what types of objects may be present in the deserialized data. By default, this list is restricted to:
 
- * Primitives and primitive equivalents: `bool`, `char`, `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `float`, `double`, `decimal`, `DateTime`, `DateTimeOffset`, `TimeSpan`, `string`, `Guid`, `SqlBinary`, `SqlBoolean`, `SqlByte`, `SqlBytes`, `SqlChars`, `SqlDateTime`, `SqlDecimal`, `SqlDouble`, `SqlGuid`, `SqlInt16`, `SqlInt32`, `SqlInt64`, `SqlMoney`, `SqlSingle`, and `SqlString`.
+* Primitives and primitive equivalents: `bool`, `char`, `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `float`, `double`, `decimal`, `DateTime`, `DateTimeOffset`, `TimeSpan`, `string`, `Guid`, `SqlBinary`, `SqlBoolean`, `SqlByte`, `SqlBytes`, `SqlChars`, `SqlDateTime`, `SqlDecimal`, `SqlDouble`, `SqlGuid`, `SqlInt16`, `SqlInt32`, `SqlInt64`, `SqlMoney`, `SqlSingle`, and `SqlString`.
+* Commonly used non-primitives: `Type`, `Uri`, and `BigInteger`.
+* Commonly used _System.Drawing_ types: `Color`, `Point`, `PointF`, `Rectangle`, `RectangleF`, `Size`, and `SizeF`.
+* `Enum` types.
+* Arrays and lists of the above types.
 
- * Commonly used non-primitives: `Type`, `Uri`, and `BigInteger`.
+If the incoming XML data contains an object whose type is not in this list:
 
- * Commonly used _System.Drawing_ types: `Color`, `Point`, `PointF`, `Rectangle`, `RectangleF`, `Size`, and `SizeF`.
-
- * `Enum` types.
-
- * Arrays and lists of the above types.
-
-If the incoming XML data contains an object whose type is not in this list, an exception will be thrown and the deserialization operation will fail.
+* An exception is thrown.
+* The deserialization operation fails.
 
 When loading XML into an existing `DataSet` or `DataTable` instance, the existing column definitions are also taken into account. If the table already contains a column definition of a custom type, that type is temporarily added to the allow list for the duration of the XML deserialization operation.
 
@@ -34,12 +41,12 @@ When loading XML into an existing `DataSet` or `DataTable` instance, the existin
 XmlReader xmlReader = GetXmlReader();
 
 // Assume the XML blob contains data for type MyCustomClass.
-// The below call to ReadXml will fail because MyCustomClass isn't in the allowed types list.
+// The following call to ReadXml fails because MyCustomClass isn't in the allowed types list.
 
 DataTable table = new DataTable("MyDataTable");
 table.ReadXml(xmlReader);
 
-// However, the below call to ReadXml will succeed, since the DataTable instance
+// However, the following call to ReadXml succeeds, since the DataTable instance
 // already defines a column of type MyCustomClass.
 
 DataTable table = new DataTable("MyDataTable");
@@ -47,17 +54,22 @@ table.Columns.Add("MyColumn", typeof(MyCustomClass));
 table.ReadXml(xmlReader); // this call will succeed
 ```
 
-These restrictions also apply when using `XmlSerializer` to deserialize an instance of `DataSet` or `DataTable`. However, they may not apply when using `BinaryFormatter` to deserialize an instance of `DataSet` or `DataTable`.
+The object type restrictions also apply when using `XmlSerializer` to deserialize an instance of `DataSet` or `DataTable`. However, they may not apply when using `BinaryFormatter` to deserialize an instance of `DataSet` or `DataTable`.
 
-> These restrictions do not apply when using `DataAdapter.Fill`, such as when a `DataTable` instance is populated directly from a database without using the XML deserialization APIs.
+The object type restrictions don't apply when using `DataAdapter.Fill`, such as when a `DataTable` instance is populated directly from a database without using the XML deserialization APIs.
 
 ### Extending the list of allowed types
 
-An application can extend the allowed types list to include their own custom types in addition to the built-in types listed above. If extending the allowed types list, the change affects _all_ `DataSet` and `DataTable` instances within the application. Types cannot be removed from the built-in allowed types list.
+An app can extend the allowed types list to include custom types in addition to the built-in types listed above. If extending the allowed types list, the change affects _all_ `DataSet` and `DataTable` instances within the app. Types cannot be removed from the built-in allowed types list.
 
 #### Extending through configuration (.NET Framework 4.0 - 4.8)
 
-_App.config_ can be used to extend the allowed types list. To do this, use the `<configSections>` element to add a reference to the _System.Data_ configuration section, then use `<system.data.dataset.serialization>`/`<allowedTypes>` to specify additional types. Each `<add>` element must specify only one type by using its assembly qualified type name. If you need to add additional types to the allowed types list, use multiple `<add>` elements.
+_App.config_ can be used to extend the allowed types list. To extend the allowed types list:
+
+* Use the `<configSections>` element to add a reference to the _System.Data_ configuration section.
+* Use `<system.data.dataset.serialization>`/`<allowedTypes>` to specify additional types.
+
+Each `<add>` element must specify only one type by using its assembly qualified type name. To add additional types to the allowed types list, use multiple `<add>` elements.
 
 The following sample shows extending the allowed types list by adding the custom type `Fabrikam.CustomType`.
 
@@ -79,11 +91,13 @@ The following sample shows extending the allowed types list by adding the custom
 </configuration>
 ```
 
-To retrieve the assembly qualified name of a type, use the [`Type.AssemblyQualifiedName`](https://docs.microsoft.com/en-us/dotnet/api/system.type.assemblyqualifiedname) property, as demonstrated below.
+To retrieve the assembly qualified name of a type, use the [Type.AssemblyQualifiedName](/dotnet/api/system.type.assemblyqualifiedname) property, as demonstrated in the following code.
 
 ```cs
 string assemblyQualifiedName = typeof(Fabrikam.CustomType).AssemblyQualifiedName;
 ```
+
+<a name="etc"></a>
 
 #### Extending through configuration (.NET Framework 2.0 - 3.5)
 
@@ -108,7 +122,7 @@ If your application targets .NET Framework 2.0 or 3.5, you can still use the abo
 
 #### Extending programmatically (.NET Framework, .NET Core, .NET 5.0+)
 
-The list of allowed types can also be extended programmatically by using [`AppDomain.SetData`](https://docs.microsoft.com/en-us/dotnet/api/system.appdomain.setdata) with the well-known key _System.Data.DataSetDefaultAllowedTypes_, as shown below.
+The list of allowed types can also be extended programmatically by using [AppDomain.SetData](/dotnet/api/system.appdomain.setdata) with the well-known key _System.Data.DataSetDefaultAllowedTypes_, as shown in the following code.
 
 ```cs
 Type[] extraAllowedTypes = new Type[]
@@ -120,17 +134,21 @@ Type[] extraAllowedTypes = new Type[]
 AppDomain.CurrentDomain.SetData("System.Data.DataSetDefaultAllowedTypes", extraAllowedTypes);
 ```
 
-If using this mechanism, the value associated with the key _System.Data.DataSetDefaultAllowedTypes_ must be of type `Type[]`.
+If using the extension mechanism, the value associated with the key _System.Data.DataSetDefaultAllowedTypes_ must be of type `Type[]`.
 
-On .NET Framework, the list of allowed types may be extended both through _App.config_ and through `AppDomain.SetData`. In this case, `DataSet` and `DataTable` will allow an object to be deserialized as part of the data if its type is present in either list.
+On .NET Framework, the list of allowed types may be extended both with _App.config_ and `AppDomain.SetData`. In this case, `DataSet` and `DataTable` will allow an object to be deserialized as part of the data if its type is present in either list.
 
-### Running an application in audit mode (.NET Framework)
+### Running an app in audit mode (.NET Framework)
 
-In .NET Framework, `DataSet` and `DataTable` provide an audit mode capability. When audit mode is enabled, `DataSet` and `DataTable` will still compare the types of incoming objects against the allowed types list. However, if an object whose type is not allowed is seen, an exception will not be thrown. Instead, `DataSet` and `DataTable` will notify any attached `TraceListener` instances that a suspicious type was present, allowing the `TraceListener` to log this information. No exception will be thrown and the deserialization operation will continue.
+In .NET Framework, `DataSet` and `DataTable` provide an audit mode capability. When audit mode is enabled, `DataSet` and `DataTable` compare the types of incoming objects against the allowed types list. However, if an object whose type is not allowed is seen, an exception is **not** thrown. Instead, `DataSet` and `DataTable` notify any attached `TraceListener` instances that a suspicious type is present, allowing the `TraceListener` to log this information. No exception is thrown and the deserialization operation continues.
 
-> __Warning__: Running an application in "audit mode" should only be a temporary measure used for testing. When audit mode is enabled, `DataSet` and `DataTable` do not enforce type restrictions, which can introduce a security hole inside your application. See the below sections titled _Removing all type restrictions_ and _Safety with regard to untrusted input_ for more information.
+> [!WARNING]
+> Running an app in "audit mode" should only be a temporary measure used for testing. When audit mode is enabled, `DataSet` and `DataTable` do not enforce type restrictions, which can introduce a security hole inside your application. See the following sections titled [Removing all type restrictions](#ratr) and [Safety with regard to untrusted input](#swr) for more information.
 
-Audit mode can be enabled through _App.config_. See the _Extending through configuration_ section earlier in this document for information on the proper value to put for the `<configSections>` element. Then use `<allowedTypes auditOnly="true">` to enable audit mode, as shown below.
+Audit mode can be enabled through _App.config_:
+
+* See the [Extending through configuration](#etc) section in this document for information on the proper value to put for the `<configSections>` element.
+* Use `<allowedTypes auditOnly="true">` to enable audit mode, as shown in the following markup.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -148,7 +166,7 @@ Audit mode can be enabled through _App.config_. See the _Extending through confi
 </configuration>
 ```
 
-Once audit mode is enabled, you can use _App.config_ to hook up your preferred `TraceListener` to `DataSet`'s built-in `TraceSource.` The name of the built-in trace source is _System.Data.DataSet_. The below sample demonstrates writing trace events to the console _and_ to a log file on disk.
+Once audit mode is enabled, you can use _App.config_ to connect your preferred `TraceListener` to the `DataSet` built-in `TraceSource.` The name of the built-in trace source is _System.Data.DataSet_. The following sample demonstrates writing trace events to the console _and_ to a log file on disk.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -173,45 +191,51 @@ Once audit mode is enabled, you can use _App.config_ to hook up your preferred `
 </configuration>
 ```
 
-See the document ["How to: Use TraceSource and Filters with Trace Listeners"](https://docs.microsoft.com/en-us/dotnet/framework/debug-trace-profile/how-to-use-tracesource-and-filters-with-trace-listeners) for more information on `TraceSource` and `TraceListener`.
+For more information on `TraceSource` and `TraceListener`, see the document [How to: Use TraceSource and Filters with Trace Listeners](/dotnet/framework/debug-trace-profile/how-to-use-tracesource-and-filters-with-trace-listeners).
 
-_Note_: Running an application in audit mode is not available in .NET Core or in .NET 5.0+.
+**Note**: Running an app in audit mode is not available in .NET Core or in .NET 5.0 and later.
+
+<a name="ratr"></a>
 
 ### Removing all type restrictions
 
-If your application must remove all type limiting restrictions from `DataSet` and `DataTable`, there are several options to suppress this behavior, depending on the framework your application targets.
+If an app must remove all type limiting restrictions from `DataSet` and `DataTable`:
 
-> __Warning__: Removing all type restrictions can introduce a security hole inside your application. If you use this mechanism, ensure that your application does not use `DataSet` or `DataTable` to read untrusted input. See [CVE-2020-1147](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1147) and the below section titled _Safety with regard to untrusted input_ for more information.
+* There are several options to suppress type limiting restrictions.
+* The options available depend on the framework the app targets.
 
-#### Through `AppContext` configuration (.NET Framework 4.6 - 4.8, .NET Core 2.1+, .NET 5.0+)
+> [!WARNING]
+> Removing all type restrictions can introduce a security hole inside the app. When using this mechanism, ensure the app does **not** use `DataSet` or `DataTable` to read untrusted input. See [CVE-2020-1147](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2020-1147) and the following section titled [Safety with regard to untrusted input](#swr) for more information.
 
-There exists an `AppContext` switch (_Switch.System.Data.AllowArbitraryDataSetTypeInstantiation_) which when set to _true_ removes all type limiting restrictions from `DataSet` and `DataTable`.
+#### Through AppContext configuration (.NET Framework 4.6 - 4.8, .NET Core 2.1 and later, .NET 5.0 and later)
 
-In .NET Framework this switch can be enabled via _App.config_, as shown below.
+The `AppContext` switch, `Switch.System.Data.AllowArbitraryDataSetTypeInstantiation`, when set to `true` removes all type limiting restrictions from `DataSet` and `DataTable`.
+
+In .NET Framework this switch can be enabled via _App.config_, as shown in the following configuration:
 
 ```xml
 <configuration>
    <runtime>
-      <!-- Warning: setting the switch below can introduce a security hole in your application. -->
+      <!-- Warning: setting the following switch can introduce a security problem. -->
       <AppContextSwitchOverrides value="Switch.System.Data.AllowArbitraryDataSetTypeInstantiation=true" />
    </runtime>
 </configuration>
 ```
 
-In ASP.NET the `<AppContextSwitchOverrides>` element is not available. Instead, the switch can be enabled via _Web.config_, as shown below.
+In ASP.NET, the `<AppContextSwitchOverrides>` element is not available. Instead, the switch can be enabled via _Web.config_, as shown in the following configuration:
 
 ```xml
 <configuration>
     <appSettings>
-        <!-- Warning: setting the switch below can introduce a security hole in your application. -->
+        <!-- Warning: setting the following switch can introduce a security problem. -->
         <add key="AppContext.SetSwitch:Switch.System.Data.AllowArbitraryDataSetTypeInstantiation" value="true" />
     </appSettings>
 </configuration>
 ```
 
-See [the `<AppContextSwitchOverrides>` element](https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/appcontextswitchoverrides-element) documentation for more information.
+For more information, see the [\<AppContextSwitchOverrides>](/dotnet/framework/configure-apps/file-schema/runtime/appcontextswitchoverrides-element) element.
 
-In .NET Core, .NET 5, and ASP.NET Core, this setting is instead controlled by _runtimeconfig.json_, as shown below.
+In .NET Core, .NET 5, and ASP.NET Core, this setting is controlled by _runtimeconfig.json_, as shown in the following JSON:
 
 ```json
 {
@@ -223,51 +247,53 @@ In .NET Core, .NET 5, and ASP.NET Core, this setting is instead controlled by _r
 }
 ```
 
-See [".NET Core run-time configuration settings"](https://docs.microsoft.com/en-us/dotnet/core/run-time-config/) for more information.
+For more information, see [".NET Core run-time configuration settings"](/dotnet/core/run-time-config/).
 
-This can also be set programmatically via [`AppContext.SetSwitch`](https://docs.microsoft.com/en-us/dotnet/api/system.appcontext.setswitch) instead of using a configuration file, as shown below. If you choose this programmatic approach, the call to `AppContext.SetSwitch` should occur early in your application's startup routines.
+`AllowArbitraryDataSetTypeInstantiation` can also be set programmatically via [AppContext.SetSwitch](/dotnet/api/system.appcontext.setswitch) instead of using a configuration file, as shown in the following code:
 
 ```cs
-// Warning: setting the switch below can introduce a security hole in your application.
+// Warning: setting the following switch can introduce a security problem.
 AppContext.SetSwitch("Switch.System.Data.AllowArbitraryDataSetTypeInstantiation", true);
 ```
 
+ If you choose the preceding programmatic approach, the call to `AppContext.SetSwitch` should occur early in the apps startup.
+
 #### Through the machine-wide registry (.NET Framework 2.0 - 4.8)
 
-If `AppContext` is not available, you can disable type limiting checks by using the Windows registry. You must be an administrator to configure the registry in this manner. Additionally, using the registry is a machine-wide change and will affect _all_ applications running on the machine.
+If `AppContext` is not available, type limiting checks can be disabled with the Windows registry:
 
-|   |   |
+* An administrator must configure the registry.
+* Using the registry is a machine-wide change and will affect _all_ apps running on the machine.
+
+| Type  |  Value |
 |---|---|
 | **Registry key** | `HKLM\SOFTWARE\Microsoft\.NETFramework\AppContext` |
 | **Value name** | `Switch.System.Data.AllowArbitraryDataSetTypeInstantiation` |
 | **Value type** | `REG_SZ` |
 | **Value data** | `true` |
 
-If you are running a 64-bit operating system, you may need to add this value for both the 64-bit key (shown above) and the 32-bit key (located at `HKLM\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\AppContext`).
+On a 64-bit operating system, this value my need to be added for both the 64-bit key (shown above) and the 32-bit key. The 32-bit key is located at `HKLM\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\AppContext`.
 
-For more information on using the registry to configure `AppContext`, see ["AppContext for library consumers"](https://docs.microsoft.com/en-us/dotnet/api/system.appcontext#appcontext-for-library-consumers).
+For more information on using the registry to configure `AppContext`, see ["AppContext for library consumers"](/dotnet/api/system.appcontext#appcontext-for-library-consumers).
+
+<a name="swr"></a>
 
 ## Safety with regard to untrusted input
 
-While `DataSet` and `DataTable` do impose default limitations on the types that are allowed to be present while deserializing XML payloads, __`DataSet` and `DataTable` are in general not safe when populated with untrusted input.__ Below is a non-exhaustive list of ways that a `DataSet` or `DataTable` instance might read untrusted input.
+While `DataSet` and `DataTable` do impose default limitations on the types that are allowed to be present while deserializing XML payloads, __`DataSet` and `DataTable` are in general not safe when populated with untrusted input.__ The following is a non-exhaustive list of ways that a `DataSet` or `DataTable` instance might read untrusted input.
 
- - A `DataAdapter` references a database, and the `DataAdapter.Fill` method is used to populate a `DataSet` with the contents of a database query.
+* A `DataAdapter` references a database, and the `DataAdapter.Fill` method is used to populate a `DataSet` with the contents of a database query.
+* The `DataSet.ReadXml` or `DataTable.ReadXml` method is used to read an XML file containing column and row information.
+* A `DataSet` or `DataTable` instance is serialized as part of a ASP.NET (SOAP) web services or WCF endpoint.
+* A serializer such as `XmlSerializer` is used to deserialize a `DataSet` or `DataTable` instance from an XML stream.
+* A serializer such as `JsonConvert` is used to deserialize a `DataSet` or `DataTable` instance from a JSON stream. `JsonConvert` is a method in the popular third-party [Newtonsoft.Json](https://www.newtonsoft.com/json) library.
+* A serializer such as `BinaryFormatter` is used to deserialize a `DataSet` or `DataTable` instance from a raw byte stream.
 
- - The `DataSet.ReadXml` or `DataTable.ReadXml` method is used to read an XML file containing column and row information.
-
- - A `DataSet` or `DataTable` instance is serialized as part of a ASP.NET (SOAP) web services or WCF endpoint.
-
- - A serializer such as `XmlSerializer` is used to deserialize a `DataSet` or `DataTable` instance from an XML stream.
-
- - A serializer such as `JsonConvert` (part of the popular third-party _Newtonsoft.Json_ library) is used to deserialize a `DataSet` or `DataTable` instance from a JSON stream.
-
- - A serializer such as `BinaryFormatter` is used to deserialize a `DataSet` or `DataTable` instance from a raw byte stream.
-
-This document discusses safety considerations for the above scenarios.
+This document discusses safety considerations for the preceding scenarios.
 
 ## Using `DataAdapter.Fill` to populate a `DataSet` from an untrusted data source
 
-A `DataSet` instance can be populated from a `DataAdapter` by using [the `DataAdapter.Fill` method](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dataadapter.fill), as shown in the following example.
+A `DataSet` instance can be populated from a `DataAdapter` by using [the `DataAdapter.Fill` method](/dotnet/api/system.data.common.dataadapter.fill), as shown in the following example.
 
 ```cs
 // Assumes that connection is a valid SqlConnection object.  
@@ -279,15 +305,15 @@ DataSet customers = new DataSet();
 adapter.Fill(customers, "Customers");
 ```
 
-(The code sample above is part of a larger sample found at [Populating a DataSet from a DataAdapter](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/populating-a-dataset-from-a-dataadapter).)
+(The code sample above is part of a larger sample found at [Populating a DataSet from a DataAdapter](/dotnet/framework/data/adonet/populating-a-dataset-from-a-dataadapter).)
 
-> Most applications can simplify and assume that their database layer is trusted. However, if you are in the habit of [threat modeling](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling) your applications, your threat model may consider there to be a trust boundary between the application (client) and database layer (server). Using [mutual authentication](https://docs.microsoft.com/en-us/sql/relational-databases/native-client/features/service-principal-name-spn-support-in-client-connections) or [AAD authentication](https://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview) between client and server is one way to help address the risks associated with this. The remainder of this section discusses the possible result of a client connecting to an untrusted server.
+> Most applications can simplify and assume that their database layer is trusted. However, if you are in the habit of [threat modeling](https://www.microsoft.com/securityengineering/sdl/threatmodeling) your applications, your threat model may consider there to be a trust boundary between the application (client) and database layer (server). Using [mutual authentication](/sql/relational-databases/native-client/features/service-principal-name-spn-support-in-client-connections) or [AAD authentication](/azure/azure-sql/database/authentication-aad-overview) between client and server is one way to help address the risks associated with this. The remainder of this section discusses the possible result of a client connecting to an untrusted server.
 
 The consequences of pointing a `DataAdapter` at an untrusted data source depend on the implementation of the `DataAdapter` itself.
 
 ### `SqlDataAdapter`
 
-For the built-in type [`SqlDataAdapter`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqldataadapter), referencing an untrusted data source could result in a denial of service attack. This could result in the application becoming unresponsive or crashing. If an adversary can plant a DLL alongside the application, they may also be able to achieve local code execution.
+For the built-in type [`SqlDataAdapter`](/dotnet/api/microsoft.data.sqlclient.sqldataadapter), referencing an untrusted data source could result in a denial of service attack. This could result in the application becoming unresponsive or crashing. If an adversary can plant a DLL alongside the application, they may also be able to achieve local code execution.
 
 ### Other `DataAdapter` types
 
@@ -436,6 +462,6 @@ Developers must never use `BinaryFormatter`, `NetDataContractSerializer`, `SoapF
 
 ## Safe replacements
 
-If you accept `DataSet` or `DataTable` through an .asmx SOAP endpoint or a WCF endpoint, or if you deserialize untrusted data into an instance of `DataSet` or `DataTable`, consider changing your object model to use [Entity Framework](https://docs.microsoft.com/ef/) instead. Entity Framework is a rich, modern, object-oriented framework that can represent relational data. It also brings [a diverse ecosystem](https://docs.microsoft.com/en-us/ef/core/providers/) of database providers to make it easy to project database queries via your Entity Framework object models. It also offers built-in protections when deserializing data from untrusted sources.
+If you accept `DataSet` or `DataTable` through an .asmx SOAP endpoint or a WCF endpoint, or if you deserialize untrusted data into an instance of `DataSet` or `DataTable`, consider changing your object model to use [Entity Framework](https://docs.microsoft.com/ef/) instead. Entity Framework is a rich, modern, object-oriented framework that can represent relational data. It also brings [a diverse ecosystem](/ef/core/providers/) of database providers to make it easy to project database queries via your Entity Framework object models. It also offers built-in protections when deserializing data from untrusted sources.
 
-If your application uses .aspx SOAP endpoints, also consider changing those endpoints to use [WCF](https://docs.microsoft.com/en-us/dotnet/framework/wcf/). WCF is a more full-featured replacement for .asmx web services. WCF endpoints [can be exposed via SOAP](https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-expose-a-contract-to-soap-and-web-clients) for compatibility with existing callers.
+If your application uses .aspx SOAP endpoints, also consider changing those endpoints to use [WCF](/dotnet/framework/wcf/). WCF is a more full-featured replacement for .asmx web services. WCF endpoints [can be exposed via SOAP](/dotnet/framework/wcf/feature-details/how-to-expose-a-contract-to-soap-and-web-clients) for compatibility with existing callers.
