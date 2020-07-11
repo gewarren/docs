@@ -13,8 +13,8 @@ ms.assetid: 57629d8f-393e-4677-8b83-29ffde27ffff
 This document applies to:
 
 * .NET Framework (all versions)
-* .NET Core 2.1+
-* .NET 5.0+
+* .NET Core and later
+* .NET 5.0 and later
 
 The [DataSet](/dotnet/api/system.data.dataset) and [DataTable](/dotnet/api/system.data.datatable) types are legacy .NET components that allow representing data sets as managed objects. These components were introduced in .NET 1.0 as part of the original [ADO.NET infrastructure](/dotnet/framework/data/adonet/dataset-datatable-dataview/). Their goal was to provide a managed view over a relational data set, abstracting away whether the underlying source of the data was XML, SQL, or another technology.
 
@@ -472,7 +472,7 @@ Developers must never use `BinaryFormatter`, `NetDataContractSerializer`, `SoapF
 
 ## Safe replacements
 
-Apps that either:
+For apps that either:
 
 * Accept `DataSet` or `DataTable` through an .asmx SOAP endpoint or a WCF endpoint.
 * Deserialize untrusted data into an instance of `DataSet` or `DataTable`.
