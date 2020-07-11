@@ -101,7 +101,7 @@ string assemblyQualifiedName = typeof(Fabrikam.CustomType).AssemblyQualifiedName
 
 #### Extending through configuration (.NET Framework 2.0 - 3.5)
 
-If your app targets .NET Framework 2.0 or 3.5, you can still use the above _App.config_ mechanism to extend the allowed types list. However, your `<configSections>` element will look slightly different, as shown below.
+If your app targets .NET Framework 2.0 or 3.5, you can still use the above _App.config_ mechanism to extend the allowed types list. However, your `<configSections>` element will look slightly different, as shown in the following code:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -313,27 +313,34 @@ The consequences of pointing a `DataAdapter` at an untrusted data source depend 
 
 ### SqlDataAdapter
 
-For the built-in type [SqlDataAdapter](/dotnet/api/microsoft.data.sqlclient.sqldataadapter), referencing an untrusted data source could result in a denial of service attack. This could result in the app becoming unresponsive or crashing. If an adversary can plant a DLL alongside the app, they may also be able to achieve local code execution.
+For the built-in type [SqlDataAdapter](/dotnet/api/microsoft.data.sqlclient.sqldataadapter), referencing an untrusted data source could result in a denial of service (DoS) attack. The DoS attack could result in the app becoming unresponsive or crashing. If an attacker can plant a DLL alongside the app, they may also be able to achieve local code execution.
 
 ### Other DataAdapter types
 
 Third-party `DataAdapter` implementations must make their own assessments about what security guarantees they provide in the face of untrusted inputs. .NET cannot make any safety guarantees regarding these implementations.
 
-## `DataSet.ReadXml` and `DataTable.ReadXml`
+<a name="dsrdtr"></a>
+
+## DataSet.ReadXml and DataTable.ReadXml
 
 The `DataSet.ReadXml` and `DataTable.ReadXml` methods are not safe when used with untrusted input. We strongly recommend that consumers instead consider using one of the alternatives outlined later in this document.
 
-The implementations of `DataSet.ReadXml` and `DataTable.ReadXml` were originally created before serialization vulnerabilities were a well-understood threat category. As a result, the code does not follow modern best practices. These APIs can be used as vectors for attackers to perform DoS attacks against web apps. These attacks might render the web service unresponsive or could even result in unexpected process termination. The framework does not provide mitigations for these attack categories and .NET considers this behavior "by design".
+The implementations of `DataSet.ReadXml` and `DataTable.ReadXml` were originally created before serialization vulnerabilities were a well-understood threat category. As a result, the code does not follow current security best practices. These APIs can be used as vectors for attackers to perform DoS attacks against web apps. These attacks might render the web service unresponsive or result in unexpected process termination. The framework does not provide mitigations for these attack categories and .NET considers this behavior "by design".
 
-While .NET has released security updates to mitigate some issues (such as information disclosure or remote code execution) in `DataSet.ReadXml` and `DataTable.ReadXml`, these mitigations may not provide complete protection against these threat categories. Consumers should assess their individual scenarios and consider their potential exposure to these risks.
+.NET has released security updates to mitigate some issues such as information disclosure or remote code execution in `DataSet.ReadXml` and `DataTable.ReadXml`. The .NET security updates may not provide complete protection against these threat categories. Consumers should assess their individual scenarios and consider their potential exposure to these risks.
 
-Consumers should be aware that security updates to these APIs may impact application compatibility in some situations. Furthermore, the possibility exists that a novel vulnerability in these APIs will be discovered for which .NET cannot practically publish a security update.
+Consumers should be aware that security updates to these APIs may impact application compatibility in some situations. Furthermore, the possibility exists that a novel vulnerability in these APIs will be discovered for which .NET can't practically publish a security update.
 
-We recommend that consumers of these APIs perform individual risk assessments on their apps. It is the consumer's sole responsibility to determine for itself whether to utilize these APIs. Consumers should assess any security, technical, and legal risks (including regulatory requirements) that may accompany using these APIs within their apps.
+We recommend that consumers of these APIs either:
 
-## `DataSet` and `DataTable` via ASP.NET web services or WCF
+* Consider using one of the alternatives outlined later in this document.
+* Perform individual risk assessments on their apps.
 
-It is possible to accept a `DataSet` or a `DataTable` instance in an ASP.NET (SOAP) web service, as demonstrated below.
+It is the consumer's sole responsibility to determine whether to utilize these APIs. Consumers should assess any security, technical, and legal risks, including regulatory requirements, that may accompany using these APIs.
+
+## DataSet and DataTable via ASP.NET web services or WCF
+
+It is possible to accept a `DataSet` or a `DataTable` instance in an ASP.NET (SOAP) web service, as demonstrated in the following code:
 
 ```cs
 using System.Data;
@@ -345,12 +352,12 @@ public class MyService : WebService
     [WebMethod]
     public string MyWebMethod(DataTable dataTable)
     {
-        /* web method implementation */
+        /* Web method implementation. */
     }
 }
 ```
 
-A variation on this is not to accept `DataSet` or `DataTable` directly as a parameter, but instead to accept it as part of the overall SOAP serialized object graph, as shown below.
+A variation on this is not to accept `DataSet` or `DataTable` directly as a parameter, but instead to accept it as part of the overall SOAP serialized object graph, as shown in the following code:
 
 ```cs
 using System.Data;
@@ -362,7 +369,7 @@ public class MyService : WebService
     [WebMethod]
     public string MyWebMethod(MyClass data)
     {
-        /* web method implementation */
+        /* Web method implementation. */
     }
 }
 
@@ -397,11 +404,11 @@ public class MyClass
 }
 ```
 
-In all of these cases, the threat model and security guarantees are the same as the `DataSet.ReadXml` and `DataTable.ReadXml` section mentioned earlier. Refer to that section for full details.
+In all of these cases, the threat model and security guarantees are the same as the [DataSet.ReadXml and DataTable.ReadXml section](#dsrdtr).
 
-## Deserializing a `DataSet` or `DataTable` via `XmlSerializer`
+## Deserializing a DataSet or DataTable via XmlSerializer
 
-Developers can use `XmlSerializer` to deserialize `DataSet` and `DataTable` instances, as shown below.
+Developers can use `XmlSerializer` to deserialize `DataSet` and `DataTable` instances, as shown in the following code:
 
 ```cs
 using System.Data;
@@ -426,11 +433,11 @@ public class MyClass
 }
 ```
 
-In these cases, the threat model and security guarantees are the same as the `DataSet.ReadXml` and `DataTable.ReadXml` section mentioned earlier. Refer to that section for full details.
+In these cases, the threat model and security guarantees are the same as the [DataSet.ReadXml and DataTable.ReadXml section](#dsrdtr)
 
-## Deserializing a `DataSet` or `DataTable` via `JsonConvert` (_Newtonsoft.Json_)
+## Deserializing a DataSet or DataTable via JsonConvert
 
-The popular third-party library JSON.NET can be used to deserialize `DataSet` and `DataTable` instances, as shown below.
+The popular third-party Newtonsoft library [JSON.NET](https://www.newtonsoft.com/json) can be used to deserialize `DataSet` and `DataTable` instances, as shown in the following code:
 
 ```cs
 using System.Data;
@@ -452,16 +459,28 @@ public class MyClass
 }
 ```
 
-Deserializing a `DataSet` or `DataTable` in this manner from an untrusted JSON blob is not safe. This pattern is vulnerable to a denial of service attack. Such an attack could render the app unresponsive, or it could crash the app.
+Deserializing a `DataSet` or `DataTable` in this manner from an untrusted JSON blob is not safe. This pattern is vulnerable to a denial of service attack. Such an attack could crash the app or render it unresponsive.
 
-Note: .NET does not warrant or support the implementation of third-party libraries like _Newtonsoft.Json_. This information is only provided for completeness and is accurate as of the time of this writing.
+**Note**: Microsoft does not warrant or support the implementation of third-party libraries like _Newtonsoft.Json_. This information is provided for completeness and is accurate as of the time of this writing.
 
-## Deserializing a `DataSet` or `DataTable` via `BinaryFormatter`
+## Deserializing a DataSet or DataTable via BinaryFormatter
 
-Developers must never use `BinaryFormatter`, `NetDataContractSerializer`, `SoapFormatter`, or related "unsafe" formatters to deserialize a `DataSet` or `DataTable` instance from an untrusted payload. This is susceptible to a full remote code execution attack. Using a custom `SerializationBinder` is not sufficient to prevent such an attack.
+Developers must never use `BinaryFormatter`, `NetDataContractSerializer`, `SoapFormatter`, or related ***unsafe*** formatters to deserialize a `DataSet` or `DataTable` instance from an untrusted payload:
+
+* This is susceptible to a full remote code execution attack.
+* Using a custom `SerializationBinder` is not sufficient to prevent such an attack.
 
 ## Safe replacements
 
-If you accept `DataSet` or `DataTable` through an .asmx SOAP endpoint or a WCF endpoint, or if you deserialize untrusted data into an instance of `DataSet` or `DataTable`, consider changing your object model to use [Entity Framework](https://docs.microsoft.com/ef/) instead. Entity Framework is a rich, modern, object-oriented framework that can represent relational data. It also brings [a diverse ecosystem](/ef/core/providers/) of database providers to make it easy to project database queries via your Entity Framework object models. It also offers built-in protections when deserializing data from untrusted sources.
+Apps that either:
 
-If your app uses .aspx SOAP endpoints, also consider changing those endpoints to use [WCF](/dotnet/framework/wcf/). WCF is a more full-featured replacement for .asmx web services. WCF endpoints [can be exposed via SOAP](/dotnet/framework/wcf/feature-details/how-to-expose-a-contract-to-soap-and-web-clients) for compatibility with existing callers.
+* Accept `DataSet` or `DataTable` through an .asmx SOAP endpoint or a WCF endpoint.
+* Deserialize untrusted data into an instance of `DataSet` or `DataTable`.
+
+Consider replacing the object model to use [Entity Framework](/ef). Entity Framework:
+
+* Is a rich, modern, object-oriented framework that can represent relational data.
+* Brings [a diverse ecosystem](/ef/core/providers/) of database providers to make it easy to project database queries via your Entity Framework object models.
+* Offers built-in protections when deserializing data from untrusted sources.
+
+For apps that use `.aspx` SOAP endpoints, consider changing those endpoints to use [WCF](/dotnet/framework/wcf/). WCF is a more fully featured replacement for `.asmx` web services. WCF endpoints [can be exposed via SOAP](/dotnet/framework/wcf/feature-details/how-to-expose-a-contract-to-soap-and-web-clients) for compatibility with existing callers.
