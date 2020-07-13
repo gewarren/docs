@@ -1,6 +1,6 @@
 ---
 title: "Consuming a DataSet from an XML Web Service"
-ms.date: "03/30/2017"
+ms.date: "07/14/2020"
 dev_langs: 
   - "csharp"
   - "vb"
