@@ -27,6 +27,10 @@ Writing a secure ADO.NET application involves more than avoiding common coding p
  Describes encryption options for ADO.NET applications.  
   
 ## Related Sections  
+
+ [DataSet and DataTable security guidance](dataset-datatable-dataview/security.md)
+ Provides security guidance for <xref:System.Data.DataSet> and <xref:System.Data.DataTable>.
+
  [SQL Server Security](./sql/sql-server-security.md)  
  Describes SQL Server security features from a developer's perspective.  
   

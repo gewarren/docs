@@ -418,22 +418,10 @@
             }
           }
         }
-      }
-    }
-  },
-  "comment": {
-    "created": {
-      "processor-comment": {
-        "body": {
-          "^#please-review$": {
-            "condition-1": {
-              "type": "query",
-              "value": "Issue.state == 'open' && Issue.user.id == Comment.user.id",
-              "actions": {
-                "labels-add": "changes-addressed"
-              }
-            }
-          }
+      },
+      "closed": {
+        "default": {
+          "labels-remove": [ "in-progress" ]
         }
       }
     }

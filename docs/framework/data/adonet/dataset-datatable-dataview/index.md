@@ -17,7 +17,11 @@ The ADO.NET <xref:System.Data.DataSet> is a memory-resident representation of da
   
  A strongly typed <xref:System.Data.DataSet> can also be transported using an XML Web service. The design of the <xref:System.Data.DataSet> makes it ideal for transporting data using XML Web services. For an overview of XML Web services, see [XML Web Services Overview](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/w9fdtx28(v=vs.100)). For an example of consuming a <xref:System.Data.DataSet> from an XML Web service, see [Consuming a DataSet from an XML Web Service](consuming-a-dataset-from-an-xml-web-service.md).  
   
-## In This Section  
+## In This Section
+
+ [Security guidance](security.md)
+ Provides security guidance for <xref:System.Data.DataSet> and <xref:System.Data.DataTable>.
+
  [Creating a DataSet](creating-a-dataset.md)  
  Describes the syntax for creating an instance of a <xref:System.Data.DataSet>.  
   
