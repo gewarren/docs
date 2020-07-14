@@ -21,18 +21,19 @@
   },
   "docsets_to_publish": [
     {
-      "docset_name": "core-docs",
+      "docset_name": "docs-internal",
       "build_source_folder": ".",
       "build_output_subfolder": ".",
       "locale": "en-us",
       "xref_query_tags": [
-        "/uwp/api"
+        "/uwp/api",
+        "/dotnet"
       ],
       "monikers": [],
       "filemap_share_depots": [
         "VS.dotnet-api-docs"
       ],
-      "open_to_public_contributors": true,
+      "open_to_public_contributors": false,
       "type_mapping": {
         "ZonePivotGroups": "Toc",
         "Conceptual": "Content",
