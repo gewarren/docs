@@ -431,7 +431,9 @@ To be thorough, you need to add another test to make sure that you can create a 
 
 Finally, if a variable is declared with the `var` keyword, the code fix does the wrong thing and generates a `const var` declaration, which is not supported by the C# language. To fix this bug, the code fix must replace the `var` keyword with the inferred type's name:
 
-[!code-csharp[var references need to use the inferred types](~/samples/snippets/csharp/roslyn-sdk/Tutorials/MakeConst/MakeConst.Test/MakeConstUnitTests.cs#VarDeclarations "Declarations made using var must have the type replaced with the inferred type")]
+[!code-csharp[var references need to use the inferred types](~/samples/snippets/csharp/roslyn-sdk/Tutorials/MakeConst/MakeConst.Test/MakeConstUnitTests.cs#BadBookmark "Declarations made using var must have the type replaced with the inferred type")]
+
+[!code-csharp[var references need to use the inferred types](~/samples/snippets/csharp/roslyn-sdk/Tutorials/MakeConst/MakeConst.Test/BadFile.cs#VarDeclarations "Declarations made using var must have the type replaced with the inferred type")]
 
 These changes update the data row declarations for both tests. The following code shows these tests with all data row attributes:
 
