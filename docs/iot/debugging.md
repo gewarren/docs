@@ -3,7 +3,7 @@ title: Debug .NET apps on Raspberry Pi
 description: Learn how to debug .NET apps on Raspberry Pi and similar devices.
 author: camsoper
 ms.author: casoper
-ms.date: 07/27/2021
+ms.date: 09/22/2021
 ms.topic: how-to
 ms.prod: dotnet
 zone_pivot_groups: ide-set-one
@@ -125,6 +125,6 @@ On the **Run** tab, select the configuration you added to *launch.json* and sele
 
 ## Debug from Visual Studio on Windows
 
-Visual Studio can debug .NET apps on remote devices via SSH. No specialized configuration is required on the device. For details on using Visual Studio to debug .NET remotely, see [Remote debug .NET on Linux using SSH](/visualstudio/debugger/remote-debugging-dotnet-core-linux-with-ssh?view=vs-2019).
+Visual Studio can debug .NET apps on remote devices via SSH. No specialized configuration is required on the device. For details on using Visual Studio to debug .NET remotely, see [Remote debug .NET on Linux using SSH](/visualstudio/debugger/remote-debugging-dotnet-core-linux-with-ssh).
 
 ::: zone-end
