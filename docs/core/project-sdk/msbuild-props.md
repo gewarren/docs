@@ -858,7 +858,7 @@ The `WindowsSdkPackageVersion` property can be used to override the version of t
 
 ## Run-related properties
 
-The following properties are used for launching an app with the [`dotnet run`](../tools/dotnet-run.md) command:
+The following properties are used for launching an app with the [dotnet run](../tools/dotnet-run.md) command:
 
 - [RunArguments](#runarguments)
 - [RunWorkingDirectory](#runworkingdirectory)
@@ -874,7 +874,7 @@ The `RunArguments` property defines the arguments that are passed to the app whe
 ```
 
 > [!TIP]
-> You can specify additional arguments to be passed to the app by using the [`--` option for `dotnet run`](../tools/dotnet-run.md#options).
+> You can specify additional arguments to be passed to the app by using the `--` [option for dotnet run](../tools/dotnet-run.md#options).
 
 ### RunWorkingDirectory
 
@@ -1088,3 +1088,4 @@ The following image shows how a file that's included via the previous item `Incl
 - [MSBuild properties for NuGet pack](/nuget/reference/msbuild-targets#pack-target)
 - [MSBuild properties for NuGet restore](/nuget/reference/msbuild-targets#restore-properties)
 - [Customize a build](/visualstudio/msbuild/customize-your-build)
+d)

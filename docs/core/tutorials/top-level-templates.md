@@ -66,13 +66,13 @@ Other application types include more namespaces that are common for those applic
 
 ### Disable implicit `using` statements
 
-If you want to remove this behavior and manually control all namespaces in your project, add [`<ImplicitUsings>disable</ImplicitUsings>`](../project-sdk/msbuild-props.md#implicitusings) in the project file.
+If you want to remove this behavior and manually control all namespaces in your project, add `<ImplicitUsings>disable</ImplicitUsings>` in the project file. For more information, see [ImplicitUsings](../project-sdk/msbuild-props.md#implicitusings).
 
 ## Global `using` directives
 
 A *global `using` directive* imports a namespace for your whole application instead of a single file. These global directives can be added either by adding a [`<Using>`](../project-sdk/msbuild-props.md#using) item to the project file, or by adding the `global using` directive to a code file.
 
-You can also add a [`<Using>`](../project-sdk/msbuild-props.md#using) item in your project file to remove a specific [implicit `using` directive](#implicit-using-directives). For example, if the implicit usings feature is turned on with [`<ImplicitUsings>enable</ImplicitUsings>`](../project-sdk/msbuild-props.md#implicitusings), adding the following `<Using>` item removes the `System.Net.Http` namespace from those that are implicitly imported:
+You can also add a [`<Using>`](../project-sdk/msbuild-props.md#using) item in your project file to remove a specific [implicit `using` directive](#implicit-using-directives). For example, if the *implicit usings* feature is turned on with `<ImplicitUsings>enable</ImplicitUsings>`, adding the following `<Using>` item removes the `System.Net.Http` namespace from those that are implicitly imported:
 
 ```xml
 <ItemGroup>
@@ -99,13 +99,13 @@ While a .NET 6 console app template will generate the new style of top-level sta
 
     ```diff
     <Project Sdk="Microsoft.NET.Sdk">
-    
+
       <PropertyGroup>
         <OutputType>Exe</OutputType>
     -   <TargetFramework>net5.0</TargetFramework>
     +   <TargetFramework>net6.0</TargetFramework>
       </PropertyGroup>
-    
+
     </Project>
     ```
 
@@ -113,14 +113,14 @@ While a .NET 6 console app template will generate the new style of top-level sta
 
     ```diff
     <Project Sdk="Microsoft.NET.Sdk">
-    
+
       <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
     +   <ImplicitUsings>enable</ImplicitUsings>
     +   <Nullable>enable</Nullable>
       </PropertyGroup>
-    
+
     </Project>
     ```
 
@@ -138,13 +138,13 @@ When you create a new console project in Visual Studio, you're prompted with a d
 
     ```diff
     <Project Sdk="Microsoft.NET.Sdk">
-    
+
       <PropertyGroup>
         <OutputType>Exe</OutputType>
     -   <TargetFramework>net5.0</TargetFramework>
     +   <TargetFramework>net6.0</TargetFramework>
       </PropertyGroup>
-    
+
     </Project>
     ```
 
@@ -156,14 +156,14 @@ When you create a new console project in Visual Studio, you're prompted with a d
 
     ```diff
     <Project Sdk="Microsoft.NET.Sdk">
-    
+
       <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
     +   <ImplicitUsings>enable</ImplicitUsings>
     +   <Nullable>enable</Nullable>
       </PropertyGroup>
-    
+
     </Project>
     ```
 

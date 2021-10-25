@@ -16,41 +16,41 @@ The following table shows the templates that come pre-installed with the .NET SD
 
 | Templates                                    | Short name                        | Language     | Tags                                  | Introduced |
 |----------------------------------------------|-----------------------------------|--------------|---------------------------------------|------------|
-| Console Application                          | [`console`](#console)             | [C#], F#, VB | Common/Console                        | 1.0        |
-| Class library                                | [`classlib`](#classlib)           | [C#], F#, VB | Common/Library                        | 1.0        |
-| WPF Application                              | [`wpf`](#wpf)                     | [C#], VB     | Common/WPF                            | 3.0 (5.0 for VB)|
-| WPF Class library                            | [`wpflib`](#wpf)                  | [C#], VB     | Common/WPF                            | 3.0 (5.0 for VB)|
-| WPF Custom Control Library                   | [`wpfcustomcontrollib`](#wpf)     | [C#], VB     | Common/WPF                            | 3.0 (5.0 for VB)|
-| WPF User Control Library                     | [`wpfusercontrollib`](#wpf)       | [C#], VB     | Common/WPF                            | 3.0 (5.0 for VB)|
-| Windows Forms (WinForms) Application         | [`winforms`](#winforms)           | [C#], VB     | Common/WinForms                       | 3.0 (5.0 for VB)|
-| Windows Forms (WinForms) Class library       | [`winformslib`](#winforms)        | [C#], VB     | Common/WinForms                       | 3.0 (5.0 for VB)|
-| Worker Service                               | [`worker`](#web-others)           | [C#]         | Common/Worker/Web                     | 3.0        |
-| Unit Test Project                            | [`mstest`](#test)                 | [C#], F#, VB | Test/MSTest                           | 1.0        |
-| NUnit 3 Test Project                         | [`nunit`](#nunit)                 | [C#], F#, VB | Test/NUnit                            | 2.1.400    |
+| Console Application                          | [console](#console)             | [C#], F#, VB | Common/Console                        | 1.0        |
+| Class library                                | [classlib](#classlib)           | [C#], F#, VB | Common/Library                        | 1.0        |
+| WPF Application                              | [wpf](#wpf)                     | [C#], VB     | Common/WPF                            | 3.0 (5.0 for VB)|
+| WPF Class library                            | [wpflib](#wpf)                  | [C#], VB     | Common/WPF                            | 3.0 (5.0 for VB)|
+| WPF Custom Control Library                   | [wpfcustomcontrollib](#wpf)     | [C#], VB     | Common/WPF                            | 3.0 (5.0 for VB)|
+| WPF User Control Library                     | [wpfusercontrollib](#wpf)       | [C#], VB     | Common/WPF                            | 3.0 (5.0 for VB)|
+| Windows Forms (WinForms) Application         | [winforms](#winforms)           | [C#], VB     | Common/WinForms                       | 3.0 (5.0 for VB)|
+| Windows Forms (WinForms) Class library       | [winformslib](#winforms)        | [C#], VB     | Common/WinForms                       | 3.0 (5.0 for VB)|
+| Worker Service                               | [worker](#web-others)           | [C#]         | Common/Worker/Web                     | 3.0        |
+| Unit Test Project                            | [mstest](#test)                 | [C#], F#, VB | Test/MSTest                           | 1.0        |
+| NUnit 3 Test Project                         | [nunit](#nunit)                 | [C#], F#, VB | Test/NUnit                            | 2.1.400    |
 | NUnit 3 Test Item                            | `nunit-test`                      | [C#], F#, VB | Test/NUnit                            | 2.2        |
-| xUnit Test Project                           | [`xunit`](#test)                  | [C#], F#, VB | Test/xUnit                            | 1.0        |
+| xUnit Test Project                           | [xunit](#test)                  | [C#], F#, VB | Test/xUnit                            | 1.0        |
 | Razor Component                              | `razorcomponent`                  | [C#]         | Web/ASP.NET                           | 3.0        |
-| Razor Page                                   | [`page`](#page)                   | [C#]         | Web/ASP.NET                           | 2.0        |
-| MVC ViewImports                              | [`viewimports`](#namespace)       | [C#]         | Web/ASP.NET                           | 2.0        |
+| Razor Page                                   | [page](#page)                   | [C#]         | Web/ASP.NET                           | 2.0        |
+| MVC ViewImports                              | [viewimports](#namespace)       | [C#]         | Web/ASP.NET                           | 2.0        |
 | MVC ViewStart                                | `viewstart`                       | [C#]         | Web/ASP.NET                           | 2.0        |
-| Blazor Server App                            | [`blazorserver`](#blazorserver)   | [C#]         | Web/Blazor                            | 3.0        |
-| Blazor WebAssembly App                       | [`blazorwasm`](#blazorwasm)       | [C#]         | Web/Blazor/WebAssembly                | 3.1.300    |
-| ASP.NET Core Empty                           | [`web`](#web)                     | [C#], F#     | Web/Empty                             | 1.0        |
-| ASP.NET Core Web App (Model-View-Controller) | [`mvc`](#web-options)             | [C#], F#     | Web/MVC                               | 1.0        |
-| ASP.NET Core Web App                         | [`webapp, razor`](#web-options)   | [C#]         | Web/MVC/Razor Pages                   | 2.2, 2.0   |
-| ASP.NET Core with Angular                    | [`angular`](#spa)                 | [C#]         | Web/MVC/SPA                           | 2.0        |
-| ASP.NET Core with React.js                   | [`react`](#spa)                   | [C#]         | Web/MVC/SPA                           | 2.0        |
-| ASP.NET Core with React.js and Redux         | [`reactredux`](#reactredux)       | [C#]         | Web/MVC/SPA                           | 2.0        |
-| Razor Class Library                          | [`razorclasslib`](#razorclasslib) | [C#]         | Web/Razor/Library/Razor Class Library | 2.1        |
-| ASP.NET Core Web API                         | [`webapi`](#webapi)               | [C#], F#     | Web/WebAPI                            | 1.0        |
-| ASP.NET Core gRPC Service                    | [`grpc`](#web-others)             | [C#]         | Web/gRPC                              | 3.0        |
+| Blazor Server App                            | [blazorserver](#blazorserver)   | [C#]         | Web/Blazor                            | 3.0        |
+| Blazor WebAssembly App                       | [blazorwasm](#blazorwasm)       | [C#]         | Web/Blazor/WebAssembly                | 3.1.300    |
+| ASP.NET Core Empty                           | [web](#web)                     | [C#], F#     | Web/Empty                             | 1.0        |
+| ASP.NET Core Web App (Model-View-Controller) | [mvc](#web-options)             | [C#], F#     | Web/MVC                               | 1.0        |
+| ASP.NET Core Web App                         | [webapp, razor](#web-options)   | [C#]         | Web/MVC/Razor Pages                   | 2.2, 2.0   |
+| ASP.NET Core with Angular                    | [angular](#spa)                 | [C#]         | Web/MVC/SPA                           | 2.0        |
+| ASP.NET Core with React.js                   | [react](#spa)                   | [C#]         | Web/MVC/SPA                           | 2.0        |
+| ASP.NET Core with React.js and Redux         | [reactredux](#reactredux)       | [C#]         | Web/MVC/SPA                           | 2.0        |
+| Razor Class Library                          | [razorclasslib](#razorclasslib) | [C#]         | Web/Razor/Library/Razor Class Library | 2.1        |
+| ASP.NET Core Web API                         | [webapi](#webapi)               | [C#], F#     | Web/WebAPI                            | 1.0        |
+| ASP.NET Core gRPC Service                    | [grpc](#web-others)             | [C#]         | Web/gRPC                              | 3.0        |
 | dotnet gitignore file                        | `gitignore`                       |              | Config                                | 3.0        |
-| global.json file                             | [`globaljson`](#globaljson)       |              | Config                                | 2.0        |
+| global.json file                             | [globaljson](#globaljson)       |              | Config                                | 2.0        |
 | NuGet Config                                 | `nugetconfig`                     |              | Config                                | 1.0        |
 | Dotnet local tool manifest file              | `tool-manifest`                   |              | Config                                | 3.0        |
 | Web Config                                   | `webconfig`                       |              | Config                                | 1.0        |
 | Solution File                                | `sln`                             |              | Solution                              | 1.0        |
-| Protocol Buffer File                         | [`proto`](#namespace)             |              | Web/gRPC                              | 3.0        |
+| Protocol Buffer File                         | [proto](#namespace)             |              | Web/gRPC                              | 3.0        |
 
 ## Template options
 
@@ -72,7 +72,7 @@ Each template may have additional options available. The core templates have the
 
   The ability to create a project for an earlier TFM depends on having that version of the SDK installed. For example, if you have only SDK 5.0 installed, then the only value available for `--framework` is `net5.0`. If you install SDK 3.1, the value `netcoreapp3.1` becomes available for `--framework`. If you install SDK 2.1, `netcoreapp2.1` becomes available, and so on. So by specifying `--framework netcoreapp2.1` you can use SDK 2.1 even while running `dotnet new` in SDK 5.0.
 
-  Alternatively, to create a project that targets a framework earlier than the SDK that you're using, you might be able to do it by installing the NuGet package for the template. [Common](https://www.nuget.org/packages?q=Microsoft.DotNet.Common.ProjectTemplates), [web](https://www.nuget.org/packages?q=Microsoft.DotNet.Web.ProjectTemplates), and [SPA](https://www.nuget.org/packages?q=Microsoft.DotNet.Web.Spa.ProjectTemplates) project types use different packages per target framework moniker (TFM). For example, to create a `console` project that targets `netcoreapp1.0`, run [`dotnet new --install`](dotnet-new-install.md) on `Microsoft.DotNet.Common.ProjectTemplates.1.x`.
+  Alternatively, to create a project that targets a framework earlier than the SDK that you're using, you might be able to do it by installing the NuGet package for the template. [Common](https://www.nuget.org/packages?q=Microsoft.DotNet.Common.ProjectTemplates), [web](https://www.nuget.org/packages?q=Microsoft.DotNet.Web.ProjectTemplates), and [SPA](https://www.nuget.org/packages?q=Microsoft.DotNet.Web.Spa.ProjectTemplates) project types use different packages per target framework moniker (TFM). For example, to create a `console` project that targets `netcoreapp1.0`, run [dotnet new --install](dotnet-new-install.md) on `Microsoft.DotNet.Common.ProjectTemplates.1.x`.
 
 - **`--langVersion <VERSION_NUMBER>`**
 
@@ -92,7 +92,7 @@ Each template may have additional options available. The core templates have the
 
   Specifies the [framework](../../standard/frameworks.md) to target. Values: `net5.0` or `netcoreapp<version>` to create a .NET Class Library or `netstandard<version>` to create a .NET Standard Class Library. The default value for .NET 5.0 SDK is `net5.0`.
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 - **`--langVersion <VERSION_NUMBER>`**
 
@@ -112,7 +112,7 @@ Each template may have additional options available. The core templates have the
 
   Specifies the [framework](../../standard/frameworks.md) to target. The default value is `net5.0`. Available since .NET Core 3.1 SDK.
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 - **`--langVersion <VERSION_NUMBER>`**
 
@@ -146,7 +146,7 @@ Each template may have additional options available. The core templates have the
 
   Specifies the [framework](../../standard/frameworks.md) to target. The default value is `netcoreapp3.1`. Available since .NET Core 3.1 SDK.
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 - **`--exclude-launch-settings`**
 
@@ -172,7 +172,7 @@ Each template may have additional options available. The core templates have the
   | 3.1         | `netcoreapp3.1` |
   | 3.0         | `netcoreapp3.0` |
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 - **`-p|--enable-pack`**
 
@@ -200,7 +200,7 @@ Each template may have additional options available. The core templates have the
   | 2.2         | `netcoreapp2.2` |
   | 2.1         | `netcoreapp2.1` |
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 - **`-p|--enable-pack`**
 
@@ -316,7 +316,7 @@ Each template may have additional options available. The core templates have the
   | 5.0         | `net5.0`        |
   | 3.1         | `netcoreapp3.1` |
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 - **`--no-restore`**
 
@@ -428,7 +428,7 @@ Each template may have additional options available. The core templates have the
   | 3.0         | `netcoreapp3.0` |
   | 2.1         | `netcoreapp2.1` |
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 - **`--no-restore`**
 
@@ -517,7 +517,7 @@ Each template may have additional options available. The core templates have the
   | 3.1         | `netcoreapp3.1` |
   | 3.0         | `netcoreapp3.0` |
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 - **`--no-restore`**
 
@@ -538,7 +538,7 @@ Each template may have additional options available. The core templates have the
 - **`-au|--auth <AUTHENTICATION_TYPE>`**
 
   The type of authentication to use. Available since .NET Core 3.0 SDK.
-  
+
   The possible values are:
 
   - `None` - No authentication (Default).
@@ -573,7 +573,7 @@ Each template may have additional options available. The core templates have the
   | 3.0         | `netcoreapp3.0` |
   | 2.1         | `netcoreapp2.0` |
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 ***
 
@@ -596,7 +596,7 @@ Each template may have additional options available. The core templates have the
   | 3.0         | `netcoreapp3.0` |
   | 2.1         | `netcoreapp2.0` |
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 - **`--no-restore`**
 
@@ -619,7 +619,7 @@ Each template may have additional options available. The core templates have the
   Supports adding traditional Razor pages and Views in addition to components to this library. Available since .NET Core 3.0 SDK.
 
 ***
-  
+
 ## `webapi`
 
 - **`-au|--auth <AUTHENTICATION_TYPE>`**
@@ -684,7 +684,7 @@ Each template may have additional options available. The core templates have the
   | 3.0         | `netcoreapp3.0` |
   | 2.1         | `netcoreapp2.1` |
 
-  To create a project that targets a framework earlier than the SDK that you're using, see [`--framework` for `console` projects](#template-options) earlier in this article.
+  To create a project that targets a framework earlier than the SDK that you're using, see the [console](#console) section of this article.
 
 - **`--no-restore`**
 
@@ -704,3 +704,4 @@ Each template may have additional options available. The core templates have the
 - [dotnet new --list option](dotnet-new-list.md)
 - [Custom templates for dotnet new](custom-templates.md)
 - [Create a custom template for dotnet new](../tutorials/cli-templates-create-item-template.md)
+tom template for dotnet new](../tutorials/cli-templates-create-item-template.md)
