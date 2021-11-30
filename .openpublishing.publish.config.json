@@ -21,6 +21,12 @@
         "Tutorial": "Content"
       },
       "build_entry_point": "docs",
+      "redirection_files": [
+        ".openpublishing.redirection.json",
+        ".openpublishing.redirection.architecture.json",
+        ".openpublishing.redirection.azure.json",
+        ".openpublishing.redirection.core.json"
+      ],
       "template_folder": "_themes"
     }
   ],
