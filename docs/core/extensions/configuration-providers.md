@@ -150,7 +150,7 @@ The application would write the following sample output:
 
 Using the default configuration, the <xref:Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationProvider> loads configuration from environment variable key-value pairs after reading *appsettings.json*, *appsettings.*`Environment`*.json*, and Secret manager. Therefore, key values read from the environment override values read from *appsettings.json*, *appsettings.*`Environment`*.json*, and Secret manager.
 
-The `:` separator doesn't work with environment variable hierarchical keys on all platforms. The double underscore (`__`) is automatically replaced by a `:` and is supported by all platforms. For example, the `:` separator is not supported by [Bash](https://linuxhint.com/bash-environment-variables), but `__` is.
+[Hierarchical keys](configuration.md#binding-hierarchies) are separated using a `:` delimiter, for example, `section:section0:key:key0`. However, for environment variables, the `:` separator doesn't work with hierarchical keys on all platforms. For this reason, a double underscore (`__`), which is used when a `:` is not supported, is automatically replaced by a `:` character when the configuration is loaded. For example, the `:` separator is not supported by [Bash](https://linuxhint.com/bash-environment-variables), but `__` is.
 
 The following `set` commands:
 
@@ -170,7 +170,7 @@ The preceding environment settings:
 - Are only set in processes launched from the command window they were set in.
 - Won't be read by web apps launched with Visual Studio.
 
-With Visual Studio 2019 version 16.10 preview 4 and later, you can specify environment variables using the **Launch Profiles** dialog.
+With Visual Studio 2019 and later, you can specify environment variables using the **Launch Profiles** dialog.
 
 :::image type="content" source="media/launch-profiles-env-vars.png" alt-text="Launch Profiles dialog showing environment variables" lightbox="media/launch-profiles-env-vars.png":::
 
@@ -256,7 +256,7 @@ Using the default configuration, the <xref:Microsoft.Extensions.Configuration.Co
 
 By default, configuration values set on the command line override configuration values set with all the other configuration providers.
 
-With Visual Studio 2019 version 16.10 preview 4 and later, you can specify command-line arguments using the **Launch Profiles** dialog.
+With Visual Studio 2019 and later, you can specify command-line arguments using the **Launch Profiles** dialog.
 
 :::image type="content" source="media/launch-profiles-cmd-line-args.png" alt-text="Launch Profiles dialog showing command-line arguments" lightbox="media/launch-profiles-cmd-line-args.png":::
 
