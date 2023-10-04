@@ -25,7 +25,7 @@ The Event-based Asynchronous Pattern provides you with an effective way to expos
   
 ### Completion
 
- Always invoke the <em>MethodName</em>**Completed** event handler when you have successful completion, an error, or a cancellation. Applications should never encounter a situation where they remain idle and completion never occurs. One exception to this rule is if the asynchronous operation itself is designed so that it never completes.  
+ Always invoke the *MethodName***Completed** event handler when you have successful completion, an error, or a cancellation. Applications should never encounter a situation where they remain idle and completion never occurs. One exception to this rule is if the asynchronous operation itself is designed so that it never completes.  
   
 ### Completed Event and EventArgs
 
