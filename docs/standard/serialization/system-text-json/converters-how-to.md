@@ -250,6 +250,7 @@ For scenarios that require type inference, the following code shows a custom con
 * Strings to `string`
 * Everything else to `JsonElement`
 
+   <!-- replaycheck-task id="23ce5483" -->
 :::code language="csharp" source="snippets/how-to-5-0/csharp/CustomConverterInferredTypesToObject.cs":::
 
 The example shows the converter code and a `WeatherForecast` class with `object` properties. The `Main` method deserializes a JSON string into a `WeatherForecast` instance, first without using the converter, and then using the converter. The console output shows that without the converter, the run-time type for the `Date` property is `JsonElement`; with the converter, the run-time type is `DateTime`.
@@ -363,6 +364,7 @@ This null-handling behavior is primarily to optimize performance by skipping an 
 
 To enable a custom converter to handle `null` for a reference or value type, override <xref:System.Text.Json.Serialization.JsonConverter%601.HandleNull%2A?displayProperty=nameWithType> to return `true`, as shown in the following example:
 
+<!-- replaycheck-task id="ac8aa47d" -->
 :::code language="csharp" source="snippets/how-to-5-0/csharp/CustomConverterHandleNull.cs" highlight="17":::
 
 ## Preserve references

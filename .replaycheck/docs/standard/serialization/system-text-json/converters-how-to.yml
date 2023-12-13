@@ -1,0 +1,12 @@
+# %version 1
+contentPath: docs\standard\serialization\system-text-json\converters-how-to.md
+
+steps:
+- task: RunCodeSnippetReference@1
+  environment:
+    type: ""
+  uid: 23ce5483
+- task: RunCodeSnippetReference@1
+  environment:
+    type: ""
+  uid: ac8aa47d
