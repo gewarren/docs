@@ -3,7 +3,7 @@ title: System.InvalidOperationException class
 description: Learn about the System.InvalidOperationException class.
 ms.date: 12/31/2023
 ---
-# <xref:System.InvalidOperationException> class
+# System.InvalidOperationException class
 
 <xref:System.InvalidOperationException> is used in cases when the failure to invoke a method is caused by reasons other than invalid arguments. Typically, it's thrown when the state of an object cannot support the method call. For example, an <xref:System.InvalidOperationException> exception is thrown by methods such as:
 

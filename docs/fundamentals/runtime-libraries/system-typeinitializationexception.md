@@ -3,7 +3,7 @@ title: System.TypeInitializationException class
 description: Learn about the System.TypeInitializationException class.
 ms.date: 12/31/2023
 ---
-# <xref:System.TypeInitializationException> class
+# System.TypeInitializationException class
 
 When a class initializer fails to initialize a type, a <xref:System.TypeInitializationException> is created and passed a reference to the exception thrown by the type's class initializer. The <xref:System.Exception.InnerException> property of <xref:System.TypeInitializationException> holds the underlying exception.
 

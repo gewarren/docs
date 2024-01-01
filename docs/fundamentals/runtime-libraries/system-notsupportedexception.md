@@ -3,7 +3,7 @@ title: System.NotSupportedException class
 description: Learn about the System.NotSupportedException class.
 ms.date: 12/31/2023
 ---
-# <xref:System.NotSupportedException> class
+# System.NotSupportedException class
 
 <xref:System.NotSupportedException> indicates that no implementation exists for an invoked method or property.
 

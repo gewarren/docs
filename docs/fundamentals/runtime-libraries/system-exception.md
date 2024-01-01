@@ -1,4 +1,9 @@
-# <xref:System.Exception class>
+---
+title: System.Exception class
+description: Learn about the System.Exception class.
+ms.date: 12/31/2023
+---
+# System.Exception class
 
 This class is the base class for all exceptions. When an error occurs, either the system or the currently executing application reports it by throwing an exception that contains information about the error. After an exception is thrown, it is handled by the application or by the default exception handler.
 

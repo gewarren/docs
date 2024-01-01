@@ -3,7 +3,7 @@ title: System.InvalidCastException class
 description: Learn about the System.InvalidCastException class.
 ms.date: 12/31/2023
 ---
-# <xref:System.InvalidCastException> class
+# System.InvalidCastException class
 
 .NET supports automatic conversion from derived types to their base types and back to the derived type, as well as from types that present interfaces to interface objects and back. It also includes a variety of mechanisms that support custom conversions. For more information, see [Type Conversion in .NET](../../standard/base-types/type-conversion.md).
 

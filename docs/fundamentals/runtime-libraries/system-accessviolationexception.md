@@ -1,3 +1,8 @@
+---
+title: System.AccessViolationException class
+description: Learn about the System.AccessViolationException class.
+ms.date: 12/31/2023
+---
 # System.AccessViolationException class
 
 An access violation occurs in unmanaged or unsafe code when the code attempts to read or write to memory that has not been allocated, or to which it does not have access. This usually occurs because a pointer has a bad value. Not all reads or writes through bad pointers lead to access violations, so an access violation usually indicates that several reads or writes have occurred through bad pointers, and that memory might be corrupted. Thus, access violations almost always indicate serious programming errors. An <xref:System.AccessViolationException> clearly identifies these serious errors.
